@@ -12,7 +12,8 @@ function myFunction() {
   alert("Please Wait...Processing");
 }
 </script>
-<h1 style="color:Red;text-align:center;weight: 12px;">Bank Verification</h1>
+<h3 style="color:Red;text-align:center;weight: 12px;">Students Bank Accounts Verification</h3>
+<div style="color:blue;text-align:right;weight: 12px;"><button onclick="window.print();return false;" class="btn btn-primary">Print</button></div>
 <div class="row all_stud_table">
         <div class="col-lg-12">
            
