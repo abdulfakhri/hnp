@@ -59,8 +59,9 @@
             <a href="<?php echo base_url('admin/student/students_2022') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>2022 Students</a>
              
             <a href="<?php echo base_url('admin/student/students_pending') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>Pending Students</a>
-            <a href="<?php echo base_url('admin/student/students_tripura') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>Assam Students</a>
-            <a href="<?php echo base_url('admin/student/students_assam') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>Tripura Students</a>
+            <a href="<?php echo base_url('admin/student/students_tripura') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>Tripura Students</a>
+
+            <a href="<?php echo base_url('admin/student/students_assam') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>Assam Students</a>
             
            
         </div>
