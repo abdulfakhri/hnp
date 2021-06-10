@@ -12,7 +12,7 @@ function myFunction() {
   alert("Please Wait...Processing");
 }
 </script>
-<h3 style="color:Red;text-align:center;weight: 12px;">Students Bank Accounts Verification</h3>
+<h2 style="color:Red;text-align:center;weight: 12px;">Students Bank Accounts Verification</h2>
 
 
 
@@ -66,10 +66,10 @@ function myFunction() {
 </div>
 
 <div class="row" style="border:2px solid grey;" >
-<div class="col-lg-6">
+<div class="col-lg-6" style="text-align:left;">
 <button type="button" name="delete_all" id="delete_all" onclick="myFunction()" class="btn btn-primary">Verify Selected</button>
 </div>
-<div class="col-lg-6 text-left">
+<div class="col-lg-6" style="text-align:right;">
 <button onclick="window.print();return false;" class="btn btn-primary">Print</button>
 </div>
 
