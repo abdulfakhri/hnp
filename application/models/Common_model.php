@@ -463,6 +463,15 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
+    function students_tripura(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('state',"Tripura");
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
     function students_2022(){
         $this->db->select('*');
         $this->db->from('students');
