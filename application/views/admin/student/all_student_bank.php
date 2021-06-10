@@ -13,8 +13,9 @@
                     <table id="studentAllTable" class="display nowrap" cellspacing="0" width="100%">
                         <thead>
                         <tr>
+                           <th>Select</th>
                             <th>S.No</th>
-                         
+                            
                             <th>TR Number</th>
                             <th>Name</th>
                             <th>IFSC Code</th>
@@ -45,7 +46,10 @@
                                 <tr data-class="<?=$chekVal;?>">
 
                                     <td data-class="<?=$chekVal;?>"><?=$scount?></td>
-                                
+                                    <td>
+                                    <input type="checkbox" class="delete_checkbox" name="row-check" value="<?php echo $user['student_id']; ?>">
+                                    </td>
+                                    
                                     <td>
                                         <?php echo $user['tr_number']; ?>
                                     </td>
