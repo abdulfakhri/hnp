@@ -65,9 +65,16 @@ function myFunction() {
   
 </div>
 
-<div class="row" style="border:2px solid blue;" >
+<div class="row" style="border:2px solid grey;" >
+<div class="col-lg-6">
 <button type="button" name="delete_all" id="delete_all" onclick="myFunction()" class="btn btn-primary">Verify Selected</button>
+</div>
+<div class="col-lg-6">
 <button onclick="window.print();return false;" class="btn btn-primary">Print</button>
+</div>
+
+
+
 </div>
 
 
