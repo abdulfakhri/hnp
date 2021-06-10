@@ -242,7 +242,8 @@ function myFunction() {
                                         ?>
                                     </td>
                                      <td>
-                                     <a href="/admin/student/update/<?php echo $user['student_id']; ?>">Verifiy</a>   
+                                     
+                                     <button type="button" name="delete" id="<?php echo $user['student_id']; ?>" onclick="myFunction()" class="btn btn-warning btn-xs delete">Verify</button>
                                     </td>
                                  
                               <?php  endforeach ?>
