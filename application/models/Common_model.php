@@ -466,6 +466,7 @@ class Common_model extends CI_Model {
     function students_2021(){
         $this->db->select('*');
         $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
         $this->db->where('year',2021);
         $query = $this->db->get();
         $query = $query->result_array();  
@@ -474,6 +475,7 @@ class Common_model extends CI_Model {
     function students_pending(){
         $this->db->select('*');
         $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
         $this->db->where('year','Pending');
         $query = $this->db->get();
         $query = $query->result_array();  
