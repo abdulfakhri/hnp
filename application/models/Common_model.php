@@ -493,9 +493,8 @@ class Common_model extends CI_Model {
     function students_pending(){
         $this->db->select('*');
         $this->db->from('students');
-        $where = "year='Pending'";
-        //$this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where($where);
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('year',"Pending");
         $query = $this->db->get();
         $query = $query->result_array();  
         return $query;
