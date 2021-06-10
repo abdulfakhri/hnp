@@ -54,13 +54,13 @@
             
             <a href="<?php echo base_url('admin/student/students_2020') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>2020 Students</a>
             
-            <a href="<?php echo base_url('/students/students2021.php?ak='.$this->session->userdata('id')); ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>2021 Students</a>
+            <a href="<?php echo base_url('admin/student/students_2021') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>2021 Students</a>
             
-            <a href="<?php echo base_url('/students/students2022.php?ak='.$this->session->userdata('id')); ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>2022 Students</a>
+            <a href="<?php echo base_url('admin/student/students_2022') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>2022 Students</a>
              
-            <a href="<?php echo base_url('/students/studentsPending.php?ak='.$this->session->userdata('id')); ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>Pending Students</a>
-            <a href="<?php echo base_url('/students/assam_students.php?ak='.$this->session->userdata('id')); ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>Assam Students</a>
-            <a href="<?php echo base_url('/students/tripura_students.php?ak='.$this->session->userdata('id')); ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>Tripura Students</a>
+            <a href="<?php echo base_url('admin/student/students_pending') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>Pending Students</a>
+            <a href="<?php echo base_url('admin/student/students_tripura') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>Assam Students</a>
+            <a href="<?php echo base_url('admin/student/students_assam') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>Tripura Students</a>
             
            
         </div>
