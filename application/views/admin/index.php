@@ -77,7 +77,7 @@
             <a href="<?php echo base_url('admin/user/employee_task') ?>" class="w3-bar-item w3-button w3-padding "><span class="glyphicon glyphicon-menu-right"></span>Assign Tasks</a>
              <a href="<?php echo base_url('/app/payment.php?ak='.$this->session->userdata('id')); ?>" class="w3-bar-item w3-button w3-padding "><span class="glyphicon glyphicon-menu-right"></span>Payrolls</a>
             
-            <a href="<?php echo base_url('/app/?ak='.$this->session->userdata('id')); ?>"  class="w3-bar-item w3-button w3-padding"><b>Students Bank Ids</b><span class="glyphicon glyphicon-menu-left"></span> </a>
+            <a href="<?php echo base_url('admin/student/student_bank_verifiy') ?>"  class="w3-bar-item w3-button w3-padding"><b>Students Bank Ids</b><span class="glyphicon glyphicon-menu-left"></span> </a>
                         
                         
                         
