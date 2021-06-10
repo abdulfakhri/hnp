@@ -52,7 +52,7 @@
            
             <a href="<?php echo base_url('admin/student/createStudent') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>Create Student</a>
             
-            <a href="<?php echo base_url('/students/students2020.php?ak='.$this->session->userdata('id')); ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>2020 Students</a>
+            <a href="<?php echo base_url('admin/student/students_2020') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>2020 Students</a>
             
             <a href="<?php echo base_url('/students/students2021.php?ak='.$this->session->userdata('id')); ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span>2021 Students</a>
             
