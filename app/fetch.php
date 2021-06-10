@@ -219,7 +219,6 @@ $trnumber2 = str_replace(" ","",$trnumber1);
     $sub_array[] =$credits;
     $sub_array[] =$withdraw;
     $sub_array[] =$bal;
-    $sub_array[]=$row['ifsc_code'];
 	$sub_array[] = '<button type="button" name="update" id="'.$row["student_id"].'" class="btn btn-warning btn-xs update">Update</button>';
 	$sub_array[] = $status;
 	$sub_array[] = '<button type="button" name="delete" id="'.$row["student_id"].'" onclick="myFunction()" class="btn btn-warning btn-xs delete">Verify</button>';
