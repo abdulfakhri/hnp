@@ -25,10 +25,8 @@
 
 <div class="row all_stud_table">
         <div class="col-lg-12">
-            <div class="panel panel-info">
-        <h2 style="text-align:center"></h2>
-            </div>
-
+           
+            <h2 style="text-align:center"></h2>
             <div class="panel-body table-responsive">
 
                 <?php $msg = $this->session->flashdata('msg'); ?>
