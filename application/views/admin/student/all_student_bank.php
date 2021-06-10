@@ -14,6 +14,54 @@ function myFunction() {
 </script>
 <h3 style="color:Red;text-align:center;weight: 12px;">Students Bank Accounts Verification</h3>
 <div style="color:blue;text-align:right;weight: 12px;"><button onclick="window.print();return false;" class="btn btn-primary">Print</button></div>
+
+<div class="row" style="border:2px solid blue;text-align:center;" >
+   
+   <select name="filter_year" id="filter_year">
+ 
+   <option select>Year</option>
+   <option value="2020">2020</option>
+   <option value="2021">2021</option>
+   <option value="2019">2019</option>
+   <option value="Pendin">Pending</option>
+  </select> 
+  
+   <select name="filter_state" id="filter_state"  required>
+    <option value="">Select State</option>
+    <option value="Tripura">Tripura</option>
+    <option value="Assam">Assam</option>
+   </select>
+
+   <select name="filter_cast" id="filter_cast"  required>
+   <option select>Select Cast</option>
+    <option value="SC">SC</option>
+     <option value="ST">ST</option>
+   <option value="OBC">OBC</option>
+   <option value="RM">RM</option>
+   <option value="General">General</option>
+   </select>
+ 
+   <select name="filter_status" id="filter_status">
+ 
+   <option value="All Students" select>All Students</option>
+   <option value="approve_by_our_site">Approved By Our Site</option>
+   <option value="reject_by_our_site">Rejected By Our Site</option>
+   <option value="defect_by_our_site">Defected By Our Site</option>
+   <option value="pending_by_site">Pending By Our Site</option>
+   <option value="approved_by_college">Approved By College Site</option>
+   <option value="rejected_by_college">Rejected By College Site</option>
+   <option value="defect_by_college">Defected By College Site</option>
+   <option value="pending_by_college">Pending By College Site</option>
+   <option value="approve_by_nsp">Approved By NSP Site</option>
+   <option value="rejected_by_nsp">Rejected By NSP Site</option>
+   <option value="defect_by_nsp">Defected By NSP Site</option>
+   <option value="pending_by_nsp">Pending By NSP Site</option>
+   </select>
+
+   <button type="button" name="filter" id="filter" class="btn btn-info">Filter</button>
+   <button class="btn btn-reset"><a href="javascript:location.reload(true)">Clear</a></button>
+  
+</div>
 <div class="row all_stud_table">
         <div class="col-lg-12">
            
