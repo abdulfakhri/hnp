@@ -196,7 +196,7 @@ function startsWith ($string, $startString)
                                         <?php echo $user['mobile']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $user['account_number']; ?>
+                                        <?php echo $user['bnk_acnt_number']; ?>
                                     </td>
                                      <td>
                                         <?php 
