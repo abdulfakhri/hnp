@@ -13,12 +13,11 @@ function myFunction() {
 }
 </script>
 <h3 style="color:Red;text-align:center;weight: 12px;">Students Bank Accounts Verification</h3>
-<div style="color:blue;text-align:right;weight: 12px;">
-<button onclick="window.print();return false;" class="btn btn-primary">Print</button></div>
-<div align="left">
-    <button type="button" name="delete_all" id="delete_all" onclick="myFunction()" class="btn btn-primary">Verify Selected</button>
-</div>
 
+<div class="row" style="border:2px solid blue;" >
+<button type="button" name="delete_all" id="delete_all" onclick="myFunction()" class="btn btn-primary">Verify Selected</button>
+<button onclick="window.print();return false;" class="btn btn-primary">Print</button></div>
+</div>
 <div class="row" style="border:2px solid blue;text-align:center;" >
    
    <select name="filter_year" id="filter_year">
