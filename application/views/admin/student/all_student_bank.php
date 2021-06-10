@@ -45,11 +45,11 @@
                                 ?>
                                 <tr data-class="<?=$chekVal;?>">
 
-                                    <td data-class="<?=$chekVal;?>"><?=$scount?></td>
+                                    
                                     <td>
                                     <input type="checkbox" class="delete_checkbox" name="row-check" value="<?php echo $user['student_id']; ?>">
                                     </td>
-                                    
+                                    <td data-class="<?=$chekVal;?>"><?=$scount?></td>
                                     <td>
                                         <?php echo $user['tr_number']; ?>
                                     </td>
