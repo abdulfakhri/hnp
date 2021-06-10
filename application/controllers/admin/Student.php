@@ -276,8 +276,7 @@ class Student extends CI_Controller {
 
     // all student view function
 
-    public function all_student_list_bank_id()
-    { 
+    public function student_bank_verifiy(){ 
         $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
             $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
