@@ -1,6 +1,18 @@
 
+<script> 
+function myFun(){
+window.location='/admin/dashboard/'; 
+}
+</script>   
 
+<script type="text/javascript" language="javascript" >
 
+function myFunction() {
+  //document.getElementById("demo").innerHTML = "Hello World";
+  alert("Please Wait...Processing");
+}
+</script>
+<h1 style="color:Red;text-align:center;weight: 12px;">Bank Verification</h1>
 <div class="row all_stud_table">
         <div class="col-lg-12">
            
