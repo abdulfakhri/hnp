@@ -14,10 +14,9 @@ function myFunction() {
 </script>
 <h3 style="color:Red;text-align:center;weight: 12px;">Students Bank Accounts Verification</h3>
 
-<div class="row" style="border:2px solid blue;" >
-<button type="button" name="delete_all" id="delete_all" onclick="myFunction()" class="btn btn-primary">Verify Selected</button>
-<button onclick="window.print();return false;" class="btn btn-primary">Print</button></div>
-</div>
+
+
+
 <div class="row" style="border:2px solid blue;text-align:center;" >
    
    <select name="filter_year" id="filter_year">
@@ -65,6 +64,15 @@ function myFunction() {
    <button class="btn btn-reset"><a href="javascript:location.reload(true)">Clear</a></button>
   
 </div>
+
+<div class="row" style="border:2px solid blue;" >
+<button type="button" name="delete_all" id="delete_all" onclick="myFunction()" class="btn btn-primary">Verify Selected</button>
+<button onclick="window.print();return false;" class="btn btn-primary">Print</button>
+</div>
+
+
+
+
 <div class="row all_stud_table">
         <div class="col-lg-12">
            
