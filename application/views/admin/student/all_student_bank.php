@@ -402,7 +402,8 @@ $(document).on('submit', '#user_form', function(event){
 $(document).on('click', '.update', function(){
 		var user_id = $(this).attr("id");
 		$.ajax({
-			url:"fetch_single.php",
+			
+            url:"<?php echo base_url('/app/fetch_single.php') ?>",
 			method:"POST",
 			data:{user_id:user_id},
 			dataType:"json",
@@ -439,7 +440,7 @@ $(document).on('click', '.delete', function(){
   var user_id = $(this).attr("id");
  
    $.ajax({
-    url:"delete.php",
+    url:"<?php echo base_url('/app/delete.php') ?>",
     method:"POST",
     data:{user_id:user_id},
     success:function(data)
