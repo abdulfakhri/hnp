@@ -1,0 +1,124 @@
+.form-control, .dropify-wrapper.has-preview, div.dropify-wrapper {
+    border: 1px solid #000 ;
+}
+.single_student_view .ribbon-wrapper{
+    width:100%; 
+    word-break: break-word;
+    border:3px solid #000;
+    background: none;
+}
+.single_student_view .ribbon-wrapper .stud_head_font{
+    font-size: 16px;
+    font-weight: 600;
+}
+.single_student_view .ribbon-wrapper .stud_body_font{
+    font-size: 16px;
+    /* font-weight: 600; */
+}
+.single_student_view label.tr_no {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.single_student_view .ribbon.ribbon-bookmark,
+.single_student_view .doc_head{
+    font-size: 17px;
+    font-weight: 500;
+}
+.all_stud_table .icon_action .fa,
+.all_emp_table .icon_action .fa{
+    font-size: 15px;
+}
+.all_stud_table tr td,
+.all_emp_table tr td{
+    font-weight: 400;
+}
+
+/* Datatable searchbox css */
+.dataTables_filter input {
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+
+.select_student .ms-container {
+    width: 100%;
+}
+.select_student .search-input{
+    margin: 10px 0px;
+}
+h2.m-b-30.assign_title {
+    font-family: Poppins,sans-serif;
+    font-weight: 500;
+}
+span.emp_name_sel {
+    /* font-weight: bold; */
+    text-decoration: underline;
+    color: #03a9f3;
+}
+
+ thead, tfoot {
+        background: #03a9f3;
+    }
+    thead tr th , tfoot tr th {
+        color: #fff;
+    }
+     tbody{
+        color:#000;
+    }
+    table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td{
+        color: #000;font-weight: bolder;
+    }
+
+    .nav > li {
+        border-bottom: 3px groove;
+       
+    }
+    #side-menu li a {
+        /* border-bottom: 2px dotted; */
+        color: #ffff !important;
+        font-weight: 600;
+    }
+    #side-menu > li > a:hover, #side-menu > li > a:focus, #side-menu ul>li>a:hover, #side-menu ul>li>a:focus {
+        background: rgb(237, 241, 245) !important;
+        color: #000 !important;
+    }
+   
+    #side-menu > li > a.active , #side-menu ul > li > a.active{
+        background: #fff !important;
+        /*border-left: 3px solid #03a9f3;*/
+        color: #03a9f3 !important;
+        /*font-weight: 500;*/
+    }
+    .gender_class, .gender_option{
+        display: flex;
+        align-items: center;;
+    }
+    .gender_option input{
+        height: auto;
+        width: auto;
+    }
+     .gender_option span{
+        margin-right: 25px;
+        font-size: 15px;
+    }
+
+/* mobile media queries */
+@media only screen and (max-width:767px){
+    .desk_mini_banner{
+        display: none;
+    }
+    .mob_mini_banner{
+        text-align: center;
+    }
+    .mob_mini_banner .mob_margin{
+        margin-top: 15px;
+    }
+}
+
+/* desktop media queries */
+@media only screen and (min-width:768px){
+  
+    .mob_mini_banner{
+        display: none;
+    }
+}
