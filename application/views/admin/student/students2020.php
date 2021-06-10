@@ -100,6 +100,7 @@ function startsWith ($string, $startString)
                                 <th>Action</th>
                             <?php } ?>
                             <th>TR Number</th>
+                            <th>Year</th>
                             <th>Name</th>
                             <th>Date Of Birth</th>
                             <th>Mobile</th>
@@ -183,6 +184,9 @@ function startsWith ($string, $startString)
                                     <?php } ?>
                                     <td>
                                         <?php echo $user['tr_number']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $user['year']; ?>
                                     </td>
                                     <td>
                                         <a
