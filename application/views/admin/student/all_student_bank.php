@@ -193,8 +193,8 @@ function myFunction() {
                                            $ncolor="blue";
                                            $st="<p style=color:".$stcolor.">".$msg."</p>";
                                            $final_name="<p style=color:".$ncolor.">".$api_fetched_name."</p>";
-                                           //$final_name="<p style=color:".$ncolor.">".$full_name_db."</p>";
-                                           $status=$st;
+                                          
+                                           $status=$final_name."<hr>".$st; 
                                            $stu= "Verified";
       
                                        }else if((!empty($api_fetched_name_cleaned)) and ($account_exists==true) and ($success==true) and($status_code==200) and($message_code=="success")){
@@ -203,8 +203,8 @@ function myFunction() {
       $ncolor="blue";
       $st="<p style=color:".$stcolor.">".$msg."</p>";
       $final_name="<p style=color:".$ncolor.">".$api_fetched_name."</p>";
-      //$final_name="<p style=color:".$ncolor.">".$full_name_db."</p>";
-      //$status=$final_name."<hr>".$st; 
+     
+      $status=$final_name."<hr>".$st; 
         $status=$st;
       $stu= "Not Verified";
       $query ="UPDATE students SET api_bank_st ='$stu',api_fetched_name ='$api_fetched_name' WHERE student_id='$sid'";
