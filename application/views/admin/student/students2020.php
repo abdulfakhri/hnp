@@ -52,20 +52,7 @@ function startsWith ($string, $startString)
 <div class="row all_stud_table">
         <div class="col-lg-12">
             <div class="panel panel-info">
-            
-
-
-                <?php if ($this->session->userdata('role') == 'admin'): ?>
-                    <a href="<?php echo base_url('admin/student/createStudent') ?>" class="btn btn-info btn-sm pull-right"><i
-                                class="fa fa-plus"></i>&nbsp;New Student</a> &nbsp;
-
-           
-                    <?php if(check_power(1)):?>
-                        <a href="<?php echo base_url('admin/student/createStudent') ?>" class="btn btn-info btn-sm pull-right"><i
-                                    class="fa fa-plus"></i>&nbsp;New Student</a>
-                    <?php endif; ?>
-                <?php endif ?>
-
+        
             </div>
 
             <div class="panel-body table-responsive">
