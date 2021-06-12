@@ -145,7 +145,7 @@
                                  }
                                  $ur=$user['student_id'];
                                  //$query ="UPDATE students2 SET student_status =".$studentStatus[$user['student_id']]['Status']." WHERE student_id=".$ur."";
-                                 $query ="UPDATE students2 SET student_status ='approved' WHERE student_id='20'";
+                                 $query ="UPDATE students2 SET student_status ='".$studentStatus[$user['student_id']]['Status']."' WHERE student_id='".$user['student_id']."'";
                                  mysqli_query($conn,$query);
                                  
                                  ?></td>
