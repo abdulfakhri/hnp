@@ -444,7 +444,7 @@ class Common_model extends CI_Model {
         return $query;
 
 
-        }else{
+         }else if($state==null){  
             $this->db->select('*');
             $this->db->from('students');
             $this->db->where('is_deleted IS NULL or is_deleted <> 1');
