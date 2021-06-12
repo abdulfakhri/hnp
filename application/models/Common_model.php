@@ -438,6 +438,8 @@ class Common_model extends CI_Model {
         $this->db->where('is_deleted IS NULL or is_deleted <> 1');
         if($st!=null){
         $this->db->where('state',$st);
+        }else if($st==""){
+
         }
         $this->db->order_by('student_id','ASC');
         $query = $this->db->get();
