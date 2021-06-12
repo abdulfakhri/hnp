@@ -431,7 +431,7 @@ class Common_model extends CI_Model {
         return $query;
     }
 
-    function get_all_students_bank_id($st){
+    function get_all_students_bank_id($st,$year){
        
         $this->db->select('*');
         $this->db->from('students');
