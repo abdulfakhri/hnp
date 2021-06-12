@@ -290,7 +290,7 @@ class Student extends CI_Controller {
                 $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
             }
             $current_EmpId = $this->session->userdata('id');
-            $data['studentFilter'] = 'tripura';
+            $data['studentFilter'] = 'Tripura';
             $data['page_title'] = 'All Registered Students';
             $data['users'] = $this->common_model->get_all_students();
             $data['studentStatus'] = $finalStudentStatus;
