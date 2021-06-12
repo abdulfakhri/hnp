@@ -277,42 +277,24 @@ class Student extends CI_Controller {
     // all student view function
 
     public function student_bank_verifiy($state){ 
-        
-        if($state!=null){
+      
 
-            $finalStudentStatus = array();
-            foreach ($this->common_model->all_studentStatus() as $key => $value) {
-                $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-                // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-                $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-                $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-            }
-            $current_EmpId = $this->session->userdata('id');
-             $data['page_title'] = 'All Registered Students';
-            $data['studentFilter'] = 'all';
+          $st=$state;
+          $finalStudentStatus = array();
+          foreach ($this->common_model->all_studentStatus() as $key => $value) {
+              $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
+              // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
+              $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
+              $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+          }
+          $current_EmpId = $this->session->userdata('id');
+           $data['page_title'] = 'All Registered Students';
+          $data['studentFilter'] = 'all';
+          if($st==null){
             $data['users'] = $this->common_model->get_all_students_bank_id($state);
-            $data['studentStatus'] = $finalStudentStatus;
-            $data['country'] = $this->common_model->select('country');
-            $data['count'] = $this->common_model->get_user_total();
-            $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-            $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-            $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-            $data['main_content'] = $this->load->view('admin/student/all_student_bank', $data, TRUE);
-            $this->load->view('admin/index', $data);
-
-        }else{
-
-            $finalStudentStatus = array();
-            foreach ($this->common_model->all_studentStatus() as $key => $value) {
-                $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-                // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-                $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-                $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-            }
-            $current_EmpId = $this->session->userdata('id');
-             $data['page_title'] = 'All Registered Students';
-            $data['studentFilter'] = 'all';
+          }else{
             $data['users'] = $this->common_model->students_bank_id();
+          }
             $data['studentStatus'] = $finalStudentStatus;
             $data['country'] = $this->common_model->select('country');
             $data['count'] = $this->common_model->get_user_total();
@@ -322,9 +304,7 @@ class Student extends CI_Controller {
             $data['main_content'] = $this->load->view('admin/student/all_student_bank', $data, TRUE);
             $this->load->view('admin/index', $data);
 
-
-        }
-
+     
        
     }
     
