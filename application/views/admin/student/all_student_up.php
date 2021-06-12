@@ -144,7 +144,7 @@
                                      die('Could not Connect MySql Server:' .mysql_error());
                                  }
                                  $ur=$user['student_id'];
-                                 $query ="UPDATE students2 SET student_status ='".$studentStatus[$user['student_id']]['Status']."' WHERE student_id='$ur'";
+                                 $query ="UPDATE students2 SET student_status =". $studentStatus[$user['student_id']]['Status']." WHERE student_id='$ur'";
                                  mysqli_query($conn,$query);
                                  
                                  ?></td>
