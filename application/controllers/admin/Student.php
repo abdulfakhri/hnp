@@ -285,7 +285,7 @@ class Student extends CI_Controller {
             $finalStudentStatus = array();
             foreach ($this->common_model->all_studentStatus() as $key => $value) {
                 $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-                // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
+                $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
                 $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
                 $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
             }
@@ -311,7 +311,7 @@ class Student extends CI_Controller {
         $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
             $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
+            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
             $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
             $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
         }
