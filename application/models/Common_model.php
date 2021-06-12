@@ -430,6 +430,7 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
+
     function get_all_students_bank_id($state){
 
         if($state!=null){  
@@ -454,6 +455,21 @@ class Common_model extends CI_Model {
             return $query;
 
         }
+
+      
+    }
+    function students_bank_id(){
+
+        
+            $this->db->select('*');
+            $this->db->from('students');
+            $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+            $this->db->order_by('student_id','ASC');
+            $query = $this->db->get();
+            $query = $query->result_array();  
+            return $query;
+
+        
 
       
     }
