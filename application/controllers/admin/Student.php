@@ -291,7 +291,7 @@ class Student extends CI_Controller {
            $data['page_title'] = 'All Registered Students';
           $data['studentFilter'] = 'all';
           if($st==null){
-            $data['users'] = $this->common_model->get_all_students_bank_id($state);
+            $data['users'] = $this->common_model->get_all_students_bank_id($st);
           }else{
             $data['users'] = $this->common_model->students_bank_id();
           }
