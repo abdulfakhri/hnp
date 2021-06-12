@@ -10,13 +10,12 @@ echo "<br>";
 //echo $otp_email;
 echo "<br>";
 //echo $otp_confirmed;
-/*
+
 if($otp_confirmed !=1){
     
    // echo "Please Confirm the OTP";
    header("Location:/auth/logout"); 
 }   
-*/
 ?>
 <?php error_reporting(0);?>
 <style type="text/css">
