@@ -18,7 +18,9 @@ function myFunction() {
 
 
 <div class="row" style="border:2px solid blue;text-align:center;" >
-   
+
+   <form method="post" action="">
+
    <select name="filter_year" id="filter_year">
  
    <option select>Year</option>
@@ -60,8 +62,10 @@ function myFunction() {
    <option value="pending_by_nsp">Pending By NSP Site</option>
    </select>
 
-   <button type="button" name="filter" id="filter" class="btn btn-info">Filter</button>
-   <button class="btn btn-reset"><a href="javascript:location.reload(true)">Clear</a></button>
+   <button type="submit" name="filter" id="filter" class="btn btn-info">Filter</button>
+   <button type="reset" class="btn btn-reset"><a href="javascript:location.reload(true)">Clear</a></button>
+   </form>
+
   
 </div>
 
