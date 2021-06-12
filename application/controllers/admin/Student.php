@@ -276,7 +276,7 @@ class Student extends CI_Controller {
 
     // all student view function
 
-    public function student_bank_verifiy($st){ 
+    public function student_bank_verifiy($st,$yr){ 
       
 
           //$st=$state;
@@ -292,7 +292,7 @@ class Student extends CI_Controller {
             $current_EmpId = $this->session->userdata('id');
             //$data['studentFilter'] = 'Tripura';
             $data['page_title'] = 'All Registered Students';
-            $data['users'] = $this->common_model->get_all_students_bank_id($st);
+            $data['users'] = $this->common_model->get_all_students_bank_id($st,$yr);
             $data['studentStatus'] = $finalStudentStatus;
             $data['country'] = $this->common_model->select('country');
             $data['count'] = $this->common_model->get_user_total();

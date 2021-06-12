@@ -431,14 +431,15 @@ class Common_model extends CI_Model {
         return $query;
     }
 
-    function get_all_students_bank_id($st){
+    function get_all_students_bank_id($st,$yr){
        
         $this->db->select('*');
         $this->db->from('students');
         $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        if (!empty($st)) {
+        if (!empty($st) OR !empty($yr)) {
             
             $this->db->where('state', $st);
+            $this->db->where('year', $yr);
         }
         $this->db->order_by('student_id','ASC');
         $query = $this->db->get();
