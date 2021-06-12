@@ -276,9 +276,12 @@ class Student extends CI_Controller {
 
     // all student view function
 
-    public function student_bank_verifiy($yr,$st,$caste){ 
-      
-
+   // public function student_bank_verifiy($yr,$st,$caste){ 
+    public function student_bank_verifiy(){ 
+        //filter_year=2020&filter_state=Tripura&filter_cast=SC&filter_status=approve_by_our_site&filter=
+        $yr=$_GET['filter_year'];
+        $st=$_GET['filter_state'];
+        $caste=$_GET['filter_caste'];
           //$st=$state;
             /////////////////////////////////////////////////////
 
