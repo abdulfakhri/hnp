@@ -1,4 +1,5 @@
-<?php
+ 
+ <?php
 class Common_model extends CI_Model {
    
    
@@ -503,6 +504,7 @@ class Common_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('students');
         $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+       // $this->db->where('year ="Pending"');
         $this->db->where('year',"Pending");
         $query = $this->db->get();
         $query = $query->result_array();  
