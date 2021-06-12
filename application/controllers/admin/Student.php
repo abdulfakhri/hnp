@@ -276,10 +276,10 @@ class Student extends CI_Controller {
 
     // all student view function
 
-    public function student_bank_verifiy($state){ 
+    public function student_bank_verifiy(){ 
       
 
-          $st=$state;
+          //$st=$state;
             /////////////////////////////////////////////////////
 
             $finalStudentStatus = array();
