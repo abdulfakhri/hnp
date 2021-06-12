@@ -19,6 +19,7 @@ function myFunction() {
 
 <div class="row" style="border:2px solid blue;text-align:center;" >
    <form action="" method="GET" style="text-align:center;">
+   <center>
    <select name="filter_year" id="filter_year">
  
  <option select>Year</option>
@@ -62,6 +63,8 @@ function myFunction() {
 
  <button type="submit" name="filter" id="filter" class="btn btn-info">Filter</button>
  <button type="submit" class="btn btn-reset"><a href="javascript:location.reload(true)">Clear</a></button>
+   </center>
+ 
    </form>
   
   
