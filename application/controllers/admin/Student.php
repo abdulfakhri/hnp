@@ -290,7 +290,7 @@ class Student extends CI_Controller {
           $current_EmpId = $this->session->userdata('id');
            $data['page_title'] = 'All Registered Students';
           $data['studentFilter'] = 'all';
-         if($st==null){
+         if(empty($st)){
             $data['users'] = $this->common_model->students_bank_id();
           }else{
            $data['users'] = $this->common_model->get_all_students_bank_id($state);
