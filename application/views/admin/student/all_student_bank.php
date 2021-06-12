@@ -18,7 +18,7 @@ function myFunction() {
 
 
 <div class="row" style="border:2px solid blue;text-align:center;" >
-   <form action="" method="GET">
+   <form action="" method="GET" style="text-align:center;">
    <select name="filter_year" id="filter_year">
  
  <option select>Year</option>
