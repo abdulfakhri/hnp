@@ -1,4 +1,5 @@
-<?php
+ 
+ <?php
 class Common_model extends CI_Model {
    
    
@@ -453,6 +454,62 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
+
+    function students_2020(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('year',2020);
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+    function students_tripura(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('state',"Tripura");
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+    function students_assam(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('state',"Assam");
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+    function students_2022(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('year',2022);
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+    function students_2021(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('year',2021);
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+    function students_pending(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+       // $this->db->where('year ="Pending"');
+        $this->db->where('year',"Pending");
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
     /*
     function get_all_students_for(){
         $this->db->select('u.*');
@@ -742,31 +799,7 @@ class Common_model extends CI_Model {
      }
      */
 
-     //get chat history of 2 employees
-
-     function getChatHistory($to,$from){
-
-        //select * from `chat` where `to` = 'super_admin_admin1' and `from` = 'abhijit_sarkar_abc' and `sender_deleted` = 'no' || `to` = 'abhijit_sarkar_abc' and `from` = 'super_admin_admin1' and `receiver_deleted` = 'no' order by `id` desc 
-
-        //select * ,chat_vpb_users.photo from `chat` INNER JOIN `chat_vpb_users` ON chat.to = chat_vpb_users.username where `to` = 'super_admin_admin1' and `from` = 'abhijit_sarkar_abc' and `sender_deleted` = 'no' || `to` = 'abhijit_sarkar_abc' and `from` = 'super_admin_admin1' and `receiver_deleted` = 'no' order by `chat`.id desc
-
-        //select * from chat inner join chat_vpb_users where chat.to=chat_vpb_users.username or chat.from=chat_vpb_users.username
-
-
-        $this->db->select('*');
-        $this->db->from('chat');
-        $this->db->join('chat_vpb_users', 'chat.from = `chat_vpb_users`.username','inner');
-        $this->db->where("`to` = '".$to."' and `from` = '".$from."' and `sender_deleted` = 'no' || `to` = '".$from."' and `from` = '".$to."' and `receiver_deleted` = 'no' order by chat.`id` desc"); 
-
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-
-
-
-
-     }
-    //-- image upload function with resize option
+ 
 
     function upload_image($max_size,$fieldName){
         
