@@ -136,7 +136,15 @@
                                    
                                  <td><?php 
                                  echo isset($studentStatus[$user['student_id']]['Status']) ? $studentStatus[$user['student_id']]['Status'] : "Pending From Our Site" ;
-                                 $query ="UPDATE students SET api_bank_st ='$stu',api_fetched_name ='$api_fetched_name' WHERE student_id='$sid'";
+                                 $dbname = "u979436226_hnsp";
+                                 $username = "u979436226_hnsp";
+                                 $password = "!@#123qweasdZXC";
+                                 $conn=mysqli_connect($host,$username,$password,$dbname);
+                                 if(!$conn){
+                                     die('Could not Connect MySql Server:' .mysql_error());
+                                 }
+                                 $ur=$user['student_id'];
+                                 $query ="UPDATE students2 SET student_status ='".$studentStatus[$user['student_id']]['Status']."' WHERE student_id='$ur'";
                                  mysqli_query($conn,$query);
                                  
                                  ?></td>
