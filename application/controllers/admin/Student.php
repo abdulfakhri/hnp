@@ -293,7 +293,7 @@ class Student extends CI_Controller {
          if($st==null){
             $data['users'] = $this->common_model->students_bank_id();
           }else{
-           $data['users'] = $this->common_model->students_bank_id();
+           $data['users'] = $this->common_model->get_all_students_bank_id($state);
           }
             $data['studentStatus'] = $finalStudentStatus;
             $data['country'] = $this->common_model->select('country');
