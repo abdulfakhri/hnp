@@ -431,14 +431,36 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
-    function get_all_students_bank_id(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->order_by('student_id','ASC');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
+    function get_all_students_bank_id($year,$state,$caste){
+       
+       // if(($year!=NULL) OR ($state!=NULL) OR ($caste!=NULL) OR ($status!=NULL)){
+        
+            if($year!=NULL){
+
+            $this->db->select('*');
+            $this->db->from('students');
+            $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+            $this->db->where('year',$year);
+            $this->db->order_by('student_id','ASC');
+            $query = $this->db->get();
+            $query = $query->result_array();  
+            return $query;
+
+
+        }else{
+
+            $this->db->select('*');
+            $this->db->from('students');
+            $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+            $this->db->order_by('student_id','ASC');
+            $query = $this->db->get();
+            $query = $query->result_array();  
+            return $query;
+            
+        }
+
+       
+       
     }
     
     //function get_all_students_filt($st,$cs,$yr,$lim){
