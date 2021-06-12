@@ -62,7 +62,7 @@ function myFunction() {
  </select>
 
  <button type="submit" name="filter" id="filter" class="btn btn-info">Filter</button>
- <button type="submit" class="btn btn-reset"><a href="javascript:location.reload(true)">Clear</a></button>
+ <button type="submit" class="btn btn-reset"><a href="/admin/student/student_bank_verifiy/">Clear</a></button>
    </center>
  
    </form>
