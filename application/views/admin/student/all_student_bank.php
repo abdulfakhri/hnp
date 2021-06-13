@@ -18,7 +18,7 @@ function myFunction() {
 
 
 <div class="row" style="border:2px solid blue;text-align:center;" >
-   <form action="" method="POST" style="text-align:center;">
+   <form action="" method="GET" style="text-align:center;">
    <center>
    <select name="filter_year" id="filter_year">
  
@@ -67,6 +67,7 @@ function myFunction() {
  
    </form>
   <?php
+  /*
 if(isset($_POST['filter'])){
 $year=$_POST['filter_year'];
 $state=$_POST['filter_state'];
@@ -75,6 +76,7 @@ $caste= $_POST['filter_caste'];
 header('Location:/admin/student/student_bank_verifiy/'.$year.'/'.$state.'/'.$caste);
 
 }
+*/
 
 
 ?>
