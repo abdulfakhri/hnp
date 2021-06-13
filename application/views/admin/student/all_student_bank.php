@@ -61,7 +61,7 @@ function myFunction() {
  <option value="pending_by_nsp">Pending By NSP Site</option>
  </select>
 
- <button type="submit" name="filter" id="filter" class="btn btn-info">Filter</button>
+ <button type="submit"  class="btn btn-info">Filter</button>
  <button type="submit" class="btn btn-reset"><a href="/admin/student/student_bank_verifiy/">Clear</a></button>
    </center>
  

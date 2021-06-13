@@ -436,7 +436,7 @@ class Common_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('students');
         $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        if (!empty($yr) OR !empty($st) OR !empty($caste)) {
+        if(!empty($yr) OR !empty($st) OR !empty($caste)) {
             $this->db->where('year', $yr);
             $this->db->where('state', $st);
             $this->db->where('caste_details', $caste);
