@@ -6,11 +6,11 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=localhost;dbname=u979436226_hnsp',
+	'dsn'	=> 'mysql:host=localhost;dbname=u683829545_hnsp',
 	'hostname' => "localhost",
-	'username' => "u979436226_hnsp",
+	'username' => "u683829545_hnsp",
 	'password' => "!@#123qweasdZXC",
-	'database' => "u979436226_hnsp",
+	'database' => "u683829545_hnsp",
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
