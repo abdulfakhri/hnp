@@ -174,6 +174,7 @@ $nsp_total_array = $clg_approve_array;
 <center>
  <!-- Our Site  Students -->
 <div class="w3-row-padding w3-margin-bottom">
+    <h1>Help Foundation</h1>
     <center><h1>Our Site</h1></center> 
 
 
