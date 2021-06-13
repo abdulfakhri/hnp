@@ -434,11 +434,12 @@ if(strpos($mystring, $word) !== false){?>
                 <div class="form-group row">                  
                     <div class="col-sm-6">
                       <label class="col-md-6" for="example-text">Credits</label>
-                        <input type="text"  value="<?= $userData->credit_amount ?>" name="credit_amount" class="form-control">
-                    </div>
+                        <input type="text"  value="" name="credit_amount" class="form-control">
+                    </div> 	
                     <div class="col-sm-6">
                         <label class="col-md-6" for="example-text">Withdrawal</label>
-                        <input type="text"  value="<?= $userData->withdraw  ?>" name="withdraw" class="form-control">
+                        <input type="text"  value="" name="withdraw" class="form-control">
+                        <input type="hidden"  value="<?= $userData->account_balance ?>"" name="account_balance" class="form-control">
                     </div>
                 </div>
                 <fieldset>
