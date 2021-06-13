@@ -18,7 +18,8 @@ function myFunction() {
 
 
 <div class="row" style="border:2px solid blue;text-align:center;" >
-   <form action="" method="GET" style="text-align:center;">
+<center>
+<form action="" method="GET" style="text-align:center;">
    <center>
    <select name="filter_year" id="filter_year">
  
@@ -63,9 +64,12 @@ function myFunction() {
 
  <button type="submit"  class="btn btn-info">Filter</button>
  <button type="submit" class="btn btn-reset"><a href="/admin/student/student_bank_verifiy/">Clear</a></button>
-   </center>
+   
  
    </form>
+
+</center>
+
   <?php
   /*
 if(isset($_POST['filter'])){
