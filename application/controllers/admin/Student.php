@@ -283,7 +283,8 @@ class Student extends CI_Controller {
         $yr=$_GET['filter_year'];
         $st=$_GET['filter_state'];
         $caste=$_GET['filter_caste'];
-        
+        $status=$_GET['filter_status'];
+
           //$st=$state;
             /////////////////////////////////////////////////////
 
@@ -297,7 +298,7 @@ class Student extends CI_Controller {
             $current_EmpId = $this->session->userdata('id');
             //$data['studentFilter'] = 'Tripura';
             $data['page_title'] = 'All Registered Students';
-            $data['users'] = $this->common_model->get_all_students_bank_id($yr,$st,$caste);
+            $data['users'] = $this->common_model->get_all_students_bank_id($yr,$st,$caste,$status);
             $data['studentStatus'] = $finalStudentStatus;
             $data['country'] = $this->common_model->select('country');
             $data['count'] = $this->common_model->get_user_total();
