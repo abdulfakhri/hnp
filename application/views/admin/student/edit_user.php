@@ -431,6 +431,16 @@ if(strpos($mystring, $word) !== false){?>
                         <input type="text"  value="<?= $userData->agent_mobile ?>" name="agent_mobile" class="form-control">
                     </div>
                 </div>
+                <div class="form-group row">                  
+                    <div class="col-sm-6">
+                      <label class="col-md-6" for="example-text">Credits</label>
+                        <input type="text"  value="<?= $userData->credit_amount ?>" name="credit_amount" class="form-control">
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="col-md-6" for="example-text">Withdrawal</label>
+                        <input type="text"  value="<?= $userData->withdraw  ?>" name="withdraw" class="form-control">
+                    </div>
+                </div>
                 <fieldset>
 <legend>Documents Upload</legend>
                   <div class="form-group  row "> 
