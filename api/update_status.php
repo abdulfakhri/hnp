@@ -25,7 +25,7 @@ if(!$conn){
                   $si=$ro["student_id"];
                   $st=$ro["student_status"];
 
-                  $query ="UPDATE students2 SET student_status ='$st' WHERE student_id='$si'";
+                  $query ="UPDATE students_up SET student_status ='$st' WHERE student_id='$si'";
                   mysqli_query($conn,$query);
 
                }
