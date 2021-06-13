@@ -2,7 +2,13 @@
 <?php 
 //include("header.php");
 include_once 'db.php';
-
+$dbname = "u979436226_hnsp";
+$username = "u979436226_hnsp";
+$password = "!@#123qweasdZXC";
+$conn=mysqli_connect($host,$username,$password,$dbname);
+if(!$conn){
+    die('Could not Connect MySql Server:');
+}
   
   $result = mysqli_query($conn,"SELECT * FROM students ");  
   
