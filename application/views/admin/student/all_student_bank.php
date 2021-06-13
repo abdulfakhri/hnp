@@ -35,7 +35,7 @@ function myFunction() {
   <option value="Assam">Assam</option>
  </select>
 
- <select name="filter_cast" id="filter_cast"  required>
+ <select name="filter_caste" id="filter_caste"  required>
  <option select>Select Cast</option>
   <option value="SC">SC</option>
    <option value="ST">ST</option>
