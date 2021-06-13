@@ -17,7 +17,7 @@ function myFunction() {
 
 
 
-<div class="row" style="border:2px solid blue;text-align:center;" >
+
 <center>
 <form action="" method="GET" style="text-align:center;">
    <center>
@@ -70,22 +70,7 @@ function myFunction() {
 
 </center>
 
-  <?php
-  /*
-if(isset($_POST['filter'])){
-$year=$_POST['filter_year'];
-$state=$_POST['filter_state'];
-$caste= $_POST['filter_caste'];
 
-header('Location:/admin/student/student_bank_verifiy/'.$year.'/'.$state.'/'.$caste);
-
-}
-*/
-
-
-?>
-  
-</div>
 
 <div class="row" style="border:2px solid grey;" >
 <div class="col-lg-6" style="text-align:left;">
