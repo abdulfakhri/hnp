@@ -66,7 +66,18 @@ function myFunction() {
    </center>
  
    </form>
-  
+  <?php
+if(isset($_POST['filter'])){
+$year=$_POST['filter_year'];
+$state=$_POST['filter_state'];
+$caste= $_POST['filter_caste'];
+
+header('Location:/admin/student/student_bank_verifiy/'.$year.'/'.$state.'/'.$caste);
+
+}
+
+
+?>
   
 </div>
 
