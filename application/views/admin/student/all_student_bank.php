@@ -16,9 +16,8 @@ function myFunction() {
 <form action="" method="GET" class="form-group" style="text-align:center;">
    <center>
    <select name="filter_year" id="filter_year">
-   <option select>Year</option>
-   <option><?php echo $_GET["filter_year"]; ?></option>
-
+   <option select><?php echo $_GET["filter_year"]; ?></option>
+ <option select>Year</option>
  <option value="2020">2020</option>
  <option value="2021">2021</option>
  <option value="2019">2019</option>
@@ -26,17 +25,15 @@ function myFunction() {
 </select> 
 
  <select name="filter_state" id="filter_state" >
- <option value="">Select State</option>
- <option ><?php echo $_GET["filter_state"]; ?></option>
+ <option select><?php echo $_GET["filter_state"]; ?></option>
   <option value="">Select State</option>
   <option value="Tripura">Tripura</option>
   <option value="Assam">Assam</option>
  </select>
 
  <select name="filter_caste" id="filter_caste">
- <option >Select Cast</option>
  <option select><?php echo $_GET["filter_caste"]; ?></option>
- 
+ <option select>Select Cast</option>
   <option value="SC">SC</option>
    <option value="ST">ST</option>
  <option value="OBC">OBC</option>
@@ -45,13 +42,11 @@ function myFunction() {
  </select>
 
  <select name="filter_status" id="filter_status">
- <option select>Student Status</option>
- <option ><?php echo $_GET["filter_status"]; ?></option>
- <option value="All Students" select>All Students</option>
+ <option select><?php echo $_GET["filter_status"]; ?></option>
  <option value="approved_by_our_site">Approved By Our Site</option>
  <option value="reject_by_our_site">Rejected By Our Site</option>
- <option value="Pending">Defected By Our Site</option>
- <option value="pending_by_our_site">Pending By Our Site</option>
+ <option value="defect_by_our_site">Defected By Our Site</option>
+ <option value="Pending">Pending By Our Site</option>
  <option value="approved_by_college">Approved By College Site</option>
  <option value="rejected_by_college">Rejected By College Site</option>
  <option value="defect_by_college">Defected By College Site</option>
