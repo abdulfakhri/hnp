@@ -3,7 +3,7 @@ include('db.php');
 include('function.php');
 $query = '';
 $output = array();
-include('database_connection.php');
+
 /*
 $query .= "SELECT students.bnk_acnt_number,students.tr_number,students.full_name,student_status_data.student_id,
 student_status_data.student_id,students.ifsc_code,students.account_number,students.account_balance,students.transcation,
