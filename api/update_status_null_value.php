@@ -30,7 +30,7 @@ if(!$conn){
                       $status=$st;
                   }
 
-                  $query ="UPDATE students_up SET student_status ='$st' WHERE student_id='$si'";
+                  $query ="UPDATE students_n SET student_status ='$st' WHERE student_id='$si'";
                   mysqli_query($conn,$query);
 
                }
