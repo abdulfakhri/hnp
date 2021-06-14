@@ -24,8 +24,8 @@ if(!$conn){
 
                   $si=$ro["student_id"];
                   $st=$ro["student_status"];
-                  if(empty($st)){
-                      $status="pending";
+                  if($st="pending_by_our_site"){
+                      $status="Pending";
                   }else{
                       $status=$st;
                   }
