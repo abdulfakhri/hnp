@@ -21,7 +21,7 @@ function myFunction() {
  <option value="2020">2020</option>
  <option value="2021">2021</option>
  <option value="2019">2019</option>
- <option value="Pendin">Pending</option>
+ <option value="Pending">Pending</option>
 </select> 
 
  <select name="filter_state" id="filter_state" >
