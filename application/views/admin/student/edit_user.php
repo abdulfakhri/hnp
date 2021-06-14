@@ -215,9 +215,9 @@ if(strpos($mystring, $word) !== false){?>
                           <input type="text" id='tr_number' value="<?php echo $userData->tr_number ?>" <?php if($userData->trnumber=="pending"){?>readonly <?php }?> name="tr_number" class="form-control" required data-validation-required-message="Application Number is required">
                         </div>
                         <div class="col-sm-4" id="">
-                          <label for="example-text">Student Status</span></label>
+                          <label for="example-text">Student Status</span></label><br/>
                         
-                           <select name="student_status" id="student_status">
+                           <select name="student_status" id="student_status" class="form-control">
  <option select><?php echo $userData->student_status ?></option>
  <option value="All Students" select>All Students</option>
  <option value="approved_by_our_site">Approved By Our Site</option>
