@@ -48,10 +48,10 @@ function myFunction() {
  <select name="filter_status" id="filter_status">
 
  <option value="All Students" select>All Students</option>
- <option value="approve_by_our_site">Approved By Our Site</option>
+ <option value="approved_by_our_site">Approved By Our Site</option>
  <option value="reject_by_our_site">Rejected By Our Site</option>
  <option value="defect_by_our_site">Defected By Our Site</option>
- <option value="pending_by_site">Pending By Our Site</option>
+ <option value="pending_by_our_site">Pending By Our Site</option>
  <option value="approved_by_college">Approved By College Site</option>
  <option value="rejected_by_college">Rejected By College Site</option>
  <option value="defect_by_college">Defected By College Site</option>
