@@ -1,13 +1,5 @@
 <?php
 include('db.php');
-$dbname = "u979436226_hnsp";
-$username = "u979436226_hnsp";
-$password = "!@#123qweasdZXC";
-$conn=mysqli_connect($host,$username,$password,$dbname);
-if(!$conn){
-    die('Could not Connect MySql Server:' .mysql_error());
-}
-
 include('function.php');
 $query = '';
 $output = array();

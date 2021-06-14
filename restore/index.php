@@ -73,7 +73,9 @@ function myFunction() {
   alert("Please Wait...Processing");
 }
 </script>
-     
+     <h1>
+       Restore Deleted Students
+     </h1>
   <div class="container box">
 
    <br />

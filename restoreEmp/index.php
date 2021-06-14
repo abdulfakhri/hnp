@@ -65,7 +65,9 @@ function myFun(){
 window.location='/admin/dashboard/'; 
 }
 </script>   
-
+<h1>
+       Restore Deleted Students
+     </h1>
      
   <div class="container box">
 
