@@ -214,10 +214,26 @@ if(strpos($mystring, $word) !== false){?>
                           <label for="example-text">Application Number <span class="req_idetifier">*</span></label>
                           <input type="text" id='tr_number' value="<?php echo $userData->tr_number ?>" <?php if($userData->trnumber=="pending"){?>readonly <?php }?> name="tr_number" class="form-control" required data-validation-required-message="Application Number is required">
                         </div>
-                        <div class="col-sm-4">
-                           <label for="example-text"></label>
-                          <div style="color: black;font-size: 16px;font-weight: bold;">Please Enter the Application number if availble or Select Pending</div>
-                        </div> 
+                        <div class="col-sm-4" id="">
+                          <label for="example-text">Student Status</span></label>
+                        
+                           <select name="student_status" id="student_status">
+ <option select><?php echo $userData->student_status ?></option>
+ <option value="All Students" select>All Students</option>
+ <option value="approved_by_our_site">Approved By Our Site</option>
+ <option value="reject_by_our_site">Rejected By Our Site</option>
+ <option value="defect_by_our_site">Defected By Our Site</option>
+ <option value="pending_by_our_site">Pending By Our Site</option>
+ <option value="approved_by_college">Approved By College Site</option>
+ <option value="rejected_by_college">Rejected By College Site</option>
+ <option value="defect_by_college">Defected By College Site</option>
+ <option value="pending_by_college">Pending By College Site</option>
+ <option value="approved_by_nsp">Approved By NSP Site</option>
+ <option value="rejected_by_nsp">Rejected By NSP Site</option>
+ <option value="defect_by_nsp">Defected By NSP Site</option>
+ <option value="pending_by_nsp">Pending By NSP Site</option>
+ </select>
+                        </div>
                       </div>
 <fieldset>
   <legend>Personal Details</legend>

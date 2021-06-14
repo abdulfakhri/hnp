@@ -688,6 +688,7 @@ class Student extends CI_Controller {
 
                 'credit_amount'=>$_POST['credit_amount'],
                 'withdraw'=>$_POST['withdraw'],
+                'student_status'=>$_POST['student_status'],
                 'account_balance'=>(($_POST['account_balance']+$_POST['credit_amount'])-($_POST['withdraw']))
                 
                 
