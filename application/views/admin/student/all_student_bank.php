@@ -13,7 +13,7 @@ function myFunction() {
 
 
 <center>
-<form action="" method="GET" style="text-align:center;">
+<form action="" method="GET" class="form-group" style="text-align:center;">
    <center>
    <select name="filter_year" id="filter_year">
    <option select><?php echo $_GET["filter_year"]; ?></option>
