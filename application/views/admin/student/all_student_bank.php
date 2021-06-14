@@ -1,10 +1,4 @@
 
-<script> 
-function myFun(){
-window.location='/admin/dashboard/'; 
-}
-</script>   
-
 <script type="text/javascript" language="javascript" >
 
 function myFunction() {
@@ -22,7 +16,7 @@ function myFunction() {
 <form action="" method="GET" style="text-align:center;">
    <center>
    <select name="filter_year" id="filter_year">
- 
+   <option select><?php echo $_GET["filter_year"]; ?></option>
  <option select>Year</option>
  <option value="2020">2020</option>
  <option value="2021">2021</option>
@@ -30,13 +24,15 @@ function myFunction() {
  <option value="Pendin">Pending</option>
 </select> 
 
- <select name="filter_state" id="filter_state"  required>
+ <select name="filter_state" id="filter_state" >
+ <option select><?php echo $_GET["filter_state"]; ?></option>
   <option value="">Select State</option>
   <option value="Tripura">Tripura</option>
   <option value="Assam">Assam</option>
  </select>
 
- <select name="filter_caste" id="filter_caste"  required>
+ <select name="filter_caste" id="filter_caste">
+ <option select><?php echo $_GET["filter_caste"]; ?></option>
  <option select>Select Cast</option>
   <option value="SC">SC</option>
    <option value="ST">ST</option>
@@ -46,7 +42,7 @@ function myFunction() {
  </select>
 
  <select name="filter_status" id="filter_status">
-
+ <option select><?php echo $_GET["filter_status"]; ?></option>
  <option value="All Students" select>All Students</option>
  <option value="approved_by_our_site">Approved By Our Site</option>
  <option value="reject_by_our_site">Rejected By Our Site</option>
