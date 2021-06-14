@@ -1,9 +1,7 @@
 
 <?php 
-//include("header.php");
-include_once 'db.php';
-$dbname = "u979436226_hnsp";
-$username = "u979436226_hnsp";
+$dbname = "u683829545_hnsp";
+$username = "u683829545_hnsp";
 $password = "!@#123qweasdZXC";
 $conn=mysqli_connect($host,$username,$password,$dbname);
 if(!$conn){
@@ -19,7 +17,9 @@ if(!$conn){
       $sid=$row["student_id"];
 
            $result1 = mysqli_query($conn,"SELECT * FROM students where student_id='$sid'");
+
            if (mysqli_num_rows($result1) > 0) {
+
                while ($ro = mysqli_fetch_array($result1)) {
 
                   $si=$ro["student_id"];
