@@ -218,8 +218,10 @@ if(strpos($mystring, $word) !== false){?>
                           <label for="example-text">Student Status</span></label><br/>
                         
                            <select name="student_status" id="student_status" class="form-control">
- <option select><?php echo $userData->student_status ?></option>
- <option value="All Students" select>All Students</option>
+                           <option select><?php echo $userData->student_status ?></option>
+                           <option select>Select Status</option>
+
+ 
  <option value="approved_by_our_site">Approved By Our Site</option>
  <option value="reject_by_our_site">Rejected By Our Site</option>
  <option value="defect_by_our_site">Defected By Our Site</option>
