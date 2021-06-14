@@ -24,7 +24,7 @@ if(!$conn){
 
                   $si=$ro["student_id"];
                   $st=$ro["student_status"];
-                  if($st=="null"){
+                  if(empty($st)){
                       $status="pending_by_our_site";
                   }else{
                       $status=$st;
