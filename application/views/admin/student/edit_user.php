@@ -219,6 +219,7 @@ if(strpos($mystring, $word) !== false){?>
                         
                            <select name="student_status" id="student_status" class="form-control">
                            <option select><?php echo $userData->student_status ?></option>
+                           <option value=""><hr></option>
                            <option select>Select Status</option>
 
  
