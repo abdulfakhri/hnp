@@ -99,7 +99,7 @@ function startsWith ($string, $startString)
                         </tr>
                         </thead>
                       
-                        <tbody data-class="approveStudents">
+                        <tbody >
                         <?php
                         $all_scount = $all_assam_stu = $all_tripura_stu = 0;
                         foreach ($users as $user):
@@ -130,9 +130,9 @@ function startsWith ($string, $startString)
 
 
                                 ?>
-                                <tr >
+                                <tr data-class="approveStudents">
  
-                                    <td data-class="<?=$chekVal;?>"><?=$scount?></td>
+                                    <td><?=$scount?></td>
                                     <?php if($this->session->userdata('role') == 'admin'){ ?>
                                         <td class="icon_action">
 
