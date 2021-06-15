@@ -72,7 +72,8 @@ function startsWith ($string, $startString)
                                     aria-hidden="true">×</span> </button>
                     </div>
                 <?php endif ?>
-             
+                <?php  //if (($this->session->userdata('role') == 'admin') || (strpos(current_url(), 'all_tripura_student_list') == false) || (strpos(current_url(), 'all_assam_student_list') == false) ) { ?>
+                <?php //echo 'AAAA'.current_url().strpos(current_url(), 'all_assam_student_list') ; die; ?>
                 <?php if ($this->session->userdata('role') == 'admin'){ ?>
                  
 
@@ -99,11 +100,11 @@ function startsWith ($string, $startString)
                         </tr>
                         </thead>
                       
-                        <tbody >
+                        <tbody>
                         <?php
                         $all_scount = $all_assam_stu = $all_tripura_stu = 0;
                         foreach ($users as $user):
-                            $unserlizedData = $user;
+                            $unserlizedData = unserialize($user['student_uploaded_data']);
                             /*
                             * todo: add control condition  from employee to admin
                             */
@@ -130,9 +131,9 @@ function startsWith ($string, $startString)
 
 
                                 ?>
-                                <tr data-class="rejectStudent">
- 
-                                    <td  data-class="rejectStudent"><?=$scount?></td>
+                                <tr data-class="<?=$chekVal;?>">
+
+                                    <td data-class="<?=$chekVal;?>"><?=$scount?></td>
                                     <?php if($this->session->userdata('role') == 'admin'){ ?>
                                         <td class="icon_action">
 
@@ -284,7 +285,7 @@ function startsWith ($string, $startString)
                                         <?php echo $user['caste_details']; ?>
                                     </td>
                                    
-                                 <td>Reject By Our Site</td>
+                                 <td><?php echo isset($studentStatus[$user['student_id']]['Status'])? $studentStatus[$user['student_id']]['Status'] : "Pending From Our Site"?></td>
 
                                 </tr>
                             <?php } else  if(($user['uploadedBy'] == $this->session->userdata('id') || $this->session->userdata('role') == 'admin') && ($user['is_deleted'] != 1 && $studentFilter == 'tripura' && $user['state'] == 'Tripura'))  {
@@ -755,7 +756,110 @@ function startsWith ($string, $startString)
                     </table>
 
 
-                  
+                    <h3>Completed & Pending Tasks</h3>
+                    <table id="example23" class="display nowrap" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>TR Number</th>
+                            <th>Name</th>
+                            <th>Mobile</th>
+
+                            <th>Account No.</th>
+                            <th>Account Status</th>
+                            <th>Date Of Birth</th>
+                            <th>Assigned At</th>
+                            <th>Assign Complete Time</th>
+                           
+                            <th>Task Completed</th>
+                        </tr>
+                        </thead>
+                      
+                        <tbody>
+                        <?php
+                        $scount = 0;
+                        foreach ($users as $user):
+
+                            $unserlizedData = unserialize($user['student_uploaded_data']);
+
+                            $maskData= false;
+
+                            /*
+                            * todo: add control condition  from employee to admin
+                            */
+                            // if(($unserlizedData['uploadedBy'] == $this->session->userdata('id') || $this->session->userdata('role') == 'admin')|| (($this->session->userdata('id') == $assignedTaskList[$user['student_id']]['emp_id']) && $assignedTaskList[$user['student_id']]['stu_id'] == $user['student_id'] ) && $user['is_deleted'] != 1) {
+
+                            if((($this->session->userdata('id') == $assignedTaskListComplete[$user['student_id']]['emp_id']) && $assignedTaskListComplete[$user['student_id']]['stu_id'] == $user['student_id'] ) && $user['is_deleted'] != 1) {
+                                $maskData = false;
+                                /*
+                                if(($this->session->userdata('id') == $assignedTaskListComplete[$user['student_id']]['emp_id']) && $assignedTaskListComplete[$user['student_id']]['stu_id'] == $user['student_id'] && $assignedTaskListComplete[$user['student_id']]['task_status'] == 1 ) {
+                                    //$maskData = true;
+
+                                     $maskData = true;
+
+
+                                }
+                                */
+
+                                $scount++;
+
+                                ?>
+
+                                <tr>
+                                    <td><?=$scount?></td>
+                                    <td>
+                                        <?php echo $maskData ? $user['tr_number'] :  maskSenstiveData($user['tr_number']) ; ?>
+                                    </td>
+                                    <?php if(($this->session->userdata('id') == $assignedTaskListComplete[$user['student_id']]['emp_id']) && $assignedTaskListComplete[$user['student_id']]['stu_id'] == $user['student_id'] && $assignedTaskListComplete[$user['student_id']]['task_status'] == 1 ) { ?>
+                                        <td>
+                                 
+                                            <a href="#">
+                                                <?php echo $user['full_name'];?>
+                                            </a>
+                                        </td>
+                                    <?php } else {?>
+                                        <td>
+                                            <?php echo $user['full_name'];?>
+                                        </td>
+                                    <?php } ?>
+                                    <td>
+                                        <?php  echo $maskData ? $user['mobile']: maskSenstiveData($user['mobile']); ?>
+                                    </td>
+
+
+                                    <td>
+                                        <?php //echo $unserlizedData['bnk_acnt_number']." ".$unserlizedData['bnk_acnt_number'];?>
+                                        <?php  echo $maskData ? $user['account_number']: maskSenstiveData($user['account_number']); ?>
+                                    </td>
+                                    <td>
+
+                                        <?php
+
+                                        $dob=$user['dob'];
+                                        //ech $unserlizedData['dob'];
+                                        $dob1= date("d/m/Y", strtotime($dob));
+                                        //echo date("d/m/Y",$dob);
+
+
+
+                                        echo $maskData ? $dob1: maskSenstiveData($dob1); ?>
+                                        <?php // echo $maskData ? $unserlizedData['bnk_acnt_number']: maskSenstiveData($unserlizedData['bnk_acnt_number']); ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $assignedTaskListComplete[$user['student_id']]['assigned_at']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $assignedTaskListComplete[$user['student_id']]['complete_at']; ?>
+                                    </td>
+
+                                   
+                                    <td><?php echo  $assignedTaskListComplete[$user['student_id']]['task_status'] ==1? "Yes" : "No"?></td>
+                                </tr>
+
+                            <?php } endforeach ?>
+                        </tbody>
+                    </table>
+
 
                 <?php } ?>
             </div>
