@@ -1042,12 +1042,7 @@ class Student extends CI_Controller {
                 'bank_name'=>$_POST['bank_name'],
                 
                 'ifsc_code'=>$_POST['ifsc_code'],
-                'bank_name'=>$_POST['bank_name'],
-
-                //'credit_amount'=>$_POST['credit_amount'],
-                //'withdraw'=>$_POST['withdraw'],
-                //'student_status'=>$_POST['student_status'],
-                //'account_balance'=>(($_POST['account_balance']+$_POST['credit_amount'])-($_POST['withdraw']))
+                'bank_name'=>$_POST['bank_name']
                 
                 
             );
@@ -1124,7 +1119,6 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
         
     }
-
     public function stu_clone($id)
     {
         // echo "string";
