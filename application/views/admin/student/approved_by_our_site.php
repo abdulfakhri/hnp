@@ -113,7 +113,23 @@ function startsWith ($string, $startString)
                                 $scount++;
                                 $chekVal = '';
                                 ?>
-                             
+                                <?php
+                                $chekVal = 'pendingStudents';
+                                if( isset($studentStatus[$user['student_id']]['Status']) && strpos($studentStatus[$user['student_id']]['Status'], 'Reject') !== false){
+                                    $chekVal = 'rejectStudent';
+                                }
+
+                                if( isset($studentStatus[$user['student_id']]['Status']) && strpos($studentStatus[$user['student_id']]['Status'], 'Approved') !== false){
+                                    $chekVal = 'approveStudents';
+                                }
+
+                                if( isset($studentStatus[$user['student_id']]['Status']) && strpos($studentStatus[$user['student_id']]['Status'], 'Defect') !== false){
+                                    $chekVal = 'defectStudents';
+                                }
+
+
+
+                                ?>
                                 <tr data-class="<?=$chekVal;?>">
 
                                     <td data-class="<?=$chekVal;?>"><?=$scount?></td>
@@ -268,7 +284,7 @@ function startsWith ($string, $startString)
                                         <?php echo $user['caste_details']; ?>
                                     </td>
                                    
-                                 <td><?php echo isset($studentStatus[$user['student_id']]['Status'])? $studentStatus[$user['student_id']]['Status'] : "Pending From Our Site"?></td>
+                                 <td>Approved By Our Site</td>
 
                                 </tr>
                             <?php } else  if(($user['uploadedBy'] == $this->session->userdata('id') || $this->session->userdata('role') == 'admin') && ($user['is_deleted'] != 1 && $studentFilter == 'tripura' && $user['state'] == 'Tripura'))  {
