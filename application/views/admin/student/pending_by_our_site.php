@@ -130,9 +130,9 @@ function startsWith ($string, $startString)
 
 
                                 ?>
-                                <tr data-class="approveStudents">
+                                <tr data-class="pendingStudents">
  
-                                    <td  data-class="approveStudents"><?=$scount?></td>
+                                    <td  data-class="pendingStudents"><?=$scount?></td>
                                     <?php if($this->session->userdata('role') == 'admin'){ ?>
                                         <td class="icon_action">
 
