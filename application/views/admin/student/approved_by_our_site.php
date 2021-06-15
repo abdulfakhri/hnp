@@ -22,33 +22,7 @@
         background-color: yellow !important;
     }
 </style>
-<?php
-$assignedStudentArray = array();
-foreach ($assignedTaskList as $assignedStudent) {
-    $assignedStudentArray[$assignedStudent['stu_id']] = $assignedStudent;
-}
-$assignedTaskList = $assignedStudentArray;
 
-$assignedStudentArray1 = array();
-foreach ($assignedTaskListPending as $assignedStudent1) {
-    $assignedStudentArray1[$assignedStuden1t['stu_id']] = $assignedStudent1;
-}
-$assignedTaskListPending = $assignedStudentArray1;
-
-
-$assignedStudentArray2 = array();
-foreach ($assignedTaskListComplete as $assignedStudent2) {
-    $assignedStudentArray2[$assignedStudent2['stu_id']] = $assignedStudent2;
-}
-$assignedTaskListComplete = $assignedStudentArray2;
-
-function startsWith ($string, $startString)
-{
-    $len = strlen($startString);
-    return (substr($string, 0, $len) === $startString);
-}
-
-?>
 <div class="row all_stud_table">
         <div class="col-lg-12">
           
@@ -558,7 +532,7 @@ function startsWith ($string, $startString)
                                         <?php echo $user['caste_details']; ?>
                                     </td>
                                   
-                                   <td><?php echo isset($studentStatus[$user['student_id']]['Status'])? $studentStatus[$user['student_id']]['Status'] : "Pending From Our Site"?></td>
+                                   <td>Approve By Our Site</td>
                                 </tr>
                             <?php } ?>
                         <?php endforeach //user foreach ended ?>
