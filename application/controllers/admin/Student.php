@@ -1041,8 +1041,8 @@ class Student extends CI_Controller {
                 'agent_name'=>$_POST['agent_name'],
                 'bank_name'=>$_POST['bank_name'],
                 
-                'ifsc_code'=>$_POST['ifsc_code'],
-                'bank_name'=>$_POST['bank_name']
+                'ifsc_code'=>$_POST['ifsc_code']
+               
                 
                 
             );
