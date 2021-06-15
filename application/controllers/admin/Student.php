@@ -432,7 +432,7 @@ class Student extends CI_Controller {
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
         $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->pending_by_our_site();
+        $data['users'] = $this->common_model->reject_by_our_site();
         $data['studentStatus'] = $finalStudentStatus;
         $data['country'] = $this->common_model->select('country');
         $data['count'] = $this->common_model->get_user_total();
