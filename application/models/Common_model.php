@@ -580,6 +580,53 @@ function approved_by_college_site(){
 
 
 
+function approved_by_nsp_site(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('student_status','approved_by_nsp');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+  
+    function pending_by_nsp_site(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('student_status','Pending');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+    function defect_by_nsp_site(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('student_status','defect_by_nsp');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+
+     function reject_by_nsp_site(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('student_status','nsp_reject');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+
+      function students_total_nsp_site(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
 
 
 

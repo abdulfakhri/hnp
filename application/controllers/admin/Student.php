@@ -399,6 +399,7 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/pending_by_our_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
+    
      public function  defect_by_our_site(){ 
         $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
