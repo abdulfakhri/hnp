@@ -430,6 +430,16 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
+    function get_all_deleted_students(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NOT NULL or is_deleted=1');
+        //$this->db->where('is_deleted',NULL);
+        $this->db->order_by('student_id','ASC');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
 
     function get_all_students_bank_id($yr,$st,$caste,$status){
        
@@ -465,6 +475,23 @@ class Common_model extends CI_Model {
         $this->db->from('students');
         $this->db->where('is_deleted IS NULL or is_deleted <> 1');
         $this->db->where('year',2020);
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+       function students_2020(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('year',2020);
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+      function students_total(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
         $query = $this->db->get();
         $query = $query->result_array();  
         return $query;
