@@ -479,15 +479,7 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
-       function students_2020(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where('year',2020);
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
+      
       function students_total(){
         $this->db->select('*');
         $this->db->from('students');
