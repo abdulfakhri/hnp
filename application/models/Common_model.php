@@ -508,7 +508,17 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
-      
+
+     function reject_by_our_site(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('student_status','reject_by_our_site');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+
       function students_total(){
         $this->db->select('*');
         $this->db->from('students');
