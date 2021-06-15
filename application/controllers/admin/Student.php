@@ -356,8 +356,7 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/total_student_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
-    public function  approved_by_our_site()
-    { 
+    public function  approved_by_our_site(){ 
         $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
             $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
