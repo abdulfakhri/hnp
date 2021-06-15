@@ -440,6 +440,17 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
+   
+    function get_all_deleted_users(){
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('is_deleted',1);
+        $this->db->where('is_deleted',NULL);
+        $this->db->order_by('student_id','ASC');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
 
     function get_all_students_bank_id($yr,$st,$caste,$status){
        

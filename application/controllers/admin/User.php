@@ -138,6 +138,17 @@ class User extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/user/users', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
+    
+      public function deleted_user_list()
+    {
+	 	$data['page_title'] = 'All Registered Users';
+        $data['users'] = $this->common_model->get_all_user();
+        $data['country'] = $this->common_model->select('country');
+        $data['count'] = $this->common_model->get_user_total();
+        $data['main_content'] = $this->load->view('admin/user/deleted_users', $data, TRUE);
+        $this->load->view('admin/index', $data);
+    }
+
 
     // view user data
 
