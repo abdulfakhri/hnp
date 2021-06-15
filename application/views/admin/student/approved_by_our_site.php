@@ -72,8 +72,7 @@ function startsWith ($string, $startString)
                                     aria-hidden="true">×</span> </button>
                     </div>
                 <?php endif ?>
-                <?php  //if (($this->session->userdata('role') == 'admin') || (strpos(current_url(), 'all_tripura_student_list') == false) || (strpos(current_url(), 'all_assam_student_list') == false) ) { ?>
-                <?php //echo 'AAAA'.current_url().strpos(current_url(), 'all_assam_student_list') ; die; ?>
+             
                 <?php if ($this->session->userdata('role') == 'admin'){ ?>
                  
 
@@ -114,23 +113,7 @@ function startsWith ($string, $startString)
                                 $scount++;
                                 $chekVal = '';
                                 ?>
-                                <?php
-                                $chekVal = 'pendingStudents';
-                                if( isset($studentStatus[$user['student_id']]['Status']) && strpos($studentStatus[$user['student_id']]['Status'], 'Reject') !== false){
-                                    $chekVal = 'rejectStudent';
-                                }
-
-                                if( isset($studentStatus[$user['student_id']]['Status']) && strpos($studentStatus[$user['student_id']]['Status'], 'Approved') !== false){
-                                    $chekVal = 'approveStudents';
-                                }
-
-                                if( isset($studentStatus[$user['student_id']]['Status']) && strpos($studentStatus[$user['student_id']]['Status'], 'Defect') !== false){
-                                    $chekVal = 'defectStudents';
-                                }
-
-
-
-                                ?>
+                             
                                 <tr data-class="<?=$chekVal;?>">
 
                                     <td data-class="<?=$chekVal;?>"><?=$scount?></td>
