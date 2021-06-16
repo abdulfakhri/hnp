@@ -6,6 +6,7 @@ class Common_model extends CI_Model {
    parent::__construct();
    $this->load->helper('url');  
    }
+     /////////////////////////////////////////////////////////////////Dashboard Boxes////////////////////////////////////
      function total_students_oursite(){
         $this->db->select('*');
         $this->db->from('students');
@@ -30,7 +31,35 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
-    
+
+     function approved_students_oursite(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('student_status','approved_by_our_site');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+     function approved_students_collegesite(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('student_status','approved_by_college');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+    function approved_students_nspsite(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('student_status','approved_by_nsp');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
   
     //-- insert function
     public function insert($data,$table){
