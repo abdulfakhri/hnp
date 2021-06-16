@@ -190,7 +190,7 @@ function startsWith ($string, $startString)
                                         <?php echo $user['mobile']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $user['account_number']; ?>
+                                        <?php echo $user['bnk_acnt_number']; ?>
                                     </td>
                                      <td>
                                         <?php 
@@ -354,7 +354,7 @@ function startsWith ($string, $startString)
                                         <?php echo $user['mobile']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $user['account_number']; ?>
+                                        <?php echo $user['bnk_acnt_number']; ?>
                                     </td>
                                     <td>
                                         <?php echo $user['course_details']; ?></td>
@@ -537,7 +537,7 @@ function startsWith ($string, $startString)
                                         <?php echo $user['mobile']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $user['account_number']; ?>
+                                        <?php echo $user['bnk_acnt_number']; ?>
                                     </td>
                                     <td>
                                         <?php echo $user['course_details']; ?></td>
@@ -638,7 +638,7 @@ function startsWith ($string, $startString)
 
                                     <td>
                                         <?php //echo $unserlizedData['bnk_acnt_number']." ".$unserlizedData['bnk_acnt_number'];?>
-                                        <?php  echo $maskData ? $user['account_number']: maskSenstiveData($user['account_number']); ?>
+                                        <?php  echo $maskData ? $user['bnk_acnt_number']: maskSenstiveData($user['account_number']); ?>
                                     </td>
                                     <td>
                                         <?php 
@@ -829,7 +829,7 @@ function startsWith ($string, $startString)
 
                                     <td>
                                         <?php //echo $unserlizedData['bnk_acnt_number']." ".$unserlizedData['bnk_acnt_number'];?>
-                                        <?php  echo $maskData ? $user['account_number']: maskSenstiveData($user['account_number']); ?>
+                                        <?php  echo $maskData ? $user['bnk_acnt_number']: maskSenstiveData($user['account_number']); ?>
                                     </td>
                                     <td>
 
