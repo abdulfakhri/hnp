@@ -203,7 +203,7 @@ $nsp_total_array = $clg_approve_array;
                     <div class="bodystate"><!-- <h4><?php echo $studentcount->approvedOurSite; ?></h4> --><!-- <h4><?php echo $studentcount->approvedOurSite;    ?></h4> -->
                         <!-- <h4><?php echo $total_ourSiteStudent_approved   ?></h4> -->
                         <h4><?php //echo $os_approve;?></h4>
-                        <span class=""><a  href="/appOurSite/approved_by_our_site.php" class="btn-primary" >Total Approve </a></span>
+                        <span class=""><a  href="<?php echo base_url('admin/student/') ?>"  class="btn-primary" >Total Approve </a></span>
                     </div>
                 </div>
             </div>
