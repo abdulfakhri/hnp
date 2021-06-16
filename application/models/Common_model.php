@@ -70,10 +70,10 @@ class Common_model extends CI_Model {
         return $query;
     }
      function pending_students_collegesite(){
-        $this->db->select('*');
+         $this->db->select('*');
         $this->db->from('students');
         $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-         $this->db->where('student_status','Pending');
+        $this->db->where('student_status','Pending');
         $query = $this->db->get();
         $query = $query->result_array();  
         return $query;
