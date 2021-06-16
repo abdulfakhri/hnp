@@ -265,7 +265,7 @@ $nsp_total_array = $clg_approve_array;
                         <!-- <h4><?php echo $total_collegeSiteStudent; ?></h4> -->
                         <!-- <h4><?php echo $total_collegeSiteStudent; ?></h4> -->
                         <h4><?php //echo $clg_total; ?></h4>
-                        <span class=""><a  href="/admin/students/total_students_college_site" class="btn-primary">Total Students</a></span>
+                        <span class=""><a  href="/admin/student/total_students_college_site" class="btn-primary">Total Students</a></span>
                     </div>
                 </div>
             </div>
@@ -278,7 +278,7 @@ $nsp_total_array = $clg_approve_array;
                     <div class="bodystate">
                         <!-- <h4><?php echo $studentcount->approvedCollege; ?></h4> -->
                         <h4><?php //echo $clg_approve; ?></h4>
-                         <span class=""><a  href="/admin/students/approved_students_college_site" class="btn-primary">Total Approve </a></span>
+                         <span class=""><a  href="/admin/student/approved_students_college_site" class="btn-primary">Total Approve </a></span>
                        
                     </div>
                 </div>
@@ -294,7 +294,7 @@ $nsp_total_array = $clg_approve_array;
                         <!-- <h4><?php echo $total_collegePendingStudent ?></h4> -->
                         <!-- <h4><?php echo $total_collegePendingStudent ?></h4> -->
                         <h4><?php //echo $clg_pending ?></h4>
-                        <span class=""><a  href="/admin/students/pending_students_college_site" class="btn-primary">Total Pending </a></span>
+                        <span class=""><a  href="/admin/student/pending_students_college_site" class="btn-primary">Total Pending </a></span>
                     </div>
                 </div>
             </div>
@@ -307,7 +307,7 @@ $nsp_total_array = $clg_approve_array;
                     <div class="bodystate">
                         <!-- <h4><?php echo $studentcount->defectCollege; ?></h4> -->
                         <h4><?php //echo $clg_defect; ?></h4>
-                         <span class=""><a  href="/admin/students/defect_students_college_site" class="btn-primary">Total Defect </a></span>
+                         <span class=""><a  href="/admin/student/defect_students_college_site" class="btn-primary">Total Defect </a></span>
                     </div>
                 </div>
             </div>
@@ -321,7 +321,7 @@ $nsp_total_array = $clg_approve_array;
                         <!-- <h4><?php echo $studentcount->rejectCollege; ?></h4> -->
                         <h4><?php //echo $clg_reject; ?></h4>
                         
-                        <span class=""><a  href="/admin/students/reject_students_college_site" class="btn-primary">Total Reject </a></span>
+                        <span class=""><a  href="/admin/student/reject_students_college_site" class="btn-primary">Total Reject </a></span>
                     </div>
                 </div>
             </div>
