@@ -201,18 +201,17 @@ function myFunction() {
       
                                        }else if((!empty($api_fetched_name_cleaned)) and ($account_exists==true) and ($success==true) and($status_code==200) and($message_code=="success")){
       $msg="Not Matched";
-      $stcolor="#ff00ff";
-      $ncolor="blue";
-      $st="<p style=color:".$stcolor.">".$msg."</p>";
-      $final_name="<p style=color:".$ncolor.">".$api_fetched_name."</p>";
-     
-      $status=$final_name."<hr>".$st; 
-        $status=$st;
+      $stcolor="green";
+                                           $ncolor="blue";
+                                           $st="<p style=color:".$stcolor.">".$msg."</p>";
+                                           $final_name="<p style=color:".$ncolor.">".$api_fetched_name."</p>";
+                                          
+                                           $status=$final_name."<hr>".$st; 
       $stu= "Not Verified";
       $query ="UPDATE students SET api_bank_st ='$stu',api_fetched_name ='$api_fetched_name' WHERE student_id='$sid'";
       mysqli_query($conn,$query);
       
-                                       }else if((empty($api_fetched_name_cleaned)==true) and ($account_exists==false) and ($success==false) and($status_code==422) and($message_code=="verification_failed")){
+         }else if((empty($api_fetched_name_cleaned)==true) and ($account_exists==false) and ($success==false) and($status_code==422) and($message_code=="verification_failed")){
       $msg="Not Availble";
       $color="red";
       $st="<p style=color:".$color.">".$msg."</p>";
