@@ -87,6 +87,34 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
+
+    function defect_students_oursite(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('student_status','defect_by_our_site');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+     function defect_students_collegesite(){
+         $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('student_status','defect_by_college');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+    function defect_students_nspsite(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+         $this->db->where('student_status','defect_by_nsp');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
   
     //-- insert function
