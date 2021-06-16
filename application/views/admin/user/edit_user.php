@@ -418,16 +418,6 @@ if(strpos($mystring, $word) !== false){?>
                            <label class="col-md-12" for="example-text">IFSC Code</label>
                             <input type="text" name="ifsc_code" id="ifsc_code" class="form-control" value="<?= $userData->ifsc_code ?>" placeholder="IFSC Code" maxlength="11" minlength="11">
                         </div>
-
-                        <div class="col-sm-12 col-lg-4 col-md-4">
-                           <label class="col-md-12" for="example-text"> Credit</label>
-                            <input type="text" name="credit_amount" id="credit_amount" class="form-control" value="<?= $userData->credit_amount ?>"  placeholder="Credit" >
-                        </div>
-
-                        <div class="col-sm-12 col-lg-4 col-md-4">
-                           <label class="col-md-12" for="example-text">Withdrawal</label>
-                            <input type="text" name="withdraw" id="withdraw" class="form-control" value="<?= $userData->withdraw ?>" placeholder="Withdrawal" maxlength="11" minlength="11">
-                        </div>
                     </div>
 </fieldset>
 
@@ -439,6 +429,17 @@ if(strpos($mystring, $word) !== false){?>
                     <div class="col-sm-6">
                         <label class="col-md-6" for="example-text">Agent Mobile Number</label>
                         <input type="text"  value="<?= $userData->agent_mobile ?>" name="agent_mobile" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">                  
+                    <div class="col-sm-6">
+                      <label class="col-md-6" for="example-text">Credits</label>
+                        <input type="text"  value="" name="credit_amount" class="form-control">
+                    </div> 	
+                    <div class="col-sm-6">
+                        <label class="col-md-6" for="example-text">Withdrawal</label>
+                        <input type="text"  value="" name="withdraw" class="form-control">
+                        <input type="hidden"  value="<?= $userData->account_balance ?>"" name="account_balance" class="form-control">
                     </div>
                 </div>
                 <fieldset>
