@@ -164,7 +164,7 @@ class Student extends CI_Controller {
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
         $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->approved_students_oursite();
+        $data['users'] = $this->common_model-> pending_students_oursite();
          $data['studentStatus'] = $finalStudentStatus;
         $data['country'] = $this->common_model->select('country');
         $data['count'] = $this->common_model->get_user_total();
@@ -186,7 +186,7 @@ class Student extends CI_Controller {
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
         $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->approved_students_collegesite();
+        $data['users'] = $this->common_model->pending_students_collegesite();
          $data['studentStatus'] = $finalStudentStatus;
         $data['country'] = $this->common_model->select('country');
         $data['count'] = $this->common_model->get_user_total();
@@ -208,7 +208,7 @@ class Student extends CI_Controller {
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
         $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->approved_students_nspsite();
+        $data['users'] = $this->common_model->pending_students_nspsite();
          $data['studentStatus'] = $finalStudentStatus;
         $data['country'] = $this->common_model->select('country');
         $data['count'] = $this->common_model->get_user_total();
