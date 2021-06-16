@@ -25,7 +25,7 @@ class Student extends CI_Controller {
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
         $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->total_students_our_site();
+        $data['users'] = $this->dashboard_model->total_students_oursite();
          $data['studentStatus'] = $finalStudentStatus;
         $data['country'] = $this->common_model->select('country');
         $data['count'] = $this->common_model->get_user_total();

@@ -8,7 +8,7 @@ class Common_model extends CI_Model {
    }
     
     
-    function total_students_our_site(){
+    function total_students_oursite(){
         $this->db->select('*');
         $this->db->from('students');
         $this->db->where('is_deleted IS NULL or is_deleted <> 1');
