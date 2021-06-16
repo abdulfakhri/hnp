@@ -32,7 +32,7 @@ class Student extends CI_Controller {
         $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
         $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
         $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/total_student_our_site.php', $data, TRUE);
+        $data['main_content'] = $this->load->view('admin/student/total_student_our_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
  
