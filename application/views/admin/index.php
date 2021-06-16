@@ -79,7 +79,7 @@
             
             <a href="<?php echo base_url('admin/student/student_bank_verifiy') ?>"  class="w3-bar-item w3-button w3-padding"><b>Students Bank Ids</b><span class="glyphicon glyphicon-menu-left"></span> </a>
                         
-            <a href="https://forms.office.com/r/MD2Re6rFXU"  target="_blank" class="w3-bar-item w3-button w3-padding"><b>Note New Ideas</b><span class="glyphicon glyphicon-menu-left"></span> </a>     
+            <a href="https://forms.office.com/r/MD2Re6rFXU"  target="_blank" class="w3-bar-item w3-button w3-padding"><b><span class="glyphicon glyphicon-menu-left"></span>Note New Ideas</b> </a>     
                         
                         
          
@@ -90,7 +90,7 @@
              
              <a href="<?php echo base_url('/restoreEmp/?ak='.$this->session->userdata('id')) ?>" class="w3-bar-item w3-button w3-padding "><span class="glyphicon glyphicon-menu-right"></span>Employee Restore</a>
              <hr>
-              <a href="https://forms.office.com/r/ev6WMfnmps"  target="_blank" class="w3-bar-item w3-button w3-padding"><b>Report an Issues</b><span class="glyphicon glyphicon-menu-left"></span> </a>     
+              <a href="https://forms.office.com/r/ev6WMfnmps"  target="_blank" class="w3-bar-item w3-button w3-padding"><b><span class="glyphicon glyphicon-menu-left"></span>Report an Issues</b> </a>     
             <a href="<?php echo base_url('admin/user/profile/'.$this->session->userdata('id')) ?>" class="w3-bar-item w3-button w3-padding"><span class="glyphicon glyphicon-menu-right"></span><b>Profile</b> </a>
             <a href="<?php echo base_url('auth/logout') ?>" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-menu-right"></span><b>Log Out</b></a><br>
            
