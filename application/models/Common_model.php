@@ -588,16 +588,24 @@ class Common_model extends CI_Model {
         return $query;
     }
 
-    function get_all_students_bank_id(){
+     function get_all_students_bank_id($yr,$st,$caste,$status){
+       
         $this->db->select('*');
         $this->db->from('students');
         $this->db->where('is_deleted IS NULL or is_deleted <> 1');
+        if(!empty($yr) OR !empty($st) OR !empty($caste) OR !empty($status)) {
+            $this->db->where('year', $yr);
+            $this->db->where('state', $st);
+            $this->db->where('caste_details', $caste);
+            $this->db->where('student_status', $status);
+        }
         $this->db->order_by('student_id','ASC');
         $query = $this->db->get();
         $query = $query->result_array();  
         return $query;
+       
+      
     }
-    
     //function get_all_students_filt($st,$cs,$yr,$lim){
     function get_all_students_filt($st){
         $this->db->select('*');
