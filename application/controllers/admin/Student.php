@@ -276,40 +276,26 @@ class Student extends CI_Controller {
 
     // all student view function
 
-   // public function student_bank_verifiy($yr,$st,$caste){ 
     public function student_bank_verifiy(){ 
-        //filter_year=2020&filter_state=Tripura&filter_cast=SC&filter_status=approve_by_our_site&filter=
-        
-        $yr=$_GET['filter_year'];
-        $st=$_GET['filter_state'];
-        $caste=$_GET['filter_caste'];
-        $status=$_GET['filter_status'];
-
-          //$st=$state;
-            /////////////////////////////////////////////////////
-
-            $finalStudentStatus = array();
-            foreach ($this->common_model->all_studentStatus() as $key => $value) {
-                $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-                $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-                $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-                $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-            }
-            $current_EmpId = $this->session->userdata('id');
-            //$data['studentFilter'] = 'Tripura';
-            $data['page_title'] = 'All Registered Students';
-            $data['users'] = $this->common_model->get_all_students_bank_id($yr,$st,$caste,$status);
-            $data['studentStatus'] = $finalStudentStatus;
-            $data['country'] = $this->common_model->select('country');
-            $data['count'] = $this->common_model->get_user_total();
-            $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-            $data['main_content'] = $this->load->view('admin/student/all_student_bank', $data, TRUE);
-            $this->load->view('admin/index', $data);
-
-            /////////////////////////////////////////////////////////////
-
-     
-       
+        $finalStudentStatus = array();
+        foreach ($this->common_model->all_studentStatus() as $key => $value) {
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+        }
+        $current_EmpId = $this->session->userdata('id');
+	 	$data['page_title'] = 'All Registered Students';
+        $data['studentFilter'] = 'all';
+        $data['users'] = $this->common_model->get_all_students();
+        $data['studentStatus'] = $finalStudentStatus;
+        $data['country'] = $this->common_model->select('country');
+        $data['count'] = $this->common_model->get_user_total();
+        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
+        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
+        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
+        $data['main_content'] = $this->load->view('admin/student/all_student_bank', $data, TRUE);
+        $this->load->view('admin/index', $data);
     }
     
      public function all_student_list()
@@ -317,14 +303,14 @@ class Student extends CI_Controller {
         $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
             $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
             $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
             $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
         }
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
         $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->get_all_students();
+        $data['users'] = $this->common_model->get_all_students_bank_id();
         $data['studentStatus'] = $finalStudentStatus;
         $data['country'] = $this->common_model->select('country');
         $data['count'] = $this->common_model->get_user_total();
@@ -332,387 +318,6 @@ class Student extends CI_Controller {
         $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
         $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
         $data['main_content'] = $this->load->view('admin/student/all_student', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-      public function  students_total_site()
-    { 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->students_total();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/total_student_site', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-    public function  approved_by_our_site(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->approved_by_our_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/approved_by_our_site', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-
-     public function  pending_by_our_site(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->pending_by_our_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/pending_by_our_site', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-
-     public function  defect_by_our_site(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->defect_by_our_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/defect_by_our_site', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-    
-    public function  reject_by_our_site(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->reject_by_our_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/reject_by_our_site', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-
-
-
-
-
-     public function  students_total_college_site()
-    { 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->students_total_college_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/total_student_college_site', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-    public function  approved_by_college_site(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->approved_by_college_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/approved_by_college_site', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-
-     public function  pending_by_college_site(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->pending_by_college_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/pending_by_college_site
-        ', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-
-     public function  defect_by_college_site(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->defect_by_college_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/defect_by_college_site', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-    
-    public function reject_by_college_site(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->reject_by_college_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/reject_by_college_site', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-     
-     public function  students_total_nsp_site(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->students_total_nsp_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/total_student_nsp_site', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-
-
-    public function  approved_by_nsp_site(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->approved_by_nsp_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/approved_by_nsp_site', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-
-     public function  pending_by_nsp_site(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->pending_by_nsp_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/pending_by_nsp_site
-        ', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-
-     public function  defect_by_nsp_site(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->defect_by_nsp_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/defect_by_nsp_site', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-    
-    public function reject_by_nsp_site(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->reject_by_nsp_site();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/reject_by_nsp_site', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-  
-    public function deleted_student_list(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->get_all_deleted_students();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/all_student_delete', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-
-    public function all_student_up()
-    { 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->get_all_students();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/all_student_up', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
 
@@ -1042,12 +647,7 @@ class Student extends CI_Controller {
                 'bank_name'=>$_POST['bank_name'],
                 
                 'ifsc_code'=>$_POST['ifsc_code'],
-                'bank_name'=>$_POST['bank_name'],
-
-                //'credit_amount'=>$_POST['credit_amount'],
-                //'withdraw'=>$_POST['withdraw'],
-                //'student_status'=>$_POST['student_status'],
-                //'account_balance'=>(($_POST['account_balance']+$_POST['credit_amount'])-($_POST['withdraw']))
+                'bank_name'=>$_POST['bank_name']
                 
                 
             );
