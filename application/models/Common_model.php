@@ -570,9 +570,9 @@ class Common_model extends CI_Model {
     }
 
      function get_deleted_students(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted = 1');
+        $this->db->select('SELCT * FROM students WHERE is_deleted=1');
+        //$this->db->from('students');
+        //$this->db->where('is_deleted1');
         //$this->db->where('is_deleted',1);
         //$this->db->where('is_deleted',NULL);
         $this->db->order_by('student_id','ASC');
