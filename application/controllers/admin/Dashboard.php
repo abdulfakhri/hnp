@@ -10,7 +10,7 @@ class Dashboard extends CI_Controller {
         parent::__construct();
         check_login_user();
         $this->load->model('common_model');
-       
+       $this->load->model('dashboard_model');
     }
     
   
