@@ -580,8 +580,8 @@ class Common_model extends CI_Model {
     }
      function get_deleted_users(){
         $this->db->select('*');
-        $this->db->from('user WHERE is_deleted=1');
-        //$this->db->where('is_deleted',1);
+        //$this->db->from('user WHERE is_deleted=1');
+        $this->db->where('is_deleted',1);
         //$this->db->where('is_deleted IS NOT NULL');
         $query = $this->db->get();
         $query = $query->result_array();  
