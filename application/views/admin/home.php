@@ -339,7 +339,7 @@ $nsp_total_array = $clg_approve_array;
                                 <div class="bodystate">
                                     <!-- <h4><?php echo $total_NSPSiteStudent; ?></h4> -->
                                     <h4><?php //echo $nsp_total; ?></h4>
-                                     <span class=""><a  href="/appOurSite/totalstudent_by_our_site.php " class="btn-primary">Total Students</a></span>
+                                     <span class=""><a  href="/admin/student/total_students_nsp_site" class="btn-primary">Total Students</a></span>
                                 </div>
                             </div>
                         </div>
@@ -354,7 +354,7 @@ $nsp_total_array = $clg_approve_array;
                             <h4><?php //echo $nsp_approve; ?></h4>
                             <!-- <h4><?php echo $studentcount->approvedNsp; ?></h4> -->
                              <!-- <h4><?php echo $studentcount->approvedCollege; ?></h4> -->
-                            <span class=""><a  href="/appOurSite/approved_by_nsp.php" class="btn-primary">Total Approve</a></span>
+                            <span class=""><a  href="/admin/student/approved_students_nsp_site" class="btn-primary">Total Approve</a></span>
                         </div>
                     </div>
                 </div>
@@ -368,7 +368,7 @@ $nsp_total_array = $clg_approve_array;
                         <div class="bodystate">
                             <!-- <h4><?php echo $total_NSPPendingStudent ?></h4> -->
                             <h4><?php //echo $nsp_pending ?></h4>
-                             <span class=""><a  href="/appOurSite/pending_by_nsp.php" class="btn-primary">Total Pending</a></span>
+                             <span class=""><a  href="/admin/student/pending_students_nsp_site" class="btn-primary">Total Pending</a></span>
                         </div>
                     </div>
                 </div>
@@ -382,7 +382,7 @@ $nsp_total_array = $clg_approve_array;
                         <div class="bodystate">
                             <h4><?php //echo $nsp_defect; ?></h4>
                             <!--  <i class="ti-user"></i><h4><?php echo $studentcount->defectNsp; ?></h4> -->
-                             <span class=""><a  href="/appOurSite/defect_by_nsp.php" class="btn-primary">Total Defect </a></span>
+                             <span class=""><a  href="/admin/student/defect_students_nsp_site" class="btn-primary">Total Defect </a></span>
                         </div>
                     </div>
                 </div>
@@ -396,7 +396,7 @@ $nsp_total_array = $clg_approve_array;
                         <div class="bodystate">
                             <h4><?php //echo $nsp_reject_count ?></h4>
                             <!-- <h4><?php echo $studentcount->rejectNsp; ?></h4> -->
-                            <span class=""><a  href="/appOurSite/nsp_reject.php" class="btn-primary">Total Reject </a></span>
+                            <span class=""><a  href="/admin/student/reject_students_nsp_site" class="btn-primary">Total Reject </a></span>
                         </div>
                     </div>
                 </div>
