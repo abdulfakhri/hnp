@@ -284,7 +284,7 @@ function startsWith ($string, $startString)
                                         <?php echo $user['caste_details']; ?>
                                     </td>
                                    
-                                 <td>Pending By Our Site</td>
+                                 <td>Pending By NSP Site</td>
 
                                 </tr>
                             <?php } else  if(($user['uploadedBy'] == $this->session->userdata('id') || $this->session->userdata('role') == 'admin') && ($user['is_deleted'] != 1 && $studentFilter == 'tripura' && $user['state'] == 'Tripura'))  {
