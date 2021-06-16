@@ -430,55 +430,28 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
-    function get_all_deleted_students(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted',1);
-        $this->db->where('is_deleted',NULL);
-        $this->db->order_by('student_id','ASC');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-   
-    function get_all_deleted_users(){
-        $this->db->select('*');
-        $this->db->from('user');
-        $this->db->where('is_deleted',1);
-        $this->db->where('is_deleted',NULL);
-        $this->db->order_by('student_id','ASC');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-
-    function get_all_students_bank_id($yr,$st,$caste,$status){
-       
+    function get_all_students_bank_id(){
         $this->db->select('*');
         $this->db->from('students');
         $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        if(!empty($yr) OR !empty($st) OR !empty($caste) OR !empty($status)) {
-            $this->db->where('year', $yr);
-            $this->db->where('state', $st);
-            $this->db->where('caste_details', $caste);
-            $this->db->where('student_status', $status);
-        }
         $this->db->order_by('student_id','ASC');
         $query = $this->db->get();
         $query = $query->result_array();  
         return $query;
-       
-      
     }
-    function students_bank_id(){
-
-            $this->db->select('*');
-            $this->db->from('students');
-            $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-            $this->db->order_by('student_id','ASC');
-            $query = $this->db->get();
-            $query = $query->result_array();  
-            return $query;
+    
+    //function get_all_students_filt($st,$cs,$yr,$lim){
+    function get_all_students_filt($st){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('state',$st);
+      //  $this->db->where('caste',$cs);
+       // $this->db->where('education_details_year',$yr);
+      //  $this->db->order_by('student_id','DESC');
+      //  $this->db->limit($lim);
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
     }
 
     function students_2020(){
@@ -490,187 +463,6 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
-
-     function approved_by_our_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where('student_status','approved_by_our_site');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-  
-    function pending_by_our_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where('student_status','Pending');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-    function defect_by_our_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where('student_status','defect_by_our_site');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-
-     function reject_by_our_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where('student_status','reject_by_our_site');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-
-      function students_total(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-
-
-function approved_by_college_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where('student_status','approved_by_college');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-  
-    function pending_by_college_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where('student_status','Pending');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-    function defect_by_college_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where('student_status','defect_by_college');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-
-     function reject_by_college_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where('student_status','rejected_by_college');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-
-      function students_total_college_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-
-
-
-
-function approved_by_nsp_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where('student_status','approved_by_nsp');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-  
-    function pending_by_nsp_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where('student_status','Pending');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-    function defect_by_nsp_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where('student_status','defect_by_nsp');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-
-     function reject_by_nsp_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $this->db->where('student_status','nsp_reject');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-
-      function students_total_nsp_site(){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     function students_tripura(){
         $this->db->select('*');
         $this->db->from('students');
@@ -711,21 +503,7 @@ function approved_by_nsp_site(){
         $this->db->select('*');
         $this->db->from('students');
         $this->db->where('is_deleted IS NULL or is_deleted <> 1');
-       // $this->db->where('year ="Pending"');
         $this->db->where('year',"Pending");
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-    }
-    //function get_all_students_filt($st,$cs,$yr,$lim){
-    function get_all_students_filt($st){
-        $this->db->select('*');
-        $this->db->from('students');
-        $this->db->where('state',$st);
-      //  $this->db->where('caste',$cs);
-       // $this->db->where('education_details_year',$yr);
-      //  $this->db->order_by('student_id','DESC');
-      //  $this->db->limit($lim);
         $query = $this->db->get();
         $query = $query->result_array();  
         return $query;
@@ -1019,31 +797,7 @@ function approved_by_nsp_site(){
      }
      */
 
-     //get chat history of 2 employees
-
-     function getChatHistory($to,$from){
-
-        //select * from `chat` where `to` = 'super_admin_admin1' and `from` = 'abhijit_sarkar_abc' and `sender_deleted` = 'no' || `to` = 'abhijit_sarkar_abc' and `from` = 'super_admin_admin1' and `receiver_deleted` = 'no' order by `id` desc 
-
-        //select * ,chat_vpb_users.photo from `chat` INNER JOIN `chat_vpb_users` ON chat.to = chat_vpb_users.username where `to` = 'super_admin_admin1' and `from` = 'abhijit_sarkar_abc' and `sender_deleted` = 'no' || `to` = 'abhijit_sarkar_abc' and `from` = 'super_admin_admin1' and `receiver_deleted` = 'no' order by `chat`.id desc
-
-        //select * from chat inner join chat_vpb_users where chat.to=chat_vpb_users.username or chat.from=chat_vpb_users.username
-
-
-        $this->db->select('*');
-        $this->db->from('chat');
-        $this->db->join('chat_vpb_users', 'chat.from = `chat_vpb_users`.username','inner');
-        $this->db->where("`to` = '".$to."' and `from` = '".$from."' and `sender_deleted` = 'no' || `to` = '".$from."' and `from` = '".$to."' and `receiver_deleted` = 'no' order by chat.`id` desc"); 
-
-        $query = $this->db->get();
-        $query = $query->result_array();  
-        return $query;
-
-
-
-
-     }
-    //-- image upload function with resize option
+ 
 
     function upload_image($max_size,$fieldName){
         
