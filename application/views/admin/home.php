@@ -189,7 +189,7 @@ $nsp_total_array = $clg_approve_array;
                         <!-- <h4><?php echo $studentcount->total; ?></h4> -->
                         <!-- <h4><?php echo $total_ourSiteStudent; ?></h4> -->
                         <h4><?php //echo $os_total; ?></h4>
-                       <a  href="/appOurSite/totalstudent_by_our_site.php" class="btn-primary" >Total Students</a>
+                       <a  href="/admin/student/total_students_our_site" class="btn-primary" >Total Students</a>
                     </div>
                 </div>
             </div>
