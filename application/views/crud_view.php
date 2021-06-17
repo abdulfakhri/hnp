@@ -115,7 +115,7 @@
            if(firstName != '' && lastName != '')  
            {  
                 $.ajax({  
-                     url:"<?php echo base_url() . 'crud/user_action'?>",  
+                     url:"<?php echo base_url() . '/crud/user_action'?>",  
                      method:'POST',  
                      data:new FormData(this),  
                      contentType:false,  
