@@ -19,7 +19,7 @@
            foreach($fetch_data as $row)  
            {  
                 $sub_array = array();  
-                $sub_array[] = '<img src="'.base_url().'upload/'.$row->image.'" class="img-thumbnail" width="50" height="35" />';  
+                //$sub_array[] = '<img src="'.base_url().'upload/'.$row->image.'" class="img-thumbnail" width="50" height="35" />';  
                 $sub_array[] = $row->first_name;  
                 $sub_array[] = $row->last_name;  
                 $sub_array[] = '<button type="button" name="update" id="'.$row->id.'" class="btn btn-warning btn-xs update">Update</button>';  
