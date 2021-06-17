@@ -633,30 +633,7 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
     }
 
-    // all student view function
-/*
-    public function student_bank_verifiy(){ 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-	 	$data['page_title'] = 'All Registered Students';
-        $data['studentFilter'] = 'all';
-        $data['users'] = $this->common_model->get_all_students();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListPending'] =  $this->common_model->get_EmployeeWith_Allstudents_Pending($current_EmpId,'emp_task_assigned');
-        $data['assignedTaskListComplete'] =  $this->common_model->get_EmployeeWith_Allstudents_Completed($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/all_student_bank', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-    */
+
     public function all_student_list()
     { 
         $finalStudentStatus = array();
@@ -847,52 +824,7 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
     }
 
-    // all tripura student view function
-
-    public function all_tripura_student_list()
-    { 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-        $data['studentFilter'] = 'tripura';
-        $data['page_title'] = 'All Registered Students';
-        $data['users'] = $this->common_model->get_all_students();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/all_student', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-
-    // all student view function
-
-    public function all_assam_student_list()
-    { 
-        $finalStudentStatus = array();
-        foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
-        }
-        $current_EmpId = $this->session->userdata('id');
-        $data['studentFilter'] = 'assam';
-        $data['page_title'] = 'All Registered Students';
-        $data['users'] = $this->common_model->get_all_students();
-        $data['studentStatus'] = $finalStudentStatus;
-        $data['country'] = $this->common_model->select('country');
-        $data['count'] = $this->common_model->get_user_total();
-        $data['assignedTaskList'] =  $this->common_model->get_EmployeeWith_Allstudents($current_EmpId,'emp_task_assigned');
-        $data['main_content'] = $this->load->view('admin/student/all_student', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
-
+   
     // single student view function
 
     public function student_view_data($id)
@@ -1295,11 +1227,11 @@ class Student extends CI_Controller {
         if(empty($checkStatusIdExist)){
 
             $data = $this->security->xss_clean($data);
-            $statusData = $this->common_model->insert($data, 'student_status_data');
+            $statusData = $this->common_model->insert($data, 'students');
         } else {
 
-            $this->common_model->delete($checkStatusIdExist->id,'student_status_data'); 
-            $statusData = $this->common_model->insert($data, 'student_status_data');
+            $this->common_model->delete($checkStatusIdExist->id,'students'); 
+            $statusData = $this->common_model->insert($data, 'students');
         }
 
         $this->session->set_flashdata('msg', 'Student is '.$_POST['student_status']);
@@ -1433,31 +1365,6 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
     }
 
-    /*
-    //-- active user
-    public function active($id) 
-    {
-        $data = array(
-            'status' => 1
-        );
-        $data = $this->security->xss_clean($data);
-        $this->common_model->update($data, $id,'student');
-        $this->session->set_flashdata('msg', 'User active Successfully');
-        redirect(base_url('admin/student/all_user_list'));
-    }
-
-    //-- deactive user
-    public function deactive($id) 
-    {
-        $data = array(
-            'status' => 0
-        );
-        $data = $this->security->xss_clean($data);
-        $this->common_model->update($data, $id,'student');
-        $this->session->set_flashdata('msg', 'User deactive Successfully');
-        redirect(base_url('admin/student/all_user_list'));
-    }
-*/
     //-- delete user
     public function stu_delete($id)
     {
@@ -1549,60 +1456,6 @@ class Student extends CI_Controller {
         redirect(base_url('admin/dashboard'));
     }
 
-/*
-    public function power()
-    {   
-		$data['page_title'] = 'Add User Role';
-        $data['powers'] = $this->common_model->get_all_power('user_power');
-        $data['main_content'] = $this->load->view('admin/student/user_power', $data, TRUE);
-        $this->load->view('admin/index', $data);
-    }
 
-    //-- add user power
-    public function add_power()
-    {   
-        if (isset($_POST)) {
-            $data = array(
-                'name' => $_POST['name'],
-                'power_id' => $_POST['power_id']
-            );
-            $data = $this->security->xss_clean($data);
-            
-            //-- check duplicate power id
-            $power = $this->common_model->check_exist_power($_POST['power_id']);
-            if (empty($power)) {
-                $user_id = $this->common_model->insert($data, 'user_power');
-                $this->session->set_flashdata('msg', 'Power added Successfully');
-            } else {
-                $this->session->set_flashdata('error_msg', 'Power id already exist, try another one');
-            }
-            redirect(base_url('admin/student/power'));
-        }
-        
-    }
-
-    //--update user power
-    public function update_power()
-    {   
-        if (isset($_POST)) {
-            $data = array(
-                'name' => $_POST['name']
-            );
-            $data = $this->security->xss_clean($data);
-            
-            $this->session->set_flashdata('msg', 'Power updated Successfully');
-            $user_id = $this->common_model->edit_option($data, $_POST['id'], 'user_power');
-            redirect(base_url('admin/student/power'));
-        }
-        
-    }
-
-    public function delete_power($id)
-    {
-        $this->common_model->delete($id,'user_power'); 
-        $this->session->set_flashdata('msg', 'Power deleted Successfully');
-        redirect(base_url('admin/student/power'));
-    }
-    */
 
 }

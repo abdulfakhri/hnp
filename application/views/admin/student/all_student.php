@@ -104,7 +104,8 @@ function startsWith ($string, $startString)
                         <?php
                         $all_scount = $all_assam_stu = $all_tripura_stu = 0;
                         foreach ($users as $user):
-                            $unserlizedData = unserialize($user['student_uploaded_data']);
+                            //$unserlizedData = unserialize($user['student_uploaded_data']);
+                             $unserlizedData=$user;
                             /*
                             * todo: add control condition  from employee to admin
                             */
@@ -890,7 +891,7 @@ function startsWith ($string, $startString)
         var table = $('#studentAllTable').DataTable({
             dom: 'Blfrtip',
             "pageLength": 10,
-            responsive: true,
+             responsive: true,
             "lengthChange": true,
             "lengthMenu": [[10, 25, 50,75,100,500, -1], [10, 25, 50,75,100,500, "All"]],
             "oSearch": { "sSearch": searchString },
@@ -901,6 +902,7 @@ function startsWith ($string, $startString)
 
         });
 
+        
         $(document).on('click', '.remarksSection p' , function() {
             $(this).parent().find('#remarkModal').modal('show');
         });
