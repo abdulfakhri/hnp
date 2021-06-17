@@ -371,8 +371,8 @@ class Common_model extends CI_Model {
     function single_studentStatus($id)
     {
         $this->db->select();
-        $this->db->from('students');
-        $this->db->order_by('student_id','ASC');
+        $this->db->from('student_status_data');
+        $this->db->order_by('id','ASC');
         $this->db->where('student_id',$id);
         $query = $this->db->get();
         $query = $query->result_array();  
@@ -383,8 +383,8 @@ class Common_model extends CI_Model {
     function all_studentStatus()
     {
         $this->db->select();
-        $this->db->from('students');
-        $this->db->order_by('student_id','ASC');
+        $this->db->from('student_status_data');
+        $this->db->order_by('id','ASC');
         $query = $this->db->get();
         $query = $query->result_array();  
         return $query;
@@ -442,7 +442,7 @@ class Common_model extends CI_Model {
             return false;
         }
         $this->db->select('*');
-        $this->db->from('students');
+        $this->db->from('student_data');
         $this->db->where($columnName, $dataValue); 
         $this->db->where('student_data.is_deleted',NULL);
         $this->db->limit(1);
@@ -513,7 +513,18 @@ class Common_model extends CI_Model {
         return $query;
     }
 
-    
+    //-- get single user info
+    /*
+    function get_single_student_info($id) {
+        
+        $this->db->select('u.*');
+        $this->db->from('students u');
+        $this->db->where('u.student_id',$id);
+        $query = $this->db->get();
+        $query = $query->row();  
+        return $query;
+    }
+    */
      function get_single_student_info($id) {
         
         $this->db->select('*');
@@ -595,7 +606,19 @@ class Common_model extends CI_Model {
        
       
     }
- 
+    //function get_all_students_filt($st,$cs,$yr,$lim){
+    function get_all_students_filt($st){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('state',$st);
+      //  $this->db->where('caste',$cs);
+       // $this->db->where('education_details_year',$yr);
+      //  $this->db->order_by('student_id','DESC');
+      //  $this->db->limit($lim);
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
 
     function students_2020(){
         $this->db->select('*');
@@ -651,8 +674,41 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
-    
-    
+    /*
+    function get_all_students_for(){
+        $this->db->select('u.*');
+        $this->db->from('student_data u');
+        $this->db->where('u.is_deleted',NULL);
+        $this->db->order_by('u.student_id','DESC');
+        $this->db->limit(2);
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+    */
+    // select unassigned students
+      function get_all_students_for(){
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('is_deleted',NULL);
+        $this->db->order_by('student_id','DESC');
+        $this->db->limit(2);
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+      }
+      /*
+       function get_unassigned_students(){
+        $this->db->select('u.*');
+        $this->db->from('student_data u');
+        $this->db->order_by('u.student_id','DESC');
+        $this->db->where('u.is_assigned IS NULL AND is_deleted IS NULL or is_deleted <> 1');
+        $this->db->where('u.is_assigned',NULL);
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+    */
     function get_unassigned_students(){
         $this->db->select('u.*');
         $this->db->from('students u');
@@ -674,6 +730,41 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     }
+
+
+//-- get the banks ids
+     function get_all_students_bank_ids(){
+        $this->db->select('u.*');
+        $this->db->from('student_bank_ids u');
+        $this->db->order_by('u.id','DESC');
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+//--- get single bank Id
+
+    function get_single_bank_id($id){
+        $this->db->select('u.*');
+        $this->db->from('student_bank_ids u');
+        $this->db->where('u.student_id',$id);
+        $query = $this->db->get();
+        $query = $query->row();  
+        return $query;
+    }
+
+
+//--- get single bank Id
+
+    function get_single_studentStatus_id($id){
+        $this->db->select('*');
+        $this->db->from('student_status_data');
+        $this->db->where('student_id',$id);
+        $query = $this->db->get();
+        $query = $query->row();  
+        return $query;
+    }
+
+// --- get modified history
 
     function get_modfication_historyData($id,$ftype){
 
@@ -726,13 +817,121 @@ class Common_model extends CI_Model {
         return $query;
     }
 
+      //-- count active, inactive and total user
+    function get_students_total(){
+        // $this->db->select('*');
+        $this->db->select('count(*) as total');
+        $this->db->where('`is_deleted` IS NULL or `is_deleted` <> 1');
+        $this->db->select('((SELECT COUNT(student_id) FROM students WHERE `student_id` IN (SELECT student_id FROM student_status_data) AND `is_deleted` IS NULL or `is_deleted` <> 1)) AS submittedStudent',TRUE);
+          
+          /*
+       $this->db->select('((SELECT student_id FROM student_status_data) AND `is_deleted` IS NULL or `is_deleted` <> 1)) AS submittedStudent',TRUE);
+       */
+       $this->db->select('(SELECT COUNT(student_id) 
+                            FROM student_data 
+                            WHERE student_id NOT IN (SELECT student_id FROM student_status_data)  AND is_deleted IS NULL or is_deleted <> 1
+                            ) AS pendingStudent',TRUE);
+        $this->db->select('(SELECT COUNT(student_id) 
+                            FROM student_data 
+                            WHERE student_id NOT IN (SELECT student_id FROM student_status_data)  AND is_deleted IS NULL or is_deleted <> 1
+                            ) AS pendingStudent',TRUE);
+        // for college site
+
+        $this->db->select('(SELECT count(*) FROM `students` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%pending_by_college%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS pendingCollege',TRUE);
+
+        $this->db->select('(SELECT count(*) FROM `student_data` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%defect_by_college%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS defectCollege',TRUE);
+
+
+        $this->db->select('(SELECT count(*) FROM `student_data` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%approved_by_college%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS approvedCollege',TRUE);
+
+
+        $this->db->select('(SELECT count(*) FROM `student_data` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%college_reject%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS rejectCollege',TRUE);
+
+        // for nsp site
+
+        $this->db->select('(SELECT count(*) FROM `student_data` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%pending_by_nsp%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS pendingNsp',TRUE);
+
+        $this->db->select('(SELECT count(*) FROM `student_data` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%defect_by_nsp%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS defectNsp',TRUE);
+
+        $this->db->select('(SELECT count(*) FROM `student_data` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%approved_by_nsp%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS approvedNsp',TRUE);
+
+        $this->db->select('(SELECT count(*) FROM `student_data` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%nsp_reject%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS rejectNsp',TRUE);
+         /*
+        $this->db->select('((SELECT COUNT(student_id) FROM `students` WHERE `student_id` IN (SELECT student_id FROM student_status_data) AND `is_deleted` IS NULL or `is_deleted` <> 1)) AS submittedStudent',TRUE);
+
+        $this->db->select('(SELECT COUNT(student_id) 
+                            FROM students 
+                            WHERE student_id NOT IN (SELECT student_id FROM student_status_data)  AND is_deleted IS NULL or is_deleted <> 1
+                            ) AS pendingStudent',TRUE);
+        // for college site
+
+        $this->db->select('(SELECT count(*) FROM `students` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%pending_by_college%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS pendingCollege',TRUE);
+
+        $this->db->select('(SELECT count(*) FROM `students` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%defect_by_college%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS defectCollege',TRUE);
+
+
+        $this->db->select('(SELECT count(*) FROM `students` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%approved_by_college%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS approvedCollege',TRUE);
+
+
+        $this->db->select('(SELECT count(*) FROM `students` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%college_reject%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS rejectCollege',TRUE);
+
+        // for nsp site
+
+        $this->db->select('(SELECT count(*) FROM `students` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%pending_by_nsp%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS pendingNsp',TRUE);
+
+        $this->db->select('(SELECT count(*) FROM `students` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%defect_by_nsp%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS defectNsp',TRUE);
+
+        $this->db->select('(SELECT count(*) FROM `students` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%approved_by_nsp%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS approvedNsp',TRUE);
+
+        $this->db->select('(SELECT count(*) FROM `students` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%nsp_reject%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS rejectNsp',TRUE);
+        */
+        // for our site section 
+
+        /*
+            - approved_by_our_site
+            - pending_by_our_site
+            - defect_by_our_site
+            - reject_by_our_site
+        */
+
+          $this->db->select('(SELECT count(*) FROM `student_data` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%pending_by_our_site%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS pendingOurSite',TRUE);
+
+        $this->db->select('(SELECT count(*) FROM `student_data` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%defect_by_our_site%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS defectOurSite',TRUE);
+
+        $this->db->select('(SELECT count(*) FROM `student_data` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%approved_by_our_site%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS approvedOurSite',TRUE);
+
+        $this->db->select('(SELECT count(*) FROM `student_data` WHERE `student_id` IN (SELECT `student_id` FROM `student_status_data` WHERE `student_status` LIKE "%reject_by_our_site%") AND `is_deleted` IS NULL or `is_deleted` <> 1) AS rejectOurSite',TRUE);
+
+
+        $this->db->from('students');
+        $query = $this->db->get();
+        $query = $query->row();  
+        return $query;
+    }
+
+  //-- get Our site Pending , Active
+  /*
+    function get_Oursite_student_details($pendingColoumn ='pending'){
+        $this->db->select('*');
+        $this->db->from('student_data');
+        if($pendingColoumn == 'pending'){
+            $this->db->where(' student_id NOT IN (SELECT student_id FROM student_status_data) AND is_deleted IS NULL or is_deleted <> 1');    
+        } else {
+            $this->db->where(' student_id IN (SELECT student_id FROM student_status_data) AND is_deleted IS NULL or is_deleted <> 1');   
+        }
+        
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    }
+*/
   function get_Oursite_student_details($pendingColoumn ='pending'){
         $this->db->select('*');
         $this->db->from('students');
         if($pendingColoumn == 'pending'){
-            $this->db->where(' student_id NOT IN (SELECT student_id FROM students) AND is_deleted IS NULL or is_deleted <> 1');    
+            $this->db->where(' student_id NOT IN (SELECT student_id FROM student_status_data) AND is_deleted IS NULL or is_deleted <> 1');    
         } else {
-            $this->db->where(' student_id IN (SELECT student_id FROM students) AND is_deleted IS NULL or is_deleted <> 1');   
+            $this->db->where(' student_id IN (SELECT student_id FROM student_status_data) AND is_deleted IS NULL or is_deleted <> 1');   
         }
         $query = $this->db->get();
         $query = $query->result_array();  
@@ -751,7 +950,19 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
      }
- 
+     /*
+     function get_college_studentDetails($condition)
+     {
+        $this->db->select('*');
+        $this->db->from('student_data');
+        $this->db->where(' student_id IN (SELECT `student_id` FROM `student_status_data`  WHERE `student_status` LIKE "%'.$condition.'%") AND is_deleted IS NULL or is_deleted <> 1');      
+        
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+     }
+     */
+
  
 
     function upload_image($max_size,$fieldName){
@@ -763,9 +974,9 @@ class Common_model extends CI_Model {
             //-- set upload path
             $config['upload_path']  = "./assets/images/";
             $config['allowed_types']= 'gif|jpg|png|jpeg';
-            $config['max_size']     = '9200000';
-            $config['max_width']    = '9200000';
-            $config['max_height']   = '9200000';
+            $config['max_size']     = '92000';
+            $config['max_width']    = '92000';
+            $config['max_height']   = '92000';
             $config['encrypt_name'] = TRUE;
 
             // $new_name = time().$_FILES["userfiles"]['name'].uniqid();
