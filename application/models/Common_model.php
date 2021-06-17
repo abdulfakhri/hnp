@@ -383,8 +383,8 @@ class Common_model extends CI_Model {
     function all_studentStatus()
     {
         $this->db->select();
-        $this->db->from('student_status_data');
-        $this->db->order_by('id','ASC');
+        $this->db->from('students');
+        $this->db->order_by('student_id','ASC');
         $query = $this->db->get();
         $query = $query->result_array();  
         return $query;
