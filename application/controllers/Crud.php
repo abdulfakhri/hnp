@@ -1,6 +1,12 @@
 <?php  
  defined('BASEPATH') OR exit('No direct script access allowed');  
  class Crud extends CI_Controller {  
+
+   function __construct(){
+     parent::__construct();
+     $this->load->helper('url');  
+    }
+
       //functions  
       function index(){  
            $data["title"] = "Codeigniter Ajax CRUD with Data Tables and Bootstrap Modals";  
