@@ -92,7 +92,7 @@
                 url:"<?php echo base_url() . 'admin/crud/fetch_user'; ?>",  
                 type:"POST"  
            },  
-           "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+           "lengthMenu": [ [10, 25, 50,100,500, -1], [10, 25, 50,100,500, "All"] ],
            "columnDefs":[  
                 {  
                      "targets":[0, 3, 4],  
