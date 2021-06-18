@@ -88,7 +88,7 @@
            "serverSide":true,  
            "order":[],  
            "ajax":{  
-                url:"<?php echo base_url() . 'crud/fetch_user'; ?>",  
+                url:"<?php echo base_url() . 'admin/crud/fetch_user'; ?>",  
                 type:"POST"  
            },  
            "columnDefs":[  
