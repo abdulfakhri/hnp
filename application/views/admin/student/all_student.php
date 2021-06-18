@@ -133,7 +133,7 @@ function startsWith($string, $startString)
                                 $chekVal = 'pendingStudents';
                                 if ($user["student_status"] == "Pending") {
                                     $chekVal = 'pendingStudents';
-                                } elseif ($user["student_status"] == "approved-by-our-site") {
+                                } elseif (($user["student_status"]) == "approved-by-our-site") {
                                     $chekVal = 'approveStudents';
                                 } elseif ($user["student_status"] == "approved-by-college") {
                                     $chekVal = 'approveStudents';
