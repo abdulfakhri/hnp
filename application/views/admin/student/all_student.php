@@ -32,9 +32,9 @@
         background-color: #ab8ce48a !important;
     }
 
-    tr[data-class|="pendingStudents"],
-    li.pendingStudents,
-    td[data-class|="pendingStudents"] {
+    tr[data-class|="Pending"],
+    li.Pending,
+    td[data-class|="Pending"] {
         background-color: yellow !important;
     }
 </style>
@@ -131,7 +131,7 @@ function startsWith($string, $startString)
                                 $scount++;
                                 $chekVal = '';
                                 $chekVal = 'pendingStudents';
-                                $student_status= $user['student_status']; 
+                                $student_status = $user['student_status'];
 
                                 if ($user["student_status"] == "Pending") {
                                     $chekVal = 'pendingStudents';
