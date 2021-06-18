@@ -1,6 +1,11 @@
  <?php  
  class Crud_model extends CI_Model  
- {  
+ {   
+     function __construct(){
+      parent::__construct();
+      $this->load->helper('url');  
+     }
+
       var $table = "users";  
       var $select_column = array("id", "first_name", "last_name", "image");  
       var $order_column = array(null, "first_name", "last_name", null, null);  
@@ -22,6 +27,8 @@
                 $this->db->order_by('id', 'DESC');  
            }  
       }  
+
+
       function make_datatables(){  
            $this->make_query();  
            if($_POST["length"] != -1)  

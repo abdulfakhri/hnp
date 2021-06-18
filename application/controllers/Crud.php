@@ -12,6 +12,7 @@
            $data["title"] = "Codeigniter Ajax CRUD with Data Tables and Bootstrap Modals";  
            $this->load->view('crud_view', $data);  
       }  
+      
       function fetch_user(){  
            $this->load->model("crud_model");  
            $fetch_data = $this->crud_model->make_datatables();  
