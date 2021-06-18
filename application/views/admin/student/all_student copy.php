@@ -273,7 +273,292 @@ function startsWith ($string, $startString)
                                  <td> <?php echo $user['student_status']; ?></td>
                                
                                 </tr>
+                           
+                <?php } else { ?>
+                    <!------------------------------------End of All Tasks---------------------------------------------------->
+
+
+                    <h3>Open Tasks</h3>
+                    <table id="example23" class="display nowrap" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>TR Number</th>
+                            <th>Name</th>
+                            <th>Mobile</th>
+                            <th>Account No.</th>
+                            <th>Account Status</th>
+                            <th>Date Of Birth</th>
+                            <th>Assigned At</th>
+                            <th>Assign Complete Time</th>
                         
+                            <th>Task Completed</th>
+                        </tr>
+                        </thead>
+                       
+                        <tbody>
+                        <?php
+                        $scount = 0;
+                        foreach ($users as $user):
+
+                            $unserlizedData = $user;
+
+                            $maskData= false;
+
+                            
+
+                            if((($this->session->userdata('id') == $assignedTaskList[$user['student_id']]['emp_id']) && $assignedTaskList[$user['student_id']]['stu_id'] == $user['student_id'] ) && $user['is_deleted'] != 1) {
+
+                               
+
+                                $maskData = true;
+
+
+                                //  }
+
+                                $scount++;
+
+                                ?>
+
+                                <tr>
+                                    <td><?=$scount?></td>
+                                    <td>
+                                        <?php echo $maskData ? $user['tr_number'] :  maskSenstiveData($user['tr_number']) ; ?>
+                                    </td>
+                                    <?php if(($this->session->userdata('id') == $assignedTaskList[$user['student_id']]['emp_id']) && $assignedTaskList[$user['student_id']]['stu_id'] == $user['student_id'] && $assignedTaskList[$user['student_id']]['task_status'] != 1 ) { ?>
+                                        <td>
+                                        
+                                            <a href="<?php echo base_url('admin/student/student_view_data/'.$user['student_id']); ?>">
+                                                <?php echo $user['full_name'];?>
+                                            </a>
+                                        </td>
+                                    <?php } else {?>
+                                        <td>
+                                            <?php echo $user['full_name'];?>
+                                        </td>
+                                    <?php } ?>
+                                    <td>
+                                        <?php  echo $maskData ? $user['mobile']: maskSenstiveData($user['mobile']); ?>
+                                    </td>
+
+
+                                    <td>
+                                        
+                                        <?php  echo $maskData ? $user['bnk_acnt_number']: maskSenstiveData($user['account_number']); ?>
+                                    </td>
+                                    <td>
+                                        <?php 
+                                        $jsondata=$user["bankstatus"];
+                                        $decodejson=json_decode($jsondata);
+                                        
+                                        $full_name_db=$user['first_name']." ".$user['last_name'];
+  
+                                        $sid=$user["student_id"];
+
+                                        $api_fetched_name=$decodejson->data->full_name;
+                                        $account_exists=$decodejson->data->account_exists;
+                                        $success=$decodejson->success;
+                                        $status_code=$decodejson->status_code;
+                                        $message_code=$decodejson->message_code;
+                                        echo $user['api_fetched_name']; 
+                                        $full_name_db_touppercase= strtoupper($full_name_db);
+   
+                                        $api_fetched_name_touppercase= strtoupper($api_fetched_name);
+   
+                                        $full_name_db_trimed = str_replace(" ","",$full_name_db_touppercase);
+   
+                                        $api_fetched_name_trimed = str_replace(" ","",$api_fetched_name_touppercase);
+   
+                                        $full_name_db_cleaned=trim($full_name_db_trimed);
+  
+                                        $api_fetched_name_cleaned=trim($api_fetched_name_trimed);
+  
+                                       if(($full_name_db_cleaned==$api_fetched_name_cleaned) and ($account_exists==true) and ($success==true) and($status_code==200) and($message_code=="success")){
+     
+      $msg="Matched";
+      $stcolor="green";
+      $ncolor="blue";
+      $st="<p style=color:".$stcolor.">".$msg."</p>";
+      $final_name="<p style=color:".$ncolor.">".$api_fetched_name."</p>";
+      //$final_name="<p style=color:".$ncolor.">".$full_name_db."</p>";
+      $status=$final_name."<hr>".$st;
+      $stu= "Verified";
+      
+                                       }else if((!empty($api_fetched_name_cleaned)) and ($account_exists==true) and ($success==true) and($status_code==200) and($message_code=="success")){
+      $msg="Not Matched";
+      $stcolor="#ff00ff";
+      $ncolor="blue";
+      $st="<p style=color:".$stcolor.">".$msg."</p>";
+      $final_name="<p style=color:".$ncolor.">".$api_fetched_name."</p>";
+      //$final_name="<p style=color:".$ncolor.">".$full_name_db."</p>";
+      $status=$final_name."<hr>".$st; 
+      
+   
+      
+                                       }else if((empty($api_fetched_name_cleaned)==true) and ($account_exists==false) and ($success==false) and($status_code==422) and($message_code=="verification_failed")){
+      $msg="Not Availble";
+      $color="red";
+      $st="<p style=color:".$color.">".$msg."</p>";
+      $final_name="<p style=color:".$ncolor.">".$api_fetched_name."</p>";
+      $status=$st;
+      //$status="<p style=color:".$color.">".$msg."</p>";
+      
+    
+       
+                                       }else if(empty($jsondata)==true){
+       
+      $msg="Not Verified Yet";
+      $color="brown";
+      $st="<p style=color:".$color.">".$msg."</p>";
+      $status="<p style=color:".$color.">".$msg."</p>";
+      
+    
+      
+                                       }else{
+      $msg="API Balance Is Finished";
+      $color="red";
+      $status="<p style=color:".$color.">".$msg."</p>";
+      
+    
+   }
+                                       echo $status;
+                                        ?>
+                                    </td>
+                                    <td>
+
+                                        <?php
+
+                                        $dob=$user['dob'];
+                                        //ech $unserlizedData['dob'];
+                                        $dob1= date("d/m/Y", strtotime($dob));
+                                        //echo date("d/m/Y",$dob);
+
+
+
+                                        echo $maskData ? $dob1: maskSenstiveData($dob1); ?>
+                                        <?php // echo $maskData ? $unserlizedData['bnk_acnt_number']: maskSenstiveData($unserlizedData['bnk_acnt_number']); ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $assignedTaskList[$user['student_id']]['assigned_at']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $assignedTaskList[$user['student_id']]['complete_at']; ?>
+                                    </td>
+
+                                   
+                                    <td><?php echo  $assignedTaskList[$user['student_id']]['task_status'] ==1? "Yes" : "No"?></td>
+                                </tr>
+
+                            <?php } endforeach ?>
+                        </tbody>
+                    </table>
+
+
+                    <h3>Completed & Pending Tasks</h3>
+                    <table id="example23" class="display nowrap" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>TR Number</th>
+                            <th>Name</th>
+                            <th>Mobile</th>
+
+                            <th>Account No.</th>
+                            <th>Account Status</th>
+                            <th>Date Of Birth</th>
+                            <th>Assigned At</th>
+                            <th>Assign Complete Time</th>
+                           
+                            <th>Task Completed</th>
+                        </tr>
+                        </thead>
+                      
+                        <tbody>
+                        <?php
+                        $scount = 0;
+                        foreach ($users as $user):
+
+                            $unserlizedData =  $user;
+
+                            $maskData= false;
+
+                            /*
+                            * todo: add control condition  from employee to admin
+                            */
+                            // if(($unserlizedData['uploadedBy'] == $this->session->userdata('id') || $this->session->userdata('role') == 'admin')|| (($this->session->userdata('id') == $assignedTaskList[$user['student_id']]['emp_id']) && $assignedTaskList[$user['student_id']]['stu_id'] == $user['student_id'] ) && $user['is_deleted'] != 1) {
+
+                            if((($this->session->userdata('id') == $assignedTaskListComplete[$user['student_id']]['emp_id']) && $assignedTaskListComplete[$user['student_id']]['stu_id'] == $user['student_id'] ) && $user['is_deleted'] != 1) {
+                                $maskData = false;
+                                /*
+                                if(($this->session->userdata('id') == $assignedTaskListComplete[$user['student_id']]['emp_id']) && $assignedTaskListComplete[$user['student_id']]['stu_id'] == $user['student_id'] && $assignedTaskListComplete[$user['student_id']]['task_status'] == 1 ) {
+                                    //$maskData = true;
+
+                                     $maskData = true;
+
+
+                                }
+                                */
+
+                                $scount++;
+
+                                ?>
+
+                                <tr>
+                                    <td><?=$scount?></td>
+                                    <td>
+                                        <?php echo $maskData ? $user['tr_number'] :  maskSenstiveData($user['tr_number']) ; ?>
+                                    </td>
+                                    <?php if(($this->session->userdata('id') == $assignedTaskListComplete[$user['student_id']]['emp_id']) && $assignedTaskListComplete[$user['student_id']]['stu_id'] == $user['student_id'] && $assignedTaskListComplete[$user['student_id']]['task_status'] == 1 ) { ?>
+                                        <td>
+                                 
+                                            <a href="#">
+                                                <?php echo $user['full_name'];?>
+                                            </a>
+                                        </td>
+                                    <?php } else {?>
+                                        <td>
+                                            <?php echo $user['full_name'];?>
+                                        </td>
+                                    <?php } ?>
+                                    <td>
+                                        <?php  echo $maskData ? $user['mobile']: maskSenstiveData($user['mobile']); ?>
+                                    </td>
+
+
+                                    <td>
+                                        <?php //echo $unserlizedData['bnk_acnt_number']." ".$unserlizedData['bnk_acnt_number'];?>
+                                        <?php  echo $maskData ? $user['bnk_acnt_number']: maskSenstiveData($user['account_number']); ?>
+                                    </td>
+                                    <td>
+
+                                        <?php
+
+                                        $dob=$user['dob'];
+                                        //ech $unserlizedData['dob'];
+                                        $dob1= date("d/m/Y", strtotime($dob));
+                                        //echo date("d/m/Y",$dob);
+
+
+
+                                        echo $maskData ? $dob1: maskSenstiveData($dob1); ?>
+                                        <?php // echo $maskData ? $unserlizedData['bnk_acnt_number']: maskSenstiveData($unserlizedData['bnk_acnt_number']); ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $assignedTaskListComplete[$user['student_id']]['assigned_at']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $assignedTaskListComplete[$user['student_id']]['complete_at']; ?>
+                                    </td>
+
+                                   
+                                    <td><?php echo  $assignedTaskListComplete[$user['student_id']]['task_status'] ==1? "Yes" : "No"?></td>
+                                </tr>
+
+                            <?php } endforeach ?>
+                        </tbody>
+                    </table>
+
+
                 <?php } ?>
             </div>
        
