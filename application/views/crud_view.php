@@ -1,4 +1,4 @@
-<html>  
+ <html>  
  <head>  
    <title><?php echo $title; ?></title>  
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
@@ -35,7 +35,7 @@
                 <table id="user_data" class="table table-bordered table-striped">  
                      <thead>  
                           <tr>  
-                              
+                               <th width="10%">Image</th>  
                                <th width="35%">First Name</th>  
                                <th width="35%">Last Name</th>  
                                <th width="10%">Edit</th>  
