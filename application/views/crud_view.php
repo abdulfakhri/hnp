@@ -85,7 +85,8 @@
       })  
       var dataTable = $('#user_data').DataTable({  
            "processing":true,  
-           "serverSide":true,  
+           "serverSide":true,
+           "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],  
            "order":[],  
            "ajax":{  
                 url:"<?php echo base_url() . 'admin/crud/fetch_user'; ?>",  
