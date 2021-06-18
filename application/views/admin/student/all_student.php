@@ -114,7 +114,8 @@ function startsWith ($string, $startString)
 
                                 //if( $this->session->userdata('role') == 'admin'|| (($this->session->userdata('id') == $assignedTaskList[$user['student_id']]['emp_id']) && $assignedTaskList[$user['student_id']]['stu_id'] == $user['student_id'] ) && $user['is_deleted'] != 1) {
                                 $scount++;
-                                $chekVal = '';
+                                $chekVal = $user['student_status'];
+                                
                                 ?>
                                 <?php
                                 $chekVal = 'pendingStudents';
