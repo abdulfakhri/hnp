@@ -98,6 +98,7 @@ function myFunction() {
                             <th>S.No</th>
                             
                             <th>TR Number</th>
+                            <th>Year</th>
                             <th>Name</th>
                             <th>IFSC Code</th>
                             <th>Account No.</th>
@@ -134,6 +135,9 @@ function myFunction() {
                                     <td data-class="<?=$chekVal;?>"><?=$scount?></td>
                                     <td>
                                         <?php echo $user['tr_number']; ?>
+                                    </td>
+                                      <td>
+                                        <?php echo $user['year']; ?>
                                     </td>
                                     <td>
                                         <a
