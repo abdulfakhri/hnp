@@ -142,7 +142,7 @@ function startsWith($string, $startString)
                                 }
 
 
-                                ?>
+                        ?>
                                 <tr data-class="<?= $chekVal; ?>">
 
                                     <td data-class="<?= $chekVal; ?>"><?= $scount ?></td>
@@ -285,7 +285,7 @@ function startsWith($string, $startString)
                                         <?php echo $user['caste_details']; ?>
                                     </td>
 
-                                    <td><?php echo isset($studentStatus[$user['student_id']]['Status']) ? $studentStatus[$user['student_id']]['Status'] : "Pending From Our Site" ?></td>
+                                    <td> <?php echo $user['student_status']; ?></td>
 
                                 </tr>
                             <?php } else  if (($user['uploadedBy'] == $this->session->userdata('id') || $this->session->userdata('role') == 'admin') && ($user['is_deleted'] != 1 && $studentFilter == 'tripura' && $user['state'] == 'Tripura')) {
