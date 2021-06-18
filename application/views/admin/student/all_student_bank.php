@@ -101,6 +101,7 @@ function myFunction() {
                             <th>Name</th>
                             <th>IFSC Code</th>
                             <th>Account No.</th>
+                            <th>Status</th>
                             <th>Credit</th>
                             <th>Withdrawal</th>
                             
@@ -148,6 +149,9 @@ function myFunction() {
                                     </td>
                                      <td>
                                         <?php echo $user['bnk_acnt_number']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $user['student_status']; ?>
                                     </td>
                                     <td>
                                         <?php echo $user['credit_amount']; ?>
