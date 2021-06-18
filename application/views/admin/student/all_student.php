@@ -145,9 +145,10 @@ function startsWith($string, $startString)
 
 
                         ?>
-                                <tr data-class="<?= $chekVal; ?>">
+                                <tr data-class="<?= $student_status; ?>">
 
-                                    <td data-class="<?= $chekVal; ?>"><?= $scount ?></td>
+                                    <td data-class="<?= $student_status; ?>"><?= $scount ?></td>
+
                                     <?php if ($this->session->userdata('role') == 'admin') { ?>
                                         <td class="icon_action">
 
