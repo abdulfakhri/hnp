@@ -20,6 +20,12 @@
         background-color: #ff00009e !important;
     }
 
+    tr[data-class|="approved-by-our-site"],
+    li.approved-by-our-site,
+    td[data-class|="approved-by-our-site"] {
+        background-color: mediumspringgreen !important;
+    }
+
     tr[data-class|="approveStudents"],
     li.approveStudents,
     td[data-class|="approveStudents"] {
