@@ -112,26 +112,10 @@ function startsWith ($string, $startString)
                             */
                             if(($user['uploadedBy'] == $this->session->userdata('id') || $this->session->userdata('role') == 'admin') && $user['is_deleted'] != 1 && $studentFilter == 'all' ) {
 
-                                //if( $this->session->userdata('role') == 'admin'|| (($this->session->userdata('id') == $assignedTaskList[$user['student_id']]['emp_id']) && $assignedTaskList[$user['student_id']]['stu_id'] == $user['student_id'] ) && $user['is_deleted'] != 1) {
+                              
                                 $scount++;
                                 $chekVal = $user['student_status'];
-                                
-                                ?>
-                                <?php
-                                $chekVal = 'pendingStudents';
-                                if( isset($studentStatus[$user['student_id']]['Status']) && strpos($studentStatus[$user['student_id']]['Status'], 'Reject') !== false){
-                                    $chekVal = 'rejectStudent';
-                                }
-
-                                if( isset($studentStatus[$user['student_id']]['Status']) && strpos($studentStatus[$user['student_id']]['Status'], 'Approved') !== false){
-                                    $chekVal = 'approveStudents';
-                                }
-
-                                if( isset($studentStatus[$user['student_id']]['Status']) && strpos($studentStatus[$user['student_id']]['Status'], 'Defect') !== false){
-                                    $chekVal = 'defectStudents';
-                                }
-
-
+                            
 
                                 ?>
                                 <tr data-class="<?=$chekVal;?>">
@@ -245,9 +229,7 @@ function startsWith ($string, $startString)
       //$final_name="<p style=color:".$ncolor.">".$full_name_db."</p>";
       //$status=$final_name."<hr>".$st; 
         $status=$st;
-      $stu= "Not Verified";
-      $query ="UPDATE students SET api_bank_st ='$stu',api_fetched_name ='$api_fetched_name' WHERE student_id='$sid'";
-      mysqli_query($conn,$query);
+   
       
                                        }else if((empty($api_fetched_name_cleaned)==true) and ($account_exists==false) and ($success==false) and($status_code==422) and($message_code=="verification_failed")){
       $msg="Not Availble";
@@ -257,9 +239,7 @@ function startsWith ($string, $startString)
       $status=$st;
       //$status="<p style=color:".$color.">".$msg."</p>";
       
-      $stu= "Not Availble";
-      $query ="UPDATE students SET api_bank_st ='$stu',api_fetched_name ='$api_fetched_name' WHERE student_id='$sid'";
-      mysqli_query($conn,$query);
+ 
        
                                        }else if(empty($jsondata)==true){
        
@@ -291,8 +271,8 @@ function startsWith ($string, $startString)
                                         <?php echo $user['caste_details']; ?>
                                     </td>
                                    
-                                 <td><?php echo isset($studentStatus[$user['student_id']]['Status'])? $studentStatus[$user['student_id']]['Status'] : "Pending From Our Site"?></td>
-
+                                 <td> <?php echo $user['student_status']; ?></td>
+                               
                                 </tr>
                             <?php } else  if(($user['uploadedBy'] == $this->session->userdata('id') || $this->session->userdata('role') == 'admin') && ($user['is_deleted'] != 1 && $studentFilter == 'tripura' && $user['state'] == 'Tripura'))  {
 
