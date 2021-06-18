@@ -22,33 +22,7 @@
         background-color: yellow !important;
     }
 </style>
-<?php
-$assignedStudentArray = array();
-foreach ($assignedTaskList as $assignedStudent) {
-    $assignedStudentArray[$assignedStudent['stu_id']] = $assignedStudent;
-}
-$assignedTaskList = $assignedStudentArray;
 
-$assignedStudentArray1 = array();
-foreach ($assignedTaskListPending as $assignedStudent1) {
-    $assignedStudentArray1[$assignedStuden1t['stu_id']] = $assignedStudent1;
-}
-$assignedTaskListPending = $assignedStudentArray1;
-
-
-$assignedStudentArray2 = array();
-foreach ($assignedTaskListComplete as $assignedStudent2) {
-    $assignedStudentArray2[$assignedStudent2['stu_id']] = $assignedStudent2;
-}
-$assignedTaskListComplete = $assignedStudentArray2;
-
-function startsWith ($string, $startString)
-{
-    $len = strlen($startString);
-    return (substr($string, 0, $len) === $startString);
-}
-
-?>
 <div class="row all_stud_table">
         <div class="col-lg-12">
           
@@ -207,55 +181,45 @@ function startsWith ($string, $startString)
                                         $full_name_db_cleaned=trim($full_name_db_trimed);
   
                                         $api_fetched_name_cleaned=trim($api_fetched_name_trimed);
-  
-                                       if(($full_name_db_cleaned==$api_fetched_name_cleaned) and ($account_exists==true) and ($success==true) and($status_code==200) and($message_code=="success")){
-     
-                                           $msg="Matched";
-                                           $stcolor="green";
-                                           $ncolor="blue";
-                                           $st="<p style=color:".$stcolor.">".$msg."</p>";
-                                           $final_name="<p style=color:".$ncolor.">".$api_fetched_name."</p>";
-                                           //$final_name="<p style=color:".$ncolor.">".$full_name_db."</p>";
-                                           $status=$st;
-                                           $stu= "Verified";
-      
-                                       }else if((!empty($api_fetched_name_cleaned)) and ($account_exists==true) and ($success==true) and($status_code==200) and($message_code=="success")){
-      $msg="Not Matched";
-      $stcolor="#ff00ff";
-      $ncolor="blue";
-      $st="<p style=color:".$stcolor.">".$msg."</p>";
-      $final_name="<p style=color:".$ncolor.">".$api_fetched_name."</p>";
-      //$final_name="<p style=color:".$ncolor.">".$full_name_db."</p>";
-      //$status=$final_name."<hr>".$st; 
-        $status=$st;
-   
-      
-                                       }else if((empty($api_fetched_name_cleaned)==true) and ($account_exists==false) and ($success==false) and($status_code==422) and($message_code=="verification_failed")){
-      $msg="Not Availble";
-      $color="red";
-      $st="<p style=color:".$color.">".$msg."</p>";
-      $final_name="<p style=color:".$ncolor.">".$api_fetched_name."</p>";
-      $status=$st;
-      //$status="<p style=color:".$color.">".$msg."</p>";
-      
- 
-       
-                                       }else if(empty($jsondata)==true){
-       
-      $msg="Not Verified Yet";
-      $color="brown";
-      $st="<p style=color:".$color.">".$msg."</p>";
-      //$status="<p style=color:".$color.">".$msg."</p>";
-        $status=$st;
-      
-      
-                                       }else{
-      $msg="API Balance Is Finished";
-      $color="red";
-      $status="<p style=color:".$color.">".$msg."</p>";
-      
-      
-   }
+
+                    if (($full_name_db_cleaned == $api_fetched_name_cleaned) and ($account_exists == true) and ($success == true) and ($status_code == 200) and ($message_code == "success")) {
+
+                        $msg = "Matched";
+                        $stcolor = "green";
+                        $ncolor = "blue";
+                        $st = "<p style=color:" . $stcolor . ">" . $msg . "</p>";
+                        $final_name = "<p style=color:" . $ncolor . ">" . $api_fetched_name . "</p>";
+                        //$final_name="<p style=color:".$ncolor.">".$full_name_db."</p>";
+                        $status = $st;
+                        $stu = "Verified";
+                    } else if ((!empty($api_fetched_name_cleaned)) and ($account_exists == true) and ($success == true) and ($status_code == 200) and ($message_code == "success")
+                    ) {
+                        $msg = "Not Matched";
+                        $stcolor = "#ff00ff";
+                        $ncolor = "blue";
+                        $st = "<p style=color:" . $stcolor . ">" . $msg . "</p>";
+                        $final_name = "<p style=color:" . $ncolor . ">" . $api_fetched_name . "</p>";
+                        //$final_name="<p style=color:".$ncolor.">".$full_name_db."</p>";
+                        //$status=$final_name."<hr>".$st; 
+                        $status = $st;
+                    } else if ((empty($api_fetched_name_cleaned) == true) and ($account_exists == false) and ($success == false) and ($status_code == 422) and ($message_code == "verification_failed")) {
+                        $msg = "Not Availble";
+                        $color = "red";
+                        $st = "<p style=color:" . $color . ">" . $msg . "</p>";
+                        $final_name = "<p style=color:" . $ncolor . ">" . $api_fetched_name . "</p>";
+                        $status = $st;
+                    } else if (empty($jsondata) == true) {
+
+                        $msg = "Not Verified Yet";
+                        $color = "brown";
+                        $st = "<p style=color:" . $color . ">" . $msg . "</p>";
+                        //$status="<p style=color:".$color.">".$msg."</p>";
+                        $status = $st;
+                    } else {
+                        $msg = "API Balance Is Finished";
+                        $color = "red";
+                        $status = "<p style=color:" . $color . ">" . $msg . "</p>";
+                    }
                                        echo $status;
                                         ?>
                                     </td>
@@ -274,7 +238,7 @@ function startsWith ($string, $startString)
                                
                                 </tr>
                         
-                <?php } ?>
+               
             </div>
        
        </div>
