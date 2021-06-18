@@ -89,8 +89,7 @@
           
            "order":[],  
            "ajax":{  
-             
-                url:"/crud/fetch_user", 
+                url:"<?php echo base_url() . 'crud/fetch_user'; ?>", 
                 type:"POST"  
            },  
            "lengthMenu": [ [10, 25, 50,100,500, -1], [10, 25, 50,100,500, "All"] ],
