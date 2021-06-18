@@ -43,6 +43,12 @@
     td[data-class|="Pending"] {
         background-color: yellow !important;
     }
+
+    tr[data-class|="pendingStudents"],
+    li.pendingStudents,
+    td[data-class|="pendingStudents"] {
+        background-color: yellow !important;
+    }
 </style>
 <?php
 $assignedStudentArray = array();
@@ -139,7 +145,7 @@ function startsWith($string, $startString)
                                 $chekVal = 'pendingStudents';
                                 $student_status = $user['student_status'];
 
-                                if ($user["student_status"] == "Pending") {
+                                if ($student_status == "Pending") {
                                     $chekVal = 'pendingStudents';
                                 } elseif (($user["student_status"]) == "approved-by-our-site") {
                                     $chekVal = 'approveStudents';
@@ -151,9 +157,9 @@ function startsWith($string, $startString)
 
 
                         ?>
-                                <tr data-class="<?= $student_status; ?>">
+                                <tr data-class="<?= $chekVal; ?>">
 
-                                    <td data-class="<?= $student_status; ?>"><?= $scount ?></td>
+                                    <td data-class="<?= $chekVal; ?>"><?= $scount ?></td>
 
                                     <?php if ($this->session->userdata('role') == 'admin') { ?>
                                         <td class="icon_action">
