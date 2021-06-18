@@ -20,9 +20,9 @@
         background-color: #ff00009e !important;
     }
 
-    tr[data-class|="approved-by-our-site"],
-    li.approved-by-our-site,
-    td[data-class|="approved-by-our-site"] {
+    tr[data-class|="approvedbyoursite"],
+    li.approvedbyoursite,
+    td[data-class|="approvedbyoursite"] {
         background-color: mediumspringgreen !important;
     }
 
@@ -144,6 +144,8 @@ function startsWith($string, $startString)
                                 $chekVal = '';
                                 $chekVal = 'pendingStudents';
                                 $student_status = $user['student_status'];
+
+                                $chekVal = str_replace("-", " ", $student_status);
 
                                 if ($student_status == "Pending") {
                                     $chekVal = 'pendingStudents';
