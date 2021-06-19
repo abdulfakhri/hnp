@@ -25,6 +25,8 @@ if (mysqli_num_rows($result) > 0) {
                 $si = $ro["student_id"];
                 $st = $ro["student_status"];
 
+                $status_plain=str_replace("-")
+
                 if (isset($st)=="approved_by_our_site") {
                     $status_plain = "Approved By Our Site";
                     $sts = "approveStudents";
