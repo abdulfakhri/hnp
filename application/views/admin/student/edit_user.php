@@ -232,7 +232,7 @@ if(strpos($mystring, $word) !== false){?>
  <option value="defect_by_college">Defected By College Site</option>
  <option value="pending_by_college">Pending By College Site</option>
  <option value="approved_by_nsp">Approved By NSP Site</option>
- <option value="rejected_by_nsp">Rejected By NSP Site</option>
+ <option value="nsp_reject">Rejected By NSP Site</option>
  <option value="defect_by_nsp">Defected By NSP Site</option>
  <option value="pending_by_nsp">Pending By NSP Site</option>
  </select>
@@ -578,19 +578,7 @@ if(strpos($mystring, $word) !== false){?>
                                       
                              <?php } ?>
                             </div>
-                             <div class="col-sm-offset-3 col-lg-2 col-sm-4 col-xs-12 mb-1 mt-1 p-3">
-                                    <div class="btn btn-block btn-success btn-rounded btn-lg approve_btn" ><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Approve</div>
-                                </div>
-                                <!--  <div class=" col-sm-offset-3 col-lg-2 col-sm-4 col-xs-12 mb-1 mt-1 p-3">
-                                    <div class="btn btn-block btn-warning btn-rounded btn-lg pending_btn"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;Pending</div>
-                                </div> -->
-                                <div class="col-sm-offset-3 col-lg-2 col-sm-4 col-xs-12 mb-1 mt-1 p-3">
-                                    <div class="btn btn-block btn-primary btn-rounded btn-lg defect_btn"><i class="fa fa-thumbs-down"></i>&nbsp;&nbsp;Defect</div>
-                                </div>
-                               
-                                <div class="col-sm-offset-3 col-lg-2 col-sm-4 col-xs-12 mb-1 mt-1 p-3">
-                                    <div class="btn btn-block btn-danger btn-rounded btn-lg reject_btn ">&nbsp;&nbsp;Reject</div>
-                                </div>
+                            
                           </div>
                            
                     <!-- final div closing tags --> </div>  <!-- final div closing tags -->
