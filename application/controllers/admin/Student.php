@@ -846,22 +846,22 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
     }
 
-    //-- update users info
-    public function update($id){
+    public function update($id)
+    {
 
-        if($_POST) {  
+        if ($_POST) {
 
             // echo "<pre>";
             // print_r($_POST);
             // die;
-            
-            $bonafide = $this->common_model->upload_image(3000,'bonafide');
-            $p_photo = $this->common_model->upload_image(3000,'p_photo');
-            $prtc = $this->common_model->upload_image(3000,'prtc');
-            $caste_certi = $this->common_model->upload_image(3000,'caste_certi');
-            $ac_front = $this->common_model->upload_image(3000,'ac_front');
-            $ac_back = $this->common_model->upload_image(3000,'ac_back');
-            $income_certi = $this->common_model->upload_image(3000,'income_certi');
+
+            $bonafide = $this->common_model->upload_image(1020, 'bonafide');
+            $p_photo = $this->common_model->upload_image(1020, 'p_photo');
+            $prtc = $this->common_model->upload_image(1020, 'prtc');
+            $caste_certi = $this->common_model->upload_image(1020, 'caste_certi');
+            $ac_front = $this->common_model->upload_image(1020, 'ac_front');
+            $ac_back = $this->common_model->upload_image(1020, 'ac_back');
+            $income_certi = $this->common_model->upload_image(1020, 'income_certi');
 
             /*
             $_POST['bonafide'] = (array_key_exists('msg', $bonafide) ? $_POST['hidden_bonfide'] :site_url($bonafide['images']).','.site_url($bonafide['thumb']).','.site_url($bonafide['mainImg']));
@@ -878,173 +878,176 @@ class Student extends CI_Controller {
             
             $_POST['income_certi'] = (array_key_exists('msg', $income_certi) ? $_POST['hidden_income_certi'] : site_url($income_certi['images']).','.site_url($income_certi['thumb']).','.site_url($income_certi['mainImg']));
             */
-            
-            
-            
-            
-             $_POST['bonafide'] = (array_key_exists('msg', $bonafide) ? $_POST['hidden_bonfide'] :($bonafide['images']));
 
-            $_POST['p_photo'] = (array_key_exists('msg', $p_photo) ? $_POST['hidden_p_photo'] :($bonafide['images']));
 
-            $_POST['prtc'] = (array_key_exists('msg', $prtc) ? $_POST['hidden_prtc'] :($bonafide['images']));
 
-            $_POST['caste_certi'] = (array_key_exists('msg', $caste_certi) ? $_POST['hidden_caste_certi'] :($bonafide['images']));
 
-            $_POST['ac_front'] =  (array_key_exists('msg', $ac_front) ? $_POST['hidden_ac_front'] :($bonafide['images']));
+            $_POST['bonafide'] = (array_key_exists('msg', $bonafide) ? $_POST['hidden_bonfide'] : ($bonafide['images']));
 
-            $_POST['ac_back'] = (array_key_exists('msg', $ac_back) ? $_POST['hidden_ac_back'] :($bonafide['images']));
-            
-            $_POST['income_certi'] = (array_key_exists('msg', $income_certi) ? $_POST['hidden_income_certi'] :($bonafide['images']));
+            $_POST['p_photo'] = (array_key_exists('msg', $p_photo) ? $_POST['hidden_p_photo'] : ($bonafide['images']));
 
-              
+            $_POST['prtc'] = (array_key_exists('msg', $prtc) ? $_POST['hidden_prtc'] : ($bonafide['images']));
+
+            $_POST['caste_certi'] = (array_key_exists('msg', $caste_certi) ? $_POST['hidden_caste_certi'] : ($bonafide['images']));
+
+            $_POST['ac_front'] =  (array_key_exists('msg', $ac_front) ? $_POST['hidden_ac_front'] : ($bonafide['images']));
+
+            $_POST['ac_back'] = (array_key_exists('msg', $ac_back) ? $_POST['hidden_ac_back'] : ($bonafide['images']));
+
+            $_POST['income_certi'] = (array_key_exists('msg', $income_certi) ? $_POST['hidden_income_certi'] : ($bonafide['images']));
+
+
             //$serializedAdminFormData = serialize($_POST); 
             $data = array(
                 //'student_uploaded_data' => $serializedAdminFormData,
-                
-                'tr_number'=>$_POST['tr_number'],
-                'trnumber'=>$_POST['tr_number'],
-                'bnk_acnt_number'=>$_POST['account_number'],
-                'account_number'=>$_POST['account_number'],
-                'caste_details'=>$_POST['caste_details'],
-                 'createdAt'=>$_POST['createdAt'],
-                 'state'=>$_POST['state'],
-                 'mom_name'=>$_POST['mom_name'],
-                 'dad_name'=>$_POST['dad_name'],
-                 
-                 'mobile'=>$_POST['mobile'],
-                 'gender'=>$_POST['gender'],
-                 'dob'=>$_POST['dob'],
-             
-             
-                 'aadhar_number'=>$_POST['aadhar_number'],
-                 'income_details'=>$_POST['income_details'],
-                 
-                 'sub_division'=>$_POST['sub_division'],
-                 'district'=>$_POST['district'],
-                 
-                 'address1'=>$_POST['address1'],
-                 'pin_code'=>$_POST['pin_code'],
-             
-                'ten_year'=>$_POST['ten_year'],
-             
-                'ten_marks'=>$_POST['ten_marks'],
-                'plustwo_year'=>$_POST['plustwo_year'],
-             
-                
-                'updatedAt'=>$_POST['updatedAt'],
-                'createdAt'=>$_POST['createdAt'],
-                
-                 'uploadedBy'=>$_POST['uploadedBy'],
-                'plustwo_marks'=>$_POST['plustwo_marks'],
-                
-                
-             
-                 'lastModifiedBy'=>$_POST['lastModifiedBy'],
-                'updatedAt'=>$_POST['updatedAt'],
-                
-                 'course_details'=>$_POST['course_details'],
-                'education_details'=>$_POST['education_details'],
-             
-             
-                'scholarship_amount'=>$_POST['scholarship_amount'],
-                'education_details_year'=>$_POST['education_details_year'],
-                
-                'full_name'=>$_POST['full_name'],
-               
-                'caste_details'=>$_POST['caste_details'],
-                
-                'income_certi'=>$_POST['income_certi'],
-                'ac_front'=>$_POST['ac_front'],
-                'ac_back'=>$_POST['ac_back'],
-                'caste_certi'=>$_POST['caste_certi'],
-                'prtc'=>$_POST['prtc'],
-                'p_photo'=>$_POST['p_photo'],
-                'bonafide'=>$_POST['bonafide'],
-                
-                'remarks'=>$_POST['remarks'],
-                'agent_mobile'=>$_POST['agent_mobile'],
-                
-                'agent_name'=>$_POST['agent_name'],
-                'bank_name'=>$_POST['bank_name'],
-                
-                'ifsc_code'=>$_POST['ifsc_code'],
-                'bank_name'=>$_POST['bank_name']
-                
-                
+
+                'tr_number' => $_POST['tr_number'],
+                'trnumber' => $_POST['tr_number'],
+                'bnk_acnt_number' => $_POST['account_number'],
+                'account_number' => $_POST['account_number'],
+                'caste_details' => $_POST['caste_details'],
+                'createdAt' => $_POST['createdAt'],
+                'state' => $_POST['state'],
+                'mom_name' => $_POST['mom_name'],
+                'dad_name' => $_POST['dad_name'],
+
+                'mobile' => $_POST['mobile'],
+                'gender' => $_POST['gender'],
+                'dob' => $_POST['dob'],
+
+
+                'aadhar_number' => $_POST['aadhar_number'],
+                'income_details' => $_POST['income_details'],
+
+                'sub_division' => $_POST['sub_division'],
+                'district' => $_POST['district'],
+
+                'address1' => $_POST['address1'],
+                'pin_code' => $_POST['pin_code'],
+
+                'ten_year' => $_POST['ten_year'],
+
+                'ten_marks' => $_POST['ten_marks'],
+                'plustwo_year' => $_POST['plustwo_year'],
+
+
+                'updatedAt' => $_POST['updatedAt'],
+                'createdAt' => $_POST['createdAt'],
+
+                'uploadedBy' => $_POST['uploadedBy'],
+                'plustwo_marks' => $_POST['plustwo_marks'],
+
+
+
+                'lastModifiedBy' => $_POST['lastModifiedBy'],
+                'updatedAt' => $_POST['updatedAt'],
+
+                'course_details' => $_POST['course_details'],
+                'education_details' => $_POST['education_details'],
+
+
+                'scholarship_amount' => $_POST['scholarship_amount'],
+                'education_details_year' => $_POST['education_details_year'],
+
+                'full_name' => $_POST['full_name'],
+
+                'caste_details' => $_POST['caste_details'],
+
+                'income_certi' => $_POST['income_certi'],
+                'ac_front' => $_POST['ac_front'],
+                'ac_back' => $_POST['ac_back'],
+
+                'caste_certi' => $_POST['caste_certi'],
+                'prtc' => $_POST['prtc'],
+
+
+                'p_photo' => $_POST['p_photo'],
+                'bonafide' => $_POST['bonafide'],
+
+                'remarks' => $_POST['remarks'],
+                'agent_mobile' => $_POST['agent_mobile'],
+
+                'agent_name' => $_POST['agent_name'],
+                'bank_name' => $_POST['bank_name'],
+
+                'ifsc_code' => $_POST['ifsc_code'],
+                'bank_name' => $_POST['bank_name']
+
+
             );
-            
+
             //-- check duplicate trnumber
-            $tr_numberCheck = $this->common_model->check_fields('tr_number',$_POST['tr_number']);
-            $bnk_acnt_number_Check = $this->common_model->check_fields('bnk_acnt_number',$_POST['account_number']); 
-            $dbValue = $this->common_model->get_single_student_info($id);                    
+            $tr_numberCheck = $this->common_model->check_fields('tr_number', $_POST['tr_number']);
+            $bnk_acnt_number_Check = $this->common_model->check_fields('bnk_acnt_number', $_POST['account_number']);
+            $dbValue = $this->common_model->get_single_student_info($id);
 
-            if($_POST['tr_number'] == 'Pending' || $dbValue->tr_number == 'Pending'){
+            if ($_POST['tr_number'] == 'Pending' || $dbValue->tr_number == 'Pending') {
 
-               $arr = array('student_id'=>$id);
+                $arr = array('student_id' => $id);
                 $tr_numberCheck[] = (object) $arr;
             }
 
-             if($dbValue->bnk_acnt_number != $_POST['account_number'] && empty($bnk_acnt_number_Check)) {
+            if ($dbValue->bnk_acnt_number != $_POST['account_number'] && empty($bnk_acnt_number_Check)) {
 
-               $arr = array('student_id'=>$id);
+                $arr = array('student_id' => $id);
                 $bnk_acnt_number_Check[] = (object) $arr;
             }
 
-           
 
-         //  if ((empty($tr_numberCheck) && empty($bnk_acnt_number_Check)) || ($tr_numberCheck[0]->student_id == $id && $bnk_acnt_number_Check[0]->student_id == $id))  {
-                   // echo "<pre>";
-                   // print_r($_POST);
-                    if (array_key_exists('task_assign_statuss',$_POST)){
-                        date_default_timezone_set('Aisa/Kolkata');
-                        $taskStatus=array(
-                            'task_status' => $_POST['task_assign_statuss'],
-                            'complete_at' => date('y-m-d h:i:s'),
-                        );
-                        $this->common_model->emp_task_status_update($id,'emp_task_assigned',$taskStatus);
-                        // die('xxxxx');
-                    }
 
-                    $modfiedHistory = array(
-                        'student_id' => $id,
-                        'emp_id' => $_POST['lastModifiedBy'],
-                        'updated_at' => $_POST['updatedAt']
-                    );
-                    
-                    $modfiedHistoryData = $this->security->xss_clean($modfiedHistory);
-                    $modfiedHistoryData_id = $this->common_model->insert($modfiedHistoryData, 'student_modified_history');
+            //  if ((empty($tr_numberCheck) && empty($bnk_acnt_number_Check)) || ($tr_numberCheck[0]->student_id == $id && $bnk_acnt_number_Check[0]->student_id == $id))  {
+            // echo "<pre>";
+            // print_r($_POST);
+            if (array_key_exists('task_assign_statuss', $_POST)) {
+                date_default_timezone_set('Aisa/Kolkata');
+                $taskStatus = array(
+                    'task_status' => $_POST['task_assign_statuss'],
+                    'complete_at' => date('y-m-d h:i:s'),
+                );
+                $this->common_model->emp_task_status_update($id, 'emp_task_assigned', $taskStatus);
+                // die('xxxxx');
+            }
 
-                    $data = $this->security->xss_clean($data);
-                    $this->common_model->edit_option($data, $id, 'students','stu');
-                    $this->session->set_flashdata('msg', 'Information Updated Successfully');
-                    redirect(base_url('admin/student/all_student_list'));
-           // } else {
-                    /*
+            $modfiedHistory = array(
+                'student_id' => $id,
+                'emp_id' => $_POST['lastModifiedBy'],
+                'updated_at' => $_POST['updatedAt']
+            );
+
+            $modfiedHistoryData = $this->security->xss_clean($modfiedHistory);
+            $modfiedHistoryData_id = $this->common_model->insert($modfiedHistoryData, 'student_modified_history');
+
+            $data = $this->security->xss_clean($data);
+            $this->common_model->edit_option($data, $id, 'students', 'stu');
+            $this->session->set_flashdata('msg', 'Information Updated Successfully');
+            redirect(base_url('admin/student/all_student_list'));
+            // } else {
+            /*
                     $this->session->set_flashdata('error_msg', 'You are trying to set the duplicate values. Please Check it');
                         redirect(base_url('admin/student/update/'.$id));
                     */
-             //   }
+            //   }
 
         }
-         $statusOrig=$status = '';
+        $statusOrig = $status = '';
         foreach ($this->common_model->single_studentStatus($id) as $statusValue) {
-           
-           $status = ucwords(implode(' ',explode("_",$statusValue['student_status_data']))); 
-           $statusOrig = $statusValue['student_status'];
+
+            $status = ucwords(implode(' ', explode("_", $statusValue['student_status_data'])));
+            $statusOrig = $statusValue['student_status'];
         }
-		
-        $data['userData'] = $this->common_model->get_single_student_info($id);        
+
+        $data['userData'] = $this->common_model->get_single_student_info($id);
         $data['user_role'] = $this->common_model->get_user_role($id);
-        $data['assignedTaskList'] =  $this->common_model->getStudentTaskWithEmployee($id,'emp_task_assigned');
+        $data['assignedTaskList'] =  $this->common_model->getStudentTaskWithEmployee($id, 'emp_task_assigned');
         $data['s_id'] = $id;
         $data['country'] = $this->common_model->select('country');
-        $data['currentStatus'] =   $status;   
-        $data['originalStatus'] = $statusOrig;  
+        $data['currentStatus'] =   $status;
+        $data['originalStatus'] = $statusOrig;
         $data['main_content'] = $this->load->view('admin/student/edit_user', $data, TRUE);
-		$data['page_title'] = 'Edit Users';
+        $data['page_title'] = 'Edit Users';
         $this->load->view('admin/index', $data);
-        
     }
+
 
     public function stu_clone($id)
     {
