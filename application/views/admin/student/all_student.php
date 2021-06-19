@@ -149,8 +149,10 @@ function startsWith($string, $startString)
 
                                 if ($student_status == "approved_by_our_site") {
                                     $chekVal = "approveStudents";
-                                } else if ($student_status == "pendingStudents"){
+                                } else if ($student_status == "Pending") {
                                     $chekVal = "pendingStudents";
+                                } else if ($student_status == "reject_by_our_site") {
+                                    $chekVal = "rejectStudent";
                                 }
 
 
