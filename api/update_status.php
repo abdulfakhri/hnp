@@ -25,7 +25,13 @@ if (mysqli_num_rows($result) > 0) {
                 $si = $ro["student_id"];
                 $st = $ro["student_status"];
 
-                $status_plain=str_replace("-")
+                $status_plain1 = str_replace("_", "", $st);
+
+                $status_plain = ucwords($status_plain1);
+
+
+
+                /*
 
                 if (isset($st)=="approved_by_our_site") {
                     $status_plain = "Approved By Our Site";
@@ -56,8 +62,9 @@ if (mysqli_num_rows($result) > 0) {
                     $status_plain = "Pending";
                     $sts = "pendingStudents";
                 }
+                */
 
-                $query = "UPDATE students2 SET student_status='$st',student_st='$status_plain',studentst='$sts' WHERE student_id='$si'";
+                $query = "UPDATE students2 SET student_status='$st',student_st='$status_plain' WHERE student_id='$si'";
                 mysqli_query($conn, $query);
             }
         }
