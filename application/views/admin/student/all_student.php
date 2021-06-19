@@ -141,13 +141,15 @@ function startsWith($string, $startString)
 
                                 //if( $this->session->userdata('role') == 'admin'|| (($this->session->userdata('id') == $assignedTaskList[$user['student_id']]['emp_id']) && $assignedTaskList[$user['student_id']]['stu_id'] == $user['student_id'] ) && $user['is_deleted'] != 1) {
                                 $scount++;
-                                $chekVal = '';
-                                //$chekVal = 'pendingStudents';
+
+
                                 $student_status = $user['student_status'];
 
-                                $chekVal = str_replace("-","",$student_status);
+                                // $chekVal = str_replace("-","",$student_status);
 
-                                
+                                if ($student_status == "approved-by-our-site"){
+                                    $chekVal= "approveStudents";
+                                }
 
 
                         ?>
