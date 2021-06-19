@@ -25,7 +25,7 @@ if (mysqli_num_rows($result) > 0) {
                 $si = $ro["student_id"];
                 $st = $ro["student_status"];
 
-                if ($st == "approved_by_our_site") {
+                if (isset($st)=="approved_by_our_site") {
                     $status_plain = "Approved By Our Site";
                     $sts = "approveStudents";
                 } elseif ($st == "reject_by_our_site") {
