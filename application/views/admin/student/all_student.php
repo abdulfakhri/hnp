@@ -153,7 +153,22 @@ function startsWith($string, $startString)
                                     $chekVal = "pendingStudents";
                                 } else if ($student_status == "reject_by_our_site") {
                                     $chekVal = "rejectStudent";
+                                } elseif ($user["student_status"] == "approved_by_college") {
+                                    $chekVal = 'approveStudents';
+                                } elseif ($user["student_status"] == "approved_by_nsp") {
+                                    $chekVal = 'approveStudents';
+                                } elseif ($student_status == "reject_by_our_site") {
+                                    $chekVal = "rejectStudent";
+                                } elseif ($student_status == "defect_by_our_site") {
+                                    $chekVal = "defectStudents";
+                                } elseif ($student_status == "rejected_by_college") {
+                                    $chekVal = "rejectStudent";
+                                } elseif ($student_status == "defect_by_college") {
+                                    $chekVal = "defectStudents";
+                                } elseif ($student_status == "defect_by_nsp") {
+                                    $chekVal = "defectStudents";
                                 }
+
 
 
                         ?>
