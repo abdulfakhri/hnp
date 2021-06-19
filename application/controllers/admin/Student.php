@@ -863,25 +863,7 @@ class Student extends CI_Controller {
             $ac_back = $this->common_model->upload_image(1020,'ac_back');
             $income_certi = $this->common_model->upload_image(1020,'income_certi');
 
-            /*
-            $_POST['bonafide'] = (array_key_exists('msg', $bonafide) ? $_POST['hidden_bonfide'] :site_url($bonafide['images']).','.site_url($bonafide['thumb']).','.site_url($bonafide['mainImg']));
 
-            $_POST['p_photo'] = (array_key_exists('msg', $p_photo) ? $_POST['hidden_p_photo'] :site_url($p_photo['images']).','.site_url($p_photo['thumb']).','.site_url($p_photo['mainImg']));
-
-            $_POST['prtc'] = (array_key_exists('msg', $prtc) ? $_POST['hidden_prtc'] :site_url($prtc['images']).','.site_url($prtc['thumb']).','.site_url($prtc['mainImg']));
-
-            $_POST['caste_certi'] = (array_key_exists('msg', $caste_certi) ? $_POST['hidden_caste_certi'] : site_url($caste_certi['images']).','.site_url($caste_certi['thumb']).','.site_url($caste_certi['mainImg']));
-
-            $_POST['ac_front'] =  (array_key_exists('msg', $ac_front) ? $_POST['hidden_ac_front'] : site_url($ac_front['images']).','.site_url($ac_front['thumb']).','.site_url($ac_front['mainImg']));
-
-            $_POST['ac_back'] = (array_key_exists('msg', $ac_back) ? $_POST['hidden_ac_back'] : site_url($ac_back['images']).','.site_url($ac_back['thumb']).','.site_url($ac_back['mainImg']));
-            
-            $_POST['income_certi'] = (array_key_exists('msg', $income_certi) ? $_POST['hidden_income_certi'] : site_url($income_certi['images']).','.site_url($income_certi['thumb']).','.site_url($income_certi['mainImg']));
-            */
-            
-            
-            
-            
              $_POST['bonafide'] = (array_key_exists('msg', $bonafide) ? $_POST['hidden_bonfide'] :($bonafide['images']));
 
             $_POST['p_photo'] = (array_key_exists('msg', $p_photo) ? $_POST['hidden_p_photo'] :($bonafide['images']));
@@ -1029,20 +1011,12 @@ class Student extends CI_Controller {
              //   }
 
         }
-         $statusOrig=$status = '';
-        foreach ($this->common_model->single_studentStatus($id) as $statusValue) {
-           
-           $status = ucwords(implode(' ',explode("_",$statusValue['student_status_data']))); 
-           $statusOrig = $statusValue['student_status'];
-        }
-		
+        
         $data['userData'] = $this->common_model->get_single_student_info($id);        
         $data['user_role'] = $this->common_model->get_user_role($id);
         $data['assignedTaskList'] =  $this->common_model->getStudentTaskWithEmployee($id,'emp_task_assigned');
         $data['s_id'] = $id;
         $data['country'] = $this->common_model->select('country');
-        $data['currentStatus'] =   $status;   
-        $data['originalStatus'] = $statusOrig;  
         $data['main_content'] = $this->load->view('admin/student/edit_user', $data, TRUE);
 		$data['page_title'] = 'Edit Users';
         $this->load->view('admin/index', $data);
