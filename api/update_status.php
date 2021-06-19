@@ -50,6 +50,9 @@ if (mysqli_num_rows($result) > 0) {
                 } elseif ($st == "defect_by_nsp") {
                     $status_plain = "Defect By NSP";
                     $sts = "defectStudents";
+                }elseif ($st=="Pending"){
+                    $status_plain = "Pending";
+                    $sts = "pendingStudents";
                 }
 
                 $query = "UPDATE students2 SET student_status='$st',student_st='$status_plain',studentst='$sts' WHERE student_id='$si'";
