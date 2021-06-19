@@ -846,8 +846,7 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
     }
 
-    public function update($id)
-    {
+    public function update($id){
 
         if ($_POST) {
 
@@ -922,30 +921,6 @@ class Student extends CI_Controller {
                 'bank_name' => $_POST['bank_name']
             );
 
-            //-- check duplicate trnumber
-            /*
-            $tr_numberCheck = $this->common_model->check_fields('tr_number', $_POST['tr_number']);
-            $bnk_acnt_number_Check = $this->common_model->check_fields('bnk_acnt_number', $_POST['account_number']);
-            $dbValue = $this->common_model->get_single_student_info($id);
-
-            if ($_POST['tr_number'] == 'Pending' || $dbValue->tr_number == 'Pending') {
-
-                $arr = array('student_id' => $id);
-                $tr_numberCheck[] = (object) $arr;
-            }
-
-            if ($dbValue->bnk_acnt_number != $_POST['account_number'] && empty($bnk_acnt_number_Check)) {
-
-                $arr = array('student_id' => $id);
-                $bnk_acnt_number_Check[] = (object) $arr;
-            }
-            */
-
-
-
-            //  if ((empty($tr_numberCheck) && empty($bnk_acnt_number_Check)) || ($tr_numberCheck[0]->student_id == $id && $bnk_acnt_number_Check[0]->student_id == $id))  {
-            // echo "<pre>";
-            // print_r($_POST);
             if (array_key_exists('task_assign_statuss', $_POST)) {
                 date_default_timezone_set('Aisa/Kolkata');
                 $taskStatus = array(
@@ -969,15 +944,15 @@ class Student extends CI_Controller {
             $this->common_model->edit_option($data, $id, 'students', 'stu');
             $this->session->set_flashdata('msg', 'Information Updated Successfully');
             redirect(base_url('admin/student/all_student_list'));
-            // } else {
+         } 
             /*
                     $this->session->set_flashdata('error_msg', 'You are trying to set the duplicate values. Please Check it');
                         redirect(base_url('admin/student/update/'.$id));
-                    */
-            //   }
+                    
+              }
 
-        }
-        /*
+        
+        
         $statusOrig = $status = '';
         foreach ($this->common_model->single_studentStatus($id) as $statusValue) {
 
