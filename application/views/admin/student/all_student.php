@@ -145,6 +145,10 @@ function startsWith($string, $startString)
 
                                 $student_status = $user['student_status'];
 
+                                $status_plain1 = str_replace("_", " ", $student_status);
+
+                                $status_plain = ucwords($status_plain1);
+
                                 // $chekVal = str_replace("-","",$student_status);
 
                                 if ($student_status == "approved_by_our_site") {
@@ -317,7 +321,7 @@ function startsWith($string, $startString)
                                         <?php echo $user['caste_details']; ?>
                                     </td>
 
-                                    <td> <?php echo $student_status; ?></td>
+                                    <td> <?php echo $status_plain; ?></td>
 
                                 </tr>
                             <?php } else  if (($user['uploadedBy'] == $this->session->userdata('id') || $this->session->userdata('role') == 'admin') && ($user['is_deleted'] != 1 && $studentFilter == 'tripura' && $user['state'] == 'Tripura')) {
