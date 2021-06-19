@@ -901,7 +901,7 @@ class Student extends CI_Controller {
             $data = array(
                 //'student_uploaded_data' => $serializedAdminFormData,
                 
-                 'tr_number'=>$_POST['tr_number'],
+                'tr_number'=>$_POST['tr_number'],
                 'trnumber'=>$_POST['tr_number'],
                 'bnk_acnt_number'=>$_POST['account_number'],
                 'account_number'=>$_POST['account_number'],
