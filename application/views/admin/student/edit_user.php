@@ -232,7 +232,7 @@ if(strpos($mystring, $word) !== false){?>
  <option value="defect_by_college">Defected By College Site</option>
  <option value="pending_by_college">Pending By College Site</option>
  <option value="approved_by_nsp">Approved By NSP Site</option>
- <option value="rejected_by_nsp">Rejected By NSP Site</option>
+ <option value="nsp_reject">Rejected By NSP Site</option>
  <option value="defect_by_nsp">Defected By NSP Site</option>
  <option value="pending_by_nsp">Pending By NSP Site</option>
  </select>
@@ -578,22 +578,9 @@ if(strpos($mystring, $word) !== false){?>
                                       
                              <?php } ?>
                             </div>
-                             <div class="col-sm-offset-3 col-lg-2 col-sm-4 col-xs-12 mb-1 mt-1 p-3">
-                                    <div class="btn btn-block btn-success btn-rounded btn-lg approve_btn" ><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Approve</div>
-                                </div>
-                                <!--  <div class=" col-sm-offset-3 col-lg-2 col-sm-4 col-xs-12 mb-1 mt-1 p-3">
-                                    <div class="btn btn-block btn-warning btn-rounded btn-lg pending_btn"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;Pending</div>
-                                </div> -->
-                                <div class="col-sm-offset-3 col-lg-2 col-sm-4 col-xs-12 mb-1 mt-1 p-3">
-                                    <div class="btn btn-block btn-primary btn-rounded btn-lg defect_btn"><i class="fa fa-thumbs-down"></i>&nbsp;&nbsp;Defect</div>
-                                </div>
-                               
-                                <div class="col-sm-offset-3 col-lg-2 col-sm-4 col-xs-12 mb-1 mt-1 p-3">
-                                    <div class="btn btn-block btn-danger btn-rounded btn-lg reject_btn ">&nbsp;&nbsp;Reject</div>
-                                </div>
+                            
                           </div>
-                           
-                    <!-- final div closing tags --> </div>  <!-- final div closing tags -->
+            
                       
                     </form>
 
@@ -602,38 +589,7 @@ if(strpos($mystring, $word) !== false){?>
         </div>
     </div>
   
-<!-- code for ssetting the student status -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2 class="modal-title" id="exampleModalCenterTitle">Modal title</h2>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-             <form method="post" id="student_status_form" action="<?php echo base_url('admin/student/status') ?>" class="form-horizontal">
-                <ul class="icheck-list">
-                  <li>
-                      <input type="radio" class="check" id="college_approved" name="flat-radio" data-radio="iradio_flat-green">
-                      <label for="college_approved">Approved By College</label>
-                  </li>
-                  <li>
-                      <input type="radio" class="check" id="nsp_approved" name="flat-radio" data-radio="iradio_flat-green">
-                      <label for="nsp_approved">Approved By NSP</label>
-                  </li>
-              </ul>
-              </form>                
-            </div>
-            <div class="modal-footer">
-              <button type="button" id="modal_close_btn" class="btn btn-secondary btn btn-block btn-rounded btn-lg" data-dismiss="modal">Close</button>
-              <button type="button" id="modal_success_btn" class="btn btn-primary btn btn-block btn-rounded btn-lg btn-success">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    <!-- End Page Content -->
+
  <script>
   $(document).ready(function() {
    $('html, body').animate({ scrollTop: 0 }, 'slow');

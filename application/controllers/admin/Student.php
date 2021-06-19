@@ -8,7 +8,7 @@ class Student extends CI_Controller {
        $this->load->model('common_model');
        $this->load->model('login_model');
     }
-    
+
    public function list_users(){
     $users = $this->common_model->getUsernames();
 
@@ -20,13 +20,13 @@ class Student extends CI_Controller {
 
 
 
-    public function deleted_students(){ 
+    public function deleted_students(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -44,13 +44,13 @@ class Student extends CI_Controller {
     }
 
    /////////////////////////////////////////////////////////////////Dashboard Boxes////////////////////////////////////
-      public function total_students_our_site(){ 
+      public function total_students_our_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -66,13 +66,13 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/total_student_our_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
-     public function total_students_college_site(){ 
+     public function total_students_college_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -88,13 +88,13 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/total_student_college_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
-      public function total_students_nsp_site(){ 
+      public function total_students_nsp_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -110,14 +110,14 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/total_student_nsp_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
-   
-     public function approved_students_our_site(){ 
+
+     public function approved_students_our_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -133,13 +133,13 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/approved_by_our_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
-     public function approved_students_college_site(){ 
+     public function approved_students_college_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -155,13 +155,13 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/approved_by_college_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
-      public function approved_students_nsp_site(){ 
+      public function approved_students_nsp_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -178,13 +178,13 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
     }
 
-     public function pending_students_our_site(){ 
+     public function pending_students_our_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -200,13 +200,13 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/pending_by_our_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
-     public function pending_students_college_site(){ 
+     public function pending_students_college_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -222,13 +222,13 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/pending_by_college_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
-      public function pending_students_nsp_site(){ 
+      public function pending_students_nsp_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -245,13 +245,13 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
     }
 
-      public function defect_students_our_site(){ 
+      public function defect_students_our_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -267,13 +267,13 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/defect_by_our_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
-     public function defect_students_college_site(){ 
+     public function defect_students_college_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -289,13 +289,13 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/defect_by_college_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
-      public function defect_students_nsp_site(){ 
+      public function defect_students_nsp_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -312,13 +312,13 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
     }
 
-    public function reject_students_our_site(){ 
+    public function reject_students_our_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -334,13 +334,13 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/reject_by_our_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
-    public function reject_students_college_site(){ 
+    public function reject_students_college_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -356,13 +356,13 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/reject_by_college_site', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
-    public function reject_students_nsp_site(){ 
+    public function reject_students_nsp_site(){
          $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
 
         $current_EmpId = $this->session->userdata('id');
@@ -397,7 +397,7 @@ class Student extends CI_Controller {
         $data['country'] = $this->common_model->select('country');
         $data['power'] = $this->common_model->get_all_power('user_power');
 
-       
+
 
 
 
@@ -413,7 +413,7 @@ class Student extends CI_Controller {
         $data['power'] = $this->common_model->get_all_power('user_power');
         $data['main_content'] = $this->load->view('admin/student/college', $data, TRUE);
         $this->load->view('admin/index', $data);
-       
+
     }
       public function colleges()
     {
@@ -426,13 +426,13 @@ class Student extends CI_Controller {
     }
 
     //-- add new user by admin
-     public function addc(){   
+     public function addc(){
 
         if ($_POST) {
 
-       
+
             $data = array(
-             
+
                 'name'=>$_POST['name'],
                 'course_name'=>$_POST['course_name'],
                 'country'=>$_POST['country'],
@@ -441,17 +441,17 @@ class Student extends CI_Controller {
                 'amount'=>$_POST['amount']
             );
 
-      
+
                 $data = $this->security->xss_clean($data);
                 $student_id = $this->common_model->insert($data, 'colleges');
                 $this->session->set_flashdata('msg', 'College added Successfully');
                 redirect(base_url('admin/student/all_student_list'));
-        
+
         }
     }
     //-- add new user by admin
     public function add()
-    {   
+    {
 
         if ($_POST) {
 
@@ -475,12 +475,12 @@ class Student extends CI_Controller {
             $_POST['ac_front'] = site_url($ac_front['images']).','.site_url($ac_front['thumb']).','.site_url($ac_front['mainImg']);
 
             $_POST['ac_back'] = site_url($ac_back['images']).','.site_url($ac_back['thumb']).','.site_url($ac_back['mainImg']);
-            
+
             $_POST['income_certi'] = site_url($income_certi['images']).','.site_url($income_certi['thumb']).','.site_url($income_certi['mainImg']);
-          
-            
-            
-                        
+
+
+
+
             $_POST['bonafide'] = ($bonafide['images']).','.($bonafide['thumb']).','.($bonafide['mainImg']);
 
             $_POST['p_photo'] = ($p_photo['images']).','.($p_photo['thumb']).','.($p_photo['mainImg']);
@@ -492,10 +492,10 @@ class Student extends CI_Controller {
             $_POST['ac_front'] = ($ac_front['images']).','.($ac_front['thumb']).','.($ac_front['mainImg']);
 
             $_POST['ac_back'] = ($ac_back['images']).','.($ac_back['thumb']).','.($ac_back['mainImg']);
-            
+
             $_POST['income_certi'] = ($income_certi['images']).','.($income_certi['thumb']).','.($income_certi['mainImg']);
              */
-             
+
             /*
              $_POST['bonafide'] = $bonafide['images'];
 
@@ -508,11 +508,11 @@ class Student extends CI_Controller {
             $_POST['ac_front'] = $ac_front['images'];
 
             $_POST['ac_back'] =$ac_back['images'];
-            
+
             $_POST['income_certi'] = $income_certi['images'];
-            
+
             */
-          
+
             $_POST['bonafide'] = $bonafide['mainImg'];
 
             $_POST['p_photo'] = $p_photo['mainImg'];
@@ -524,12 +524,12 @@ class Student extends CI_Controller {
             $_POST['ac_front'] = $ac_front['mainImg'];
 
             $_POST['ac_back'] = $ac_back['mainImg'];
-            
+
             $_POST['income_certi'] = $income_certi['mainImg'];
-            
-            //$serializedAdminFormData = serialize($_POST); 
+
+            //$serializedAdminFormData = serialize($_POST);
             $data = array(
-                
+
                 'tr_number'=>$_POST['tr_number'],
                 'trnumber'=>$_POST['tr_number'],
                 'year'=>$_POST['year'],
@@ -540,66 +540,66 @@ class Student extends CI_Controller {
                  'state'=>$_POST['state'],
                  'mom_name'=>$_POST['mom_name'],
                  'dad_name'=>$_POST['dad_name'],
-                 
+
                  'mobile'=>$_POST['mobile'],
                  'gender'=>$_POST['gender'],
                  'dob'=>$_POST['dob'],
-             
-             
+
+
                  'aadhar_number'=>$_POST['aadhar_number'],
                  'income_details'=>$_POST['income_details'],
-                 
+
                  'sub_division'=>$_POST['sub_division'],
                  'district'=>$_POST['district'],
-                 
+
                  'address1'=>$_POST['address1'],
                  'pin_code'=>$_POST['pin_code'],
-             
+
                 'ten_year'=>$_POST['ten_year'],
-             
+
                 'ten_marks'=>$_POST['ten_marks'],
                 'plustwo_year'=>$_POST['plustwo_year'],
-             
-                
+
+
                 'updatedAt'=>$_POST['updatedAt'],
                 'createdAt'=>$_POST['createdAt'],
-                
+
                  'uploadedBy'=>$_POST['uploadedBy'],
                 'plustwo_marks'=>$_POST['plustwo_marks'],
-                
-                
-             
+
+
+
                  'lastModifiedBy'=>$_POST['lastModifiedBy'],
                 'updatedAt'=>$_POST['updatedAt'],
-                
+
                  'course_details'=>$_POST['course_details'],
                 'education_details'=>$_POST['education_details'],
-             
-             
+
+
                 'scholarship_amount'=>$_POST['scholarship_amount'],
                 'education_details_year'=>$_POST['education_details_year'],
-                
+
                 'full_name'=>$_POST['full_name'],
-               
+
                 'caste_details'=>$_POST['caste_details'],
-                
+
                 'income_certi'=>$_POST['income_certi'],
                 'ac_front'=>$_POST['ac_front'],
                 'ac_back'=>$_POST['ac_back'],
-                
+
                 'caste_certi'=>$_POST['caste_certi'],
                 'prtc'=>$_POST['prtc'],
-                
-                
+
+
                 'p_photo'=>$_POST['p_photo'],
                 'bonafide'=>$_POST['bonafide'],
-                
+
                 'remarks'=>$_POST['remarks'],
                 'agent_mobile'=>$_POST['agent_mobile'],
-                
+
                 'agent_name'=>$_POST['agent_name'],
                 'bank_name'=>$_POST['bank_name'],
-                
+
                 'ifsc_code'=>$_POST['ifsc_code'],
                 'bank_name'=>$_POST['bank_name']
             );
@@ -635,13 +635,13 @@ class Student extends CI_Controller {
 
 
     public function all_student_list()
-    { 
+    {
         $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
@@ -656,9 +656,9 @@ class Student extends CI_Controller {
         $data['main_content'] = $this->load->view('admin/student/all_student', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
-    public function student_bank_verifiy(){ 
+    public function student_bank_verifiy(){
         //filter_year=2020&filter_state=Tripura&filter_cast=SC&filter_status=approve_by_our_site&filter=
-        
+
         $yr=$_GET['filter_year'];
         $st=$_GET['filter_state'];
         $caste=$_GET['filter_caste'];
@@ -669,10 +669,10 @@ class Student extends CI_Controller {
 
             $finalStudentStatus = array();
             foreach ($this->common_model->all_studentStatus() as $key => $value) {
-                $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-                $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-                $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-                $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+                $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+                $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+                $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+                $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
             }
             $current_EmpId = $this->session->userdata('id');
             //$data['studentFilter'] = 'Tripura';
@@ -687,17 +687,17 @@ class Student extends CI_Controller {
 
             /////////////////////////////////////////////////////////////
 
-     
-       
+
+
     }
     public function students_2020()
-    { 
+    {
         $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
@@ -713,13 +713,13 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
     }
     public function students_tripura()
-    { 
+    {
         $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
@@ -735,13 +735,13 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
     }
     public function students_assam()
-    { 
+    {
         $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
@@ -757,13 +757,13 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
     }
     public function students_2022()
-    { 
+    {
         $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
@@ -779,13 +779,13 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
     }
     public function students_pending()
-    { 
+    {
         $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
@@ -802,13 +802,13 @@ class Student extends CI_Controller {
     }
 
     public function students_2021()
-    { 
+    {
         $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
@@ -824,37 +824,36 @@ class Student extends CI_Controller {
         $this->load->view('admin/index', $data);
     }
 
-   
+
     // single student view function
 
     public function student_view_data($id)
-    {   
+    {
         $statusOrig=$status = '';
         foreach ($this->common_model->single_studentStatus($id) as $statusValue) {
-           
-           $status = ucwords(implode(' ',explode("_",$statusValue['student_status']))); 
+
+           $status = ucwords(implode(' ',explode("_",$statusValue['student_status'])));
            $statusOrig = $statusValue['student_status'];
         }
 
 	 	$data['page_title'] = 'Student Details';
         $data['user'] = $this->common_model->get_single_student_info($id);
-        $data['currentStatus'] =   $status;   
-        $data['originalStatus'] = $statusOrig;    
+        $data['currentStatus'] =   $status;
+        $data['originalStatus'] = $statusOrig;
         $data['country'] = $this->common_model->select('country');
         $data['count'] = $this->common_model->get_user_total();
         $data['main_content'] = $this->load->view('admin/student/student_view', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
 
-    //-- update users info
     public function update($id){
 
-        if($_POST) {  
+        if($_POST) {
 
             // echo "<pre>";
             // print_r($_POST);
             // die;
-            
+
             $bonafide = $this->common_model->upload_image(1020,'bonafide');
             $p_photo = $this->common_model->upload_image(1020,'p_photo');
             $prtc = $this->common_model->upload_image(1020,'prtc');
@@ -866,162 +865,107 @@ class Student extends CI_Controller {
 
              $_POST['bonafide'] = (array_key_exists('msg', $bonafide) ? $_POST['hidden_bonfide'] :($bonafide['images']));
 
-            $_POST['p_photo'] = (array_key_exists('msg', $p_photo) ? $_POST['hidden_p_photo'] :($bonafide['images']));
+            $_POST['prtc'] = (array_key_exists('msg', $prtc) ? $_POST['hidden_prtc'] : ($bonafide['images']));
 
-            $_POST['prtc'] = (array_key_exists('msg', $prtc) ? $_POST['hidden_prtc'] :($bonafide['images']));
+            $_POST['caste_certi'] = (array_key_exists('msg', $caste_certi) ? $_POST['hidden_caste_certi'] : ($bonafide['images']));
 
-            $_POST['caste_certi'] = (array_key_exists('msg', $caste_certi) ? $_POST['hidden_caste_certi'] :($bonafide['images']));
+            $_POST['ac_front'] =  (array_key_exists('msg', $ac_front) ? $_POST['hidden_ac_front'] : ($bonafide['images']));
 
-            $_POST['ac_front'] =  (array_key_exists('msg', $ac_front) ? $_POST['hidden_ac_front'] :($bonafide['images']));
+            $_POST['ac_back'] = (array_key_exists('msg', $ac_back) ? $_POST['hidden_ac_back'] : ($bonafide['images']));
 
-            $_POST['ac_back'] = (array_key_exists('msg', $ac_back) ? $_POST['hidden_ac_back'] :($bonafide['images']));
-            
-            $_POST['income_certi'] = (array_key_exists('msg', $income_certi) ? $_POST['hidden_income_certi'] :($bonafide['images']));
+            $_POST['income_certi'] = (array_key_exists('msg', $income_certi) ? $_POST['hidden_income_certi'] : ($bonafide['images']));
 
-              
-            //$serializedAdminFormData = serialize($_POST); 
             $data = array(
-                //'student_uploaded_data' => $serializedAdminFormData,
-                
-                 'tr_number'=>$_POST['tr_number'],
-                'trnumber'=>$_POST['tr_number'],
-                'bnk_acnt_number'=>$_POST['account_number'],
-                'account_number'=>$_POST['account_number'],
-                'caste_details'=>$_POST['caste_details'],
-                 'createdAt'=>$_POST['createdAt'],
-                 'state'=>$_POST['state'],
-                 'mom_name'=>$_POST['mom_name'],
-                 'dad_name'=>$_POST['dad_name'],
-                 
-                 'mobile'=>$_POST['mobile'],
-                 'gender'=>$_POST['gender'],
-                 'dob'=>$_POST['dob'],
-             
-             
-                 'aadhar_number'=>$_POST['aadhar_number'],
-                 'income_details'=>$_POST['income_details'],
-                 
-                 'sub_division'=>$_POST['sub_division'],
-                 'district'=>$_POST['district'],
-                 
-                 'address1'=>$_POST['address1'],
-                 'pin_code'=>$_POST['pin_code'],
-             
-                'ten_year'=>$_POST['ten_year'],
-             
-                'ten_marks'=>$_POST['ten_marks'],
-                'plustwo_year'=>$_POST['plustwo_year'],
-             
-                
-                'updatedAt'=>$_POST['updatedAt'],
-                'createdAt'=>$_POST['createdAt'],
-                
-                 'uploadedBy'=>$_POST['uploadedBy'],
-                'plustwo_marks'=>$_POST['plustwo_marks'],
-                
-                
-             
-                 'lastModifiedBy'=>$_POST['lastModifiedBy'],
-                'updatedAt'=>$_POST['updatedAt'],
-                
-                 'course_details'=>$_POST['course_details'],
-                'education_details'=>$_POST['education_details'],
-             
-             
-                'scholarship_amount'=>$_POST['scholarship_amount'],
-                'education_details_year'=>$_POST['education_details_year'],
-                
-                'full_name'=>$_POST['full_name'],
-               
-                'caste_details'=>$_POST['caste_details'],
-                
-                'income_certi'=>$_POST['income_certi'],
-                'ac_front'=>$_POST['ac_front'],
-                'ac_back'=>$_POST['ac_back'],
-                
-                'caste_certi'=>$_POST['caste_certi'],
-                'prtc'=>$_POST['prtc'],
-                
-                
-                'p_photo'=>$_POST['p_photo'],
-                'bonafide'=>$_POST['bonafide'],
-                
-                'remarks'=>$_POST['remarks'],
-                'agent_mobile'=>$_POST['agent_mobile'],
-                
-                'agent_name'=>$_POST['agent_name'],
-                'bank_name'=>$_POST['bank_name'],
-                
-                'ifsc_code'=>$_POST['ifsc_code'],
-                'bank_name'=>$_POST['bank_name']
-                
-                
+                'tr_number' => $_POST['tr_number'],
+                'trnumber' => $_POST['tr_number'],
+                'bnk_acnt_number' => $_POST['account_number'],
+                'account_number' => $_POST['account_number'],
+                'caste_details' => $_POST['caste_details'],
+                'createdAt' => $_POST['createdAt'],
+                'state' => $_POST['state'],
+                'mom_name' => $_POST['mom_name'],
+                'dad_name' => $_POST['dad_name'],
+                'mobile' => $_POST['mobile'],
+                'gender' => $_POST['gender'],
+                'dob' => $_POST['dob'],
+                'aadhar_number' => $_POST['aadhar_number'],
+                'income_details' => $_POST['income_details'],
+                'sub_division' => $_POST['sub_division'],
+                'district' => $_POST['district'],
+                'address1' => $_POST['address1'],
+                'pin_code' => $_POST['pin_code'],
+                'ten_year' => $_POST['ten_year'],
+                'ten_marks' => $_POST['ten_marks'],
+                'plustwo_year' => $_POST['plustwo_year'],
+                'updatedAt' => $_POST['updatedAt'],
+                'createdAt' => $_POST['createdAt'],
+                'uploadedBy' => $_POST['uploadedBy'],
+                'plustwo_marks' => $_POST['plustwo_marks'],
+                'lastModifiedBy' => $_POST['lastModifiedBy'],
+                'updatedAt' => $_POST['updatedAt'],
+                'course_details' => $_POST['course_details'],
+                'education_details' => $_POST['education_details'],
+                'scholarship_amount' => $_POST['scholarship_amount'],
+                'education_details_year' => $_POST['education_details_year'],
+                'full_name' => $_POST['full_name'],
+                'caste_details' => $_POST['caste_details'],
+                'income_certi' => $_POST['income_certi'],
+                'ac_front' => $_POST['ac_front'],
+                'ac_back' => $_POST['ac_back'],
+                'caste_certi' => $_POST['caste_certi'],
+                'prtc' => $_POST['prtc'],
+                'p_photo' => $_POST['p_photo'],
+                'bonafide' => $_POST['bonafide'],
+                'remarks' => $_POST['remarks'],
+                'agent_mobile' => $_POST['agent_mobile'],
+                'agent_name' => $_POST['agent_name'],
+                'bank_name' => $_POST['bank_name'],
+                'ifsc_code' => $_POST['ifsc_code'],
+                'bank_name' => $_POST['bank_name']
             );
-            
-            //-- check duplicate trnumber
-            $tr_numberCheck = $this->common_model->check_fields('tr_number',$_POST['tr_number']);
-            $bnk_acnt_number_Check = $this->common_model->check_fields('bnk_acnt_number',$_POST['account_number']); 
-            $dbValue = $this->common_model->get_single_student_info($id);                    
 
-            if($_POST['tr_number'] == 'Pending' || $dbValue->tr_number == 'Pending'){
-
-               $arr = array('student_id'=>$id);
-                $tr_numberCheck[] = (object) $arr;
+            if (array_key_exists('task_assign_statuss', $_POST)) {
+                date_default_timezone_set('Aisa/Kolkata');
+                $taskStatus = array(
+                    'task_status' => $_POST['task_assign_statuss'],
+                    'complete_at' => date('y-m-d h:i:s'),
+                );
+                $this->common_model->emp_task_status_update($id, 'emp_task_assigned', $taskStatus);
+                // die('xxxxx');
             }
 
-             if($dbValue->bnk_acnt_number != $_POST['account_number'] && empty($bnk_acnt_number_Check)) {
+            $modfiedHistory = array(
+                'student_id' => $id,
+                'emp_id' => $_POST['lastModifiedBy'],
+                'updated_at' => $_POST['updatedAt']
+            );
 
-               $arr = array('student_id'=>$id);
-                $bnk_acnt_number_Check[] = (object) $arr;
-            }
+            $modfiedHistoryData = $this->security->xss_clean($modfiedHistory);
+            $modfiedHistoryData_id = $this->common_model->insert($modfiedHistoryData, 'student_modified_history');
 
-           
-
-         //  if ((empty($tr_numberCheck) && empty($bnk_acnt_number_Check)) || ($tr_numberCheck[0]->student_id == $id && $bnk_acnt_number_Check[0]->student_id == $id))  {
-                   // echo "<pre>";
-                   // print_r($_POST);
-                    if (array_key_exists('task_assign_statuss',$_POST)){
-                        date_default_timezone_set('Aisa/Kolkata');
-                        $taskStatus=array(
-                            'task_status' => $_POST['task_assign_statuss'],
-                            'complete_at' => date('y-m-d h:i:s'),
-                        );
-                        $this->common_model->emp_task_status_update($id,'emp_task_assigned',$taskStatus);
-                        // die('xxxxx');
-                    }
-
-                    $modfiedHistory = array(
-                        'student_id' => $id,
-                        'emp_id' => $_POST['lastModifiedBy'],
-                        'updated_at' => $_POST['updatedAt']
-                    );
-                    
-                    $modfiedHistoryData = $this->security->xss_clean($modfiedHistory);
-                    $modfiedHistoryData_id = $this->common_model->insert($modfiedHistoryData, 'student_modified_history');
-
-                    $data = $this->security->xss_clean($data);
-                    $this->common_model->edit_option($data, $id, 'students','stu');
-                    $this->session->set_flashdata('msg', 'Information Updated Successfully');
-                    redirect(base_url('admin/student/all_student_list'));
-           // } else {
-                    /*
+            $data = $this->security->xss_clean($data);
+            $this->common_model->edit_option($data, $id, 'students', 'stu');
+            $this->session->set_flashdata('msg', 'Information Updated Successfully');
+            redirect(base_url('admin/student/all_student_list'));
+         }
+            /*
                     $this->session->set_flashdata('error_msg', 'You are trying to set the duplicate values. Please Check it');
                         redirect(base_url('admin/student/update/'.$id));
-                    */
-             //   }
+
+              }
 
         }
-        
-        $data['userData'] = $this->common_model->get_single_student_info($id);        
+*/
+        $data['userData'] = $this->common_model->get_single_student_info($id);
         $data['user_role'] = $this->common_model->get_user_role($id);
-        $data['assignedTaskList'] =  $this->common_model->getStudentTaskWithEmployee($id,'emp_task_assigned');
+        $data['assignedTaskList'] =  $this->common_model->getStudentTaskWithEmployee($id, 'emp_task_assigned');
         $data['s_id'] = $id;
         $data['country'] = $this->common_model->select('country');
         $data['main_content'] = $this->load->view('admin/student/edit_user', $data, TRUE);
-		$data['page_title'] = 'Edit Users';
+        $data['page_title'] = 'Edit Users';
         $this->load->view('admin/index', $data);
-        
     }
+
 
     public function stu_clone($id)
     {
@@ -1033,8 +977,8 @@ class Student extends CI_Controller {
 
         $defaultArray =  array('address1','address2','city','sub_division','district','pin_code','bank_name','ifsc_code','updatedAt','createdAt','uploadedBy','lastModifiedBy');
 
-        $cloneStudent = $this->common_model->get_single_student_info($id);   
-        
+        $cloneStudent = $this->common_model->get_single_student_info($id);
+
     /*
     $caste=$unserlizedData['caste_details'];
     $createdyear=$unserlizedData['createdAt'];
@@ -1045,74 +989,74 @@ class Student extends CI_Controller {
     $gender=$unserlizedData['gender'];
     $mobile=$unserlizedData['mobile'];
    */
-  
+
          $data = array(
                  'caste_details'=>$cloneStudent->caste_details,
                  'createdAt'=>$cloneStudent->createdAt,
                  'state'=>$cloneStudent->state,
                  'mom_name'=>$cloneStudent->mom_name,
                  'dad_name'=>$cloneStudent->dad_name,
-                 
+
                  'mobile'=>$cloneStudent->mobile,
                  'gender'=>$cloneStudent->gender,
-             
-             
+
+
                  'aadhar_number'=>$cloneStudent->aadhar_number,
                  'income_details'=>$cloneStudent->income_details,
-                 
+
                  'sub_division'=>$cloneStudent->sub_division,
                  'district'=>$cloneStudent->district,
-                 
+
                  'address1'=>$cloneStudent->address1,
                  'pin_code'=>$cloneStudent->pin_code,
-             
+
                 'ten_year'=>$cloneStudent->ten_year,
-             
+
                 'ten_marks'=>$cloneStudent->ten_marks,
                 'plustwo_year'=>$cloneStudent->plustwo_year,
-             
-                
+
+
                 'updatedAt'=>$cloneStudent->updatedAt,
                 'createdAt'=>$cloneStudent->createdAt,
-                
+
                  'uploadedBy'=>$cloneStudent->uploadedBy,
                 'plustwo_marks'=>$cloneStudent->plustwo_marks,
-                
-                
-             
+
+
+
                  'lastModifiedBy'=>$cloneStudent->lastModifiedBy,
                 'updatedAt'=>$cloneStudent->updatedAt,
-                
+
                  'course_details'=>$cloneStudent->course_details,
                 'education_details'=>$cloneStudent->education_details,
-             
-             
+
+
                 'scholarship_amount'=>$cloneStudent->scholarship_amount,
                 'education_details_year'=>$cloneStudent->education_details_year,
-                
+
                 'full_name'=>$cloneStudent->full_name,
                 'caste_details'=>$cloneStudent->caste_details,
-                
+
                 'income_certi'=>$cloneStudent->income_certi,
                 'ac_front'=>$cloneStudent->ac_front,
-                
+
                 'caste_certi'=>$cloneStudent->caste_certi,
                 'prtc'=>$cloneStudent->prtc,
-                
-                
+
+
                 'p_photo'=>$cloneStudent->p_photo,
                 'bonafide'=>$cloneStudent->bonafide,
-                
+
                 'remarks'=>$cloneStudent->remarks,
                 'agent_mobile'=>$cloneStudent->agent_mobile,
-                
+
                 'agent_name'=>$cloneStudent->agent_name,
                 'bank_name'=>$cloneStudent->bank_name,
-                
+
                 'ifsc_code'=>$cloneStudent->ifsc_code,
                 'bank_name'=>$cloneStudent->bank_name,
-                
-                
+
+
 
             );
 
@@ -1174,7 +1118,7 @@ class Student extends CI_Controller {
         }
     }
 
-    // get emplyee name 
+    // get emplyee name
 
     public function getEmployeeName()
     {
@@ -1183,28 +1127,28 @@ class Student extends CI_Controller {
         echo $emp_name_aaray['first_name']." ".$emp_name_aaray['last_name'];
     }
 
-    // public function for setting the status 
+    // public function for setting the status
     public function status()
     {
         if ($_POST) {
-           
+
             $formKey = array_keys($_POST['formData']);
               $data = array(
                 'student_id' => $_POST['student_id'],
                 'student_status' =>$formKey[0],
                 'formData' => serialize($_POST)
             );
-        
+
 
         $checkStatusIdExist = $this->common_model->get_single_studentStatus_id($_POST['student_id']);
-        
+
         if(empty($checkStatusIdExist)){
 
             $data = $this->security->xss_clean($data);
             $statusData = $this->common_model->insert($data, 'students');
         } else {
 
-            $this->common_model->delete($checkStatusIdExist->id,'students'); 
+            $this->common_model->delete($checkStatusIdExist->id,'students');
             $statusData = $this->common_model->insert($data, 'students');
         }
 
@@ -1257,10 +1201,10 @@ class Student extends CI_Controller {
                  $_POST[$newVal]=$upload_pic;
                  // echo "**************<br>";
             }
-            
+
             // print_r($_POST);
             // die('xxxxx');
-                $studentBankDetails_all = $this->common_model->get_single_student_info($_POST['student_id']);   
+                $studentBankDetails_all = $this->common_model->get_single_student_info($_POST['student_id']);
                 $bank_StudentArray = array();
                 $All_bank_StudentArray =  unserialize($studentBankDetails_all->student_uploaded_data);
 
@@ -1277,7 +1221,7 @@ class Student extends CI_Controller {
                     );
 
 
-         
+
             $data = array(
                 'student_id'=>$_POST['student_id'],
                 'bank_id'=>serialize($_POST),
@@ -1296,7 +1240,7 @@ class Student extends CI_Controller {
             $checkBank = "KARTHIK";
          } else{
 
-                $failBankStudent = $this->common_model->get_single_student_info($bnk_acnt_number_Check[0]->student_id);   
+                $failBankStudent = $this->common_model->get_single_student_info($bnk_acnt_number_Check[0]->student_id);
                 $failBankStudent_array = array();
                 $failBankStudent_all_array =  unserialize($failBankStudent->student_uploaded_data);
 
@@ -1307,19 +1251,19 @@ class Student extends CI_Controller {
             if(empty($checkBankIdExist)){
                 $statusData = $this->common_model->insert($data, 'student_bank_ids');
             } else{
-                $this->common_model->delete($checkBankIdExist->id,'student_bank_ids'); 
+                $this->common_model->delete($checkBankIdExist->id,'student_bank_ids');
                  $statusData = $this->common_model->insert($data, 'student_bank_ids');
              }
             $studentBnk_data = $this->security->xss_clean($stuBnk_data);
             $this->common_model->edit_option($studentBnk_data,$_POST['student_id'], 'student_data','stu');
-           
+
             $this->session->set_flashdata('msg', 'Info is saved');
               redirect(base_url('admin/student/getBankDetails'));
           } else {
              $this->session->set_flashdata('msg', 'Please Check the bank account number');
               redirect(base_url('admin/student/getBankDetails'));
           }
-       
+
 
     }
 
@@ -1342,7 +1286,7 @@ class Student extends CI_Controller {
     //-- delete user
     public function stu_delete($id)
     {
-        // $this->common_model->delete($id,'student_data'); 
+        // $this->common_model->delete($id,'student_data');
         $data = array(
             'is_deleted' => 1
         );
@@ -1356,10 +1300,10 @@ class Student extends CI_Controller {
     {
     	 $finalStudentStatus = array();
         foreach ($this->common_model->all_studentStatus() as $key => $value) {
-            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id']; 
-            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status']; 
-            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status']))); 
-            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData']; 
+            $finalStudentStatus[$value['student_id']]['db_id'] = $value['id'];
+            // $finalStudentStatus[$value['student_id']]['Status'] = $value['student_status'];
+            $finalStudentStatus[$value['student_id']]['Status'] = ucwords(implode(' ',explode("_",$value['student_status'])));
+            $finalStudentStatus[$value['student_id']]['formData'] = $value['formData'];
         }
         $current_EmpId = $this->session->userdata('id');
 	 	$data['page_title'] = 'All Registered Students';
@@ -1396,7 +1340,7 @@ class Student extends CI_Controller {
             }elseif (strpos($_GET['status'], 'Defect') !== false) {
                 $s_status = 'Defect';
             }
-           
+
             // $formKey = array_keys($_POST['formData']);
               $data = array(
                 'student_id' => $_GET['student_id'],
@@ -1405,14 +1349,14 @@ class Student extends CI_Controller {
             );
 
         $checkStatusIdExist = $this->common_model->get_single_studentStatus_id($_GET['student_id']);
-        
+
         if(empty($checkStatusIdExist)){
 
             $data = $this->security->xss_clean($data);
             $statusData = $this->common_model->insert($data, 'student_status_data');
         } else {
 
-            $this->common_model->delete($checkStatusIdExist->id,'student_status_data'); 
+            $this->common_model->delete($checkStatusIdExist->id,'student_status_data');
             $statusData = $this->common_model->insert($data, 'student_status_data');
         }
 

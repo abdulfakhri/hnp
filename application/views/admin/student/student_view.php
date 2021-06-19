@@ -820,23 +820,7 @@ if (array_key_exists('fileName', $_POST)) {
                     <div class="col-sm-offset-3 col-lg-2 col-sm-4 col-xs-12 mb-1 mt-1 p-3 ">
                         <button data-target="<?php echo base_url('admin/student/update/' . $user->student_id) ?>" class="btn btn-info edit_btn btn-block btn-rounded btn-lg"> <i class="fa fa-edit"></i>&nbsp;&nbsp;Edit</button>
                     </div>
-                    <div class="col-sm-offset-3 col-lg-2 col-sm-4 col-xs-12 mb-1 mt-1 p-3 approveSection">
-                        <div class="btn btn-block btn-success btn-rounded btn-lg approve_btn"><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Approve</div>
-                    </div>
-                    <!--  <div class=" col-sm-offset-3 col-lg-2 col-sm-4 col-xs-12 mb-1 mt-1 p-3 ">
-                                    <div class="btn btn-block btn-warning btn-rounded btn-lg pending_btn"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;Pending</div>
-                                </div> -->
-                    <div class="col-sm-offset-3 col-lg-2 col-sm-4 col-xs-12 mb-1 mt-1 p-3 defectSection">
-                        <div class="btn btn-block btn-primary btn-rounded btn-lg defect_btn"><i class="fa fa-thumbs-down"></i>&nbsp;&nbsp;Defect</div>
-                    </div>
-
-                    <div class="col-sm-offset-3 col-lg-2 col-sm-4 col-xs-12 mb-1 mt-1 p-3 rejectSection ">
-                        <div class="btn btn-block btn-danger btn-rounded btn-lg reject_btn">Reject</div>
-                    </div>
-                    <div class="col-lg-12 col-sm-4 col-xs-12 mb-1 mt-1 p-3 lastInfo">
-                        <button style="color: black;font-size: 25px;font-weight: bold;" data-target="<?php echo base_url('admin/student/deleteStatus/' . $user->student_id) ?>" class="btn btn-warning reset_single_student btn-block btn-rounded btn-lg"> <i class="fa fa-edit"></i>&nbsp;&nbsp;Reset Status Student</button>
-
-                        <div style="color: black;font-size: 25px;font-weight: bold;" class="btn btn-block btn-danger btn-rounded btn-lg disabled info-btn">Status Can't be changed now!!!. Only student status can be reset</div>
+                   
                     </div>
                 </div>
             </div>
