@@ -784,13 +784,14 @@ if (array_key_exists('fileName', $_POST)) {
 
                                 </div>
                                 <div class="col-sm-3 mb-5">
-                                    <a href="/<?php echo $user->ac_front; ?>" data-effect="mfp-3d-unfold" title="Aadhar Front">
+                                    <a href="/<?php echo $user->ac_front; ?>" data-effect="mfp-3d-unfold" title="Caste Certificate">
                                         <img src="/<?php echo $user->ac_front; ?>" style="width:195px; height:130px;" class="m-b-5 img-responsive" />
                                         <br />Aadhar Front
                                     </a>
                                     <br>
 
                                 </div>
+                             
                                 <div class="col-sm-3 mb-5">
                                     <a href="/<?php
                                                 echo $user->ac_back;
