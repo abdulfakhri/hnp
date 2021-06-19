@@ -910,66 +910,41 @@ class Student extends CI_Controller {
                 'state' => $_POST['state'],
                 'mom_name' => $_POST['mom_name'],
                 'dad_name' => $_POST['dad_name'],
-
                 'mobile' => $_POST['mobile'],
                 'gender' => $_POST['gender'],
                 'dob' => $_POST['dob'],
-
-
                 'aadhar_number' => $_POST['aadhar_number'],
                 'income_details' => $_POST['income_details'],
-
                 'sub_division' => $_POST['sub_division'],
                 'district' => $_POST['district'],
-
                 'address1' => $_POST['address1'],
                 'pin_code' => $_POST['pin_code'],
-
                 'ten_year' => $_POST['ten_year'],
-
                 'ten_marks' => $_POST['ten_marks'],
                 'plustwo_year' => $_POST['plustwo_year'],
-
-
                 'updatedAt' => $_POST['updatedAt'],
                 'createdAt' => $_POST['createdAt'],
-
                 'uploadedBy' => $_POST['uploadedBy'],
                 'plustwo_marks' => $_POST['plustwo_marks'],
-
-
-
                 'lastModifiedBy' => $_POST['lastModifiedBy'],
                 'updatedAt' => $_POST['updatedAt'],
-
                 'course_details' => $_POST['course_details'],
                 'education_details' => $_POST['education_details'],
-
-
                 'scholarship_amount' => $_POST['scholarship_amount'],
                 'education_details_year' => $_POST['education_details_year'],
-
                 'full_name' => $_POST['full_name'],
-
                 'caste_details' => $_POST['caste_details'],
-
                 'income_certi' => $_POST['income_certi'],
                 'ac_front' => $_POST['ac_front'],
                 'ac_back' => $_POST['ac_back'],
-
                 'caste_certi' => $_POST['caste_certi'],
                 'prtc' => $_POST['prtc'],
-
-
                 'p_photo' => $_POST['p_photo'],
                 'bonafide' => $_POST['bonafide'],
-
                 'remarks' => $_POST['remarks'],
                 'agent_mobile' => $_POST['agent_mobile'],
-
                 'agent_name' => $_POST['agent_name'],
                 'bank_name' => $_POST['bank_name'],
-
                 'ifsc_code' => $_POST['ifsc_code'],
                 'bank_name' => $_POST['bank_name']
 
