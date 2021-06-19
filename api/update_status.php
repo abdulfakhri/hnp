@@ -25,7 +25,7 @@ if (mysqli_num_rows($result) > 0) {
                 $si = $ro["student_id"];
                 $st = $ro["student_status"];
 
-                $status_plain1 = str_replace("_", "", $st);
+                $status_plain1 = str_replace("_", " ", $st);
 
                 $status_plain = ucwords($status_plain1);
 
