@@ -167,6 +167,8 @@ function startsWith($string, $startString)
                                     $chekVal = "defectStudents";
                                 } elseif ($student_status == "defect_by_nsp") {
                                     $chekVal = "defectStudents";
+                                } elseif ($student_status == "nsp_reject") {
+                                    $chekVal = "rejectStudent";
                                 }
 
 
