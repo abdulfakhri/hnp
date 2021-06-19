@@ -52,7 +52,7 @@ function myFunction() {
  <option value="defect_by_college">Defected By College Site</option>
  <option value="Pending">Pending By College Site</option>
  <option value="approved_by_nsp">Approved By NSP Site</option>
- <option value="rejected_by_nsp">Rejected By NSP Site</option>
+ <option value="nsp_reject">Rejected By NSP Site</option>
  <option value="defect_by_nsp">Defected By NSP Site</option>
  <option value="Pending">Pending By NSP Site</option>
  </select>
