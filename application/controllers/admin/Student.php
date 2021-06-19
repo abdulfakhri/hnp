@@ -855,13 +855,13 @@ class Student extends CI_Controller {
             // print_r($_POST);
             // die;
             
-            $bonafide = $this->common_model->upload_image(1020,'bonafide');
-            $p_photo = $this->common_model->upload_image(1020,'p_photo');
-            $prtc = $this->common_model->upload_image(1020,'prtc');
-            $caste_certi = $this->common_model->upload_image(1020,'caste_certi');
-            $ac_front = $this->common_model->upload_image(1020,'ac_front');
-            $ac_back = $this->common_model->upload_image(1020,'ac_back');
-            $income_certi = $this->common_model->upload_image(1020,'income_certi');
+            $bonafide = $this->common_model->upload_image(3000,'bonafide');
+            $p_photo = $this->common_model->upload_image(3000,'p_photo');
+            $prtc = $this->common_model->upload_image(3000,'prtc');
+            $caste_certi = $this->common_model->upload_image(3000,'caste_certi');
+            $ac_front = $this->common_model->upload_image(3000,'ac_front');
+            $ac_back = $this->common_model->upload_image(3000,'ac_back');
+            $income_certi = $this->common_model->upload_image(3000,'income_certi');
 
             /*
             $_POST['bonafide'] = (array_key_exists('msg', $bonafide) ? $_POST['hidden_bonfide'] :site_url($bonafide['images']).','.site_url($bonafide['thumb']).','.site_url($bonafide['mainImg']));
@@ -956,11 +956,8 @@ class Student extends CI_Controller {
                 'income_certi'=>$_POST['income_certi'],
                 'ac_front'=>$_POST['ac_front'],
                 'ac_back'=>$_POST['ac_back'],
-                
                 'caste_certi'=>$_POST['caste_certi'],
                 'prtc'=>$_POST['prtc'],
-                
-                
                 'p_photo'=>$_POST['p_photo'],
                 'bonafide'=>$_POST['bonafide'],
                 
