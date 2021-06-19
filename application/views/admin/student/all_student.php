@@ -147,8 +147,10 @@ function startsWith($string, $startString)
 
                                 // $chekVal = str_replace("-","",$student_status);
 
-                                if ($student_status == "approved-by-our-site"){
-                                    $chekVal= "approveStudents";
+                                if ($student_status == "approved-by-our-site") {
+                                    $chekVal = "approveStudents";
+                                } else if ($student_status == "pendingStudents"){
+                                    $chekVal = "pendingStudents";
                                 }
 
 
