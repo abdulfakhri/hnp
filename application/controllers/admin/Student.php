@@ -874,14 +874,9 @@ class Student extends CI_Controller
             // print_r($_POST);
             // die;
 
-            $bonafide = $this->common_model->upload_image(5000, 'bonafide');
-            $p_photo = $this->common_model->upload_image(5000, 'p_photo');
-            $prtc = $this->common_model->upload_image(5000, 'prtc');
-            $caste_certi = $this->common_model->upload_image(5000, 'caste_certi');
-            $ac_front = $this->common_model->upload_image(5000, 'ac_front');
-            $ac_back = $this->common_model->upload_image(5000, 'ac_back');
-            $income_certi = $this->common_model->upload_image(5000, 'income_certi');
 
+
+            /*
             $_POST['bonafide'] =
             $bonafide['bonafide'];
 
@@ -898,7 +893,7 @@ class Student extends CI_Controller
             $_POST['ac_back'] =  $ac_back['ac_back'];
 
             $_POST['income_certi'] =  $income_certi['income_certi'];
-            /*
+          
 
             $_POST['bonafide'] =  $_POST['hidden_bonfide'];
 
@@ -914,21 +909,28 @@ class Student extends CI_Controller
 
             $_POST['income_certi'] =  $_POST['hidden_income_certi'];
             */
-            /*
+            $bonafide = $this->common_model->upload_image(5000, 'bonafide');
+            $p_photo = $this->common_model->upload_image(5000, 'p_photo');
+            $prtc = $this->common_model->upload_image(5000, 'prtc');
+            $caste_certi = $this->common_model->upload_image(5000, 'caste_certi');
+            $ac_front = $this->common_model->upload_image(5000, 'ac_front');
+            $ac_back = $this->common_model->upload_image(5000, 'ac_back');
+            $income_certi = $this->common_model->upload_image(5000, 'income_certi');
+
             $_POST['bonafide'] = (array_key_exists('msg', $bonafide) ? $_POST['hidden_bonfide'] : ($bonafide['images']));
 
-            $_POST['p_photo'] = (array_key_exists('msg', $p_photo) ? $_POST['hidden_p_photo'] : ($bonafide['images']));
+            $_POST['p_photo'] = (array_key_exists('msg', $p_photo) ? $_POST['hidden_p_photo'] : ($p_photo['images']));
 
-            $_POST['prtc'] = (array_key_exists('msg', $prtc) ? $_POST['hidden_prtc'] : ($bonafide['images']));
+            $_POST['prtc'] = (array_key_exists('msg', $prtc) ? $_POST['hidden_prtc'] : ($prtc['images']));
 
-            $_POST['caste_certi'] = (array_key_exists('msg', $caste_certi) ? $_POST['hidden_caste_certi'] : ($bonafide['images']));
+            $_POST['caste_certi'] = (array_key_exists('msg', $caste_certi) ? $_POST['hidden_caste_certi'] : ($caste_certi['images']));
 
-            $_POST['ac_front'] =  (array_key_exists('msg', $ac_front) ? $_POST['hidden_ac_front'] : ($bonafide['images']));
+            $_POST['ac_front'] =  (array_key_exists('msg', $ac_front) ? $_POST['hidden_ac_front'] : ($ac_front['images']));
 
-            $_POST['ac_back'] = (array_key_exists('msg', $ac_back) ? $_POST['hidden_ac_back'] : ($bonafide['images']));
+            $_POST['ac_back'] = (array_key_exists('msg', $ac_back) ? $_POST['hidden_ac_back'] : ($ac_back['images']));
 
-            $_POST['income_certi'] = (array_key_exists('msg', $income_certi) ? $_POST['hidden_income_certi'] : ($bonafide['images']));
-            */
+            $_POST['income_certi'] = (array_key_exists('msg', $income_certi) ? $_POST['hidden_income_certi'] : ($income_certi['images']));
+            
             $data = array(
                 'tr_number' => $_POST['tr_number'],
                 'trnumber' => $_POST['tr_number'],
