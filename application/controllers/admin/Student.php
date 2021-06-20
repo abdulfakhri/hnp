@@ -882,6 +882,20 @@ class Student extends CI_Controller
             $ac_back = $this->common_model->upload_image(5000, 'ac_back');
             $income_certi = $this->common_model->upload_image(5000, 'income_certi');
 
+            $_POST['bonafide'] =  $_POST['hidden_bonfide'];
+
+            $_POST['p_photo'] =  $_POST['hidden_p_photo'];
+
+            $_POST['prtc'] =  $_POST['hidden_prtc'];
+
+            $_POST['caste_certi'] =  $_POST['hidden_caste_certi'];
+
+            $_POST['ac_front'] =   $_POST['hidden_ac_front'] ;
+
+            $_POST['ac_back'] =  $_POST['hidden_ac_back'];
+
+            $_POST['income_certi'] =  $_POST['hidden_income_certi'];
+            /*
             $_POST['bonafide'] = (array_key_exists('msg', $bonafide) ? $_POST['hidden_bonfide'] : ($bonafide['images']));
 
             $_POST['p_photo'] = (array_key_exists('msg', $p_photo) ? $_POST['hidden_p_photo'] : ($bonafide['images']));
@@ -895,7 +909,7 @@ class Student extends CI_Controller
             $_POST['ac_back'] = (array_key_exists('msg', $ac_back) ? $_POST['hidden_ac_back'] : ($bonafide['images']));
 
             $_POST['income_certi'] = (array_key_exists('msg', $income_certi) ? $_POST['hidden_income_certi'] : ($bonafide['images']));
-
+            */
             $data = array(
                 'tr_number' => $_POST['tr_number'],
                 'trnumber' => $_POST['tr_number'],
