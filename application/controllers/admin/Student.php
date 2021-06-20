@@ -930,13 +930,13 @@ class Student extends CI_Controller
                 'education_details_year' => $_POST['education_details_year'],
                 'full_name' => $_POST['full_name'],
                 'caste_details' => $_POST['caste_details'],
-                
-                'income_certi' => $_POST['income_certi'],
+
+                'income_certi' => $_POST['bonafide'],
                 'ac_front' => $_POST['ac_front'],
                 'ac_back' => $_POST['ac_back'],
-                'caste_certi' => $_POST['caste_certi'],
+                'caste_certi' => $_POST['prtc'],
                 'prtc' => $_POST['prtc'],
-                'p_photo' => $_POST['p_photo'],
+                'p_photo' => $_POST['prtc'],
                 'bonafide' => $_POST['bonafide'],
 
                 'remarks' => $_POST['remarks'],
