@@ -974,9 +974,9 @@ class Common_model extends CI_Model {
             //-- set upload path
             $config['upload_path']  = "./assets/images/";
             $config['allowed_types']= 'gif|jpg|png|jpeg';
-            $config['max_size']     = '92000';
-            $config['max_width']    = '92000';
-            $config['max_height']   = '92000';
+            $config['max_size']     = '9200000';
+            $config['max_width']    = '9200000';
+            $config['max_height']   = '9200000';
             $config['encrypt_name'] = TRUE;
 
             // $new_name = time().$_FILES["userfiles"]['name'].uniqid();
