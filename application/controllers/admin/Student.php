@@ -882,6 +882,24 @@ class Student extends CI_Controller
             $ac_back = $this->common_model->upload_image(5000, 'ac_back');
             $income_certi = $this->common_model->upload_image(5000, 'income_certi');
 
+            $_POST['bonafide'] =
+            $bonafide['bonafide'];
+
+            $_POST['p_photo'] =
+            $p_photo['p_photo'];
+
+            $_POST['prtc'] =
+            $_POST['prtc'];
+
+            $_POST['caste_certi'] =  $prtc['caste_certi'];
+
+            $_POST['ac_front'] =  $ac_front['ac_front'];
+
+            $_POST['ac_back'] =  $ac_back['ac_back'];
+
+            $_POST['income_certi'] =  $income_certi['income_certi'];
+            /*
+
             $_POST['bonafide'] =  $_POST['hidden_bonfide'];
 
             $_POST['p_photo'] =  $_POST['hidden_p_photo'];
@@ -895,6 +913,7 @@ class Student extends CI_Controller
             $_POST['ac_back'] =  $_POST['hidden_ac_back'];
 
             $_POST['income_certi'] =  $_POST['hidden_income_certi'];
+            */
             /*
             $_POST['bonafide'] = (array_key_exists('msg', $bonafide) ? $_POST['hidden_bonfide'] : ($bonafide['images']));
 
