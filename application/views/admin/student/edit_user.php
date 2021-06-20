@@ -514,7 +514,7 @@ if (strpos($mystring, $word) !== false) { ?>
                 <div class="white-box">
                   <h3 class="box-title">Bonafide </h3>
                   <label for="input-file-max-fs">Bonafide</label>
-                  <input type="file" id="bonafide" name="bonafide" class="dropify" data-max-file-size="2M" data-show-remove="false" data-default-file="/<?php echo $bonafide['0'] ?>" />
+                  <input type="file" id="bonafide" name="bonafide" class="dropify" data-show-remove="false" data-default-file="/<?php echo $userData->bonafide ?>" />
                   <input type="hidden" name="hidden_bonfide" value="<?php echo $userData->bonafide ?>">
                 </div>
               </div>
@@ -522,7 +522,7 @@ if (strpos($mystring, $word) !== false) { ?>
                 <div class="white-box">
                   <h3 class="box-title">Photo </h3>
                   <label for="input-file-max-fs">Photo</label>
-                  <input type="file" id="p_photo" name="p_photo" class="dropify" data-max-file-size="2M" data-show-remove="false" data-default-file="/<?php echo $p_photo['0'] ?>" />
+                  <input type="file" id="p_photo" name="p_photo" class="dropify" data-show-remove="false" data-default-file="/<?php echo $userData->p_photo ?>" />
                   <input type="hidden" name="hidden_p_photo" value="<?php echo $userData->p_photo ?>">
                 </div>
               </div>
@@ -533,7 +533,7 @@ if (strpos($mystring, $word) !== false) { ?>
                 <div class="white-box">
                   <h3 class="box-title">PRTC </h3>
                   <label for="input-file-max-fs">PRTC</label>
-                  <input type="file" id="prtc" name="prtc" class="dropify" data-max-file-size="2M" data-show-remove="false" data-default-file="/<?php echo $prtc['0'] ?>" />
+                  <input type="file" id="prtc" name="prtc" class="dropify" data-show-remove="false" data-default-file="/<?php echo $userData->prtc ?>" />
                   <input type="hidden" name="hidden_prtc" value="<?php echo $userData->prtc ?>">
                 </div>
               </div>
@@ -541,7 +541,7 @@ if (strpos($mystring, $word) !== false) { ?>
                 <div class="white-box">
                   <h3 class="box-title">Caste </h3>
                   <label for="input-file-max-fs">Caste</label>
-                  <input type="file" id="caste_certi" name="caste_certi" class="dropify" data-max-file-size="2M" data-show-remove="false" data-default-file="/<?php echo $caste_certi['0'] ?>" />
+                  <input type="file" id="caste_certi" name="caste_certi" class="dropify" data-show-remove="false" data-default-file="/<?php echo $userData->caste_certi ?>" />
                   <input type="hidden" name="hidden_caste_certi" value="<?php echo $userData->caste_certi ?>">
                 </div>
               </div>
@@ -552,7 +552,7 @@ if (strpos($mystring, $word) !== false) { ?>
                 <div class="white-box">
                   <h3 class="box-title">Aadhar Card (Front) </h3>
                   <label for="input-file-max-fs">Aadhar Card (Front)</label>
-                  <input type="file" id="ac_front" name="ac_front" class="dropify" data-max-file-size="2M" data-show-remove="false" data-default-file="/<?php echo $ac_front['0'] ?>" />
+                  <input type="file" id="ac_front" name="ac_front" class="dropify" data-show-remove="false" data-default-file="/<?php echo $userData->ac_front ?>" />
                   <input type="hidden" name="hidden_ac_front" value="<?php echo $userData->ac_front ?>">
                 </div>
               </div>
@@ -560,7 +560,7 @@ if (strpos($mystring, $word) !== false) { ?>
                 <div class="white-box">
                   <h3 class="box-title">Aadhar Card (Back) </h3>
                   <label for="input-file-max-fs">Aadhar Card (Back)</label>
-                  <input type="file" id="ac_back" name="ac_back" class="dropify" data-max-file-size="2M" data-show-remove="false" data-default-file="/<?php echo $ac_back['0'] ?>" />
+                  <input type="file" id="ac_back" name="ac_back" class="dropify" data-show-remove="false" data-default-file="/<?php echo $userData->ac_back ?>" />
                   <input type="hidden" name="hidden_ac_back" value="<?php echo $userData->ac_back ?>">
                 </div>
 
@@ -570,7 +570,7 @@ if (strpos($mystring, $word) !== false) { ?>
                 <div class="white-box">
                   <h3 class="box-title">Income Certificate </h3>
                   <label for="input-file-max-fs">Income Certificate</label>
-                  <input type="file" id="income_certi" name="income_certi" class="dropify" data-max-file-size="2M" data-show-remove="false" data-default-file="/<?php echo $income_certi['0'] ?>" />
+                  <input type="file" id="income_certi" name="income_certi" class="dropify" data-show-remove="false" data-default-file="/<?php echo $income_certi['0'] ?>" />
                   <input type="hidden" name="hidden_income_certi" value="<?php echo $userData->income_certi ?>">
                 </div>
               </div>
@@ -623,7 +623,7 @@ if (strpos($mystring, $word) !== false) { ?>
 
               <?php } ?>
             </div>
-           
+
           </div>
 
           <!-- final div closing tags -->
