@@ -942,9 +942,10 @@ class Student extends CI_Controller
                 'agent_name' => $_POST['agent_name'],
                 'bank_name' => $_POST['bank_name'],
                 'ifsc_code' => $_POST['ifsc_code'],
-                'bank_name' => $_POST['bank_name']
-
-
+                'bank_name' => $_POST['bank_name'],
+                'credit_amount' => $_POST['credit_amount'],
+                'withdraw' => $_POST['withdraw'],
+                'account_balance'=> (($_POST['account_balance'])+($_POST['credit_amount'])-($_POST['withdraw']))
             );
 
             //-- check duplicate trnumber
@@ -1104,9 +1105,10 @@ class Student extends CI_Controller
 
             'agent_name' => $cloneStudent->agent_name,
             'bank_name' => $cloneStudent->bank_name,
-
+            
             'ifsc_code' => $cloneStudent->ifsc_code,
             'bank_name' => $cloneStudent->bank_name,
+
 
 
 
