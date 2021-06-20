@@ -570,7 +570,7 @@ if (strpos($mystring, $word) !== false) { ?>
                 <div class="white-box">
                   <h3 class="box-title">Income Certificate </h3>
                   <label for="input-file-max-fs">Income Certificate</label>
-                  <input type="file" id="income_certi" name="income_certi" class="dropify" data-show-remove="false" data-default-file="/<?php echo $income_certi['0'] ?>" />
+                  <input type="file" id="income_certi" name="income_certi" class="dropify" data-show-remove="false" data-default-file="/<?php echo $userData->income_certi ?>" />
                   <input type="hidden" name="hidden_income_certi" value="<?php echo $userData->income_certi ?>">
                 </div>
               </div>
