@@ -866,8 +866,7 @@ class Student extends CI_Controller
     }
 
     //-- update users info
-    public function update($id)
-    {
+    public function update($id){
 
         if ($_POST) {
 
@@ -883,25 +882,6 @@ class Student extends CI_Controller
             $ac_back = $this->common_model->upload_image(1020, 'ac_back');
             $income_certi = $this->common_model->upload_image(1020, 'income_certi');
 
-            /*
-            $_POST['bonafide'] = (array_key_exists('msg', $bonafide) ? $_POST['hidden_bonfide'] :site_url($bonafide['images']).','.site_url($bonafide['thumb']).','.site_url($bonafide['mainImg']));
-
-            $_POST['p_photo'] = (array_key_exists('msg', $p_photo) ? $_POST['hidden_p_photo'] :site_url($p_photo['images']).','.site_url($p_photo['thumb']).','.site_url($p_photo['mainImg']));
-
-            $_POST['prtc'] = (array_key_exists('msg', $prtc) ? $_POST['hidden_prtc'] :site_url($prtc['images']).','.site_url($prtc['thumb']).','.site_url($prtc['mainImg']));
-
-            $_POST['caste_certi'] = (array_key_exists('msg', $caste_certi) ? $_POST['hidden_caste_certi'] : site_url($caste_certi['images']).','.site_url($caste_certi['thumb']).','.site_url($caste_certi['mainImg']));
-
-            $_POST['ac_front'] =  (array_key_exists('msg', $ac_front) ? $_POST['hidden_ac_front'] : site_url($ac_front['images']).','.site_url($ac_front['thumb']).','.site_url($ac_front['mainImg']));
-
-            $_POST['ac_back'] = (array_key_exists('msg', $ac_back) ? $_POST['hidden_ac_back'] : site_url($ac_back['images']).','.site_url($ac_back['thumb']).','.site_url($ac_back['mainImg']));
-            
-            $_POST['income_certi'] = (array_key_exists('msg', $income_certi) ? $_POST['hidden_income_certi'] : site_url($income_certi['images']).','.site_url($income_certi['thumb']).','.site_url($income_certi['mainImg']));
-            */
-
-
-
-
             $_POST['bonafide'] = (array_key_exists('msg', $bonafide) ? $_POST['hidden_bonfide'] : ($bonafide['images']));
 
             $_POST['p_photo'] = (array_key_exists('msg', $p_photo) ? $_POST['hidden_p_photo'] : ($bonafide['images']));
@@ -916,11 +896,7 @@ class Student extends CI_Controller
 
             $_POST['income_certi'] = (array_key_exists('msg', $income_certi) ? $_POST['hidden_income_certi'] : ($bonafide['images']));
 
-
-            //$serializedAdminFormData = serialize($_POST); 
             $data = array(
-                //'student_uploaded_data' => $serializedAdminFormData,
-
                 'tr_number' => $_POST['tr_number'],
                 'trnumber' => $_POST['tr_number'],
                 'bnk_acnt_number' => $_POST['account_number'],
@@ -930,66 +906,43 @@ class Student extends CI_Controller
                 'state' => $_POST['state'],
                 'mom_name' => $_POST['mom_name'],
                 'dad_name' => $_POST['dad_name'],
-
                 'mobile' => $_POST['mobile'],
                 'gender' => $_POST['gender'],
                 'dob' => $_POST['dob'],
-
-
                 'aadhar_number' => $_POST['aadhar_number'],
                 'income_details' => $_POST['income_details'],
-
                 'sub_division' => $_POST['sub_division'],
                 'district' => $_POST['district'],
-
                 'address1' => $_POST['address1'],
                 'pin_code' => $_POST['pin_code'],
-
                 'ten_year' => $_POST['ten_year'],
-
                 'ten_marks' => $_POST['ten_marks'],
                 'plustwo_year' => $_POST['plustwo_year'],
-
-
                 'updatedAt' => $_POST['updatedAt'],
                 'createdAt' => $_POST['createdAt'],
-
                 'uploadedBy' => $_POST['uploadedBy'],
                 'plustwo_marks' => $_POST['plustwo_marks'],
-
-
-
                 'lastModifiedBy' => $_POST['lastModifiedBy'],
                 'updatedAt' => $_POST['updatedAt'],
-
                 'course_details' => $_POST['course_details'],
                 'education_details' => $_POST['education_details'],
-
-
                 'scholarship_amount' => $_POST['scholarship_amount'],
                 'education_details_year' => $_POST['education_details_year'],
-
                 'full_name' => $_POST['full_name'],
-
                 'caste_details' => $_POST['caste_details'],
-
+                
                 'income_certi' => $_POST['income_certi'],
                 'ac_front' => $_POST['ac_front'],
                 'ac_back' => $_POST['ac_back'],
-
                 'caste_certi' => $_POST['caste_certi'],
                 'prtc' => $_POST['prtc'],
-
-
                 'p_photo' => $_POST['p_photo'],
                 'bonafide' => $_POST['bonafide'],
 
                 'remarks' => $_POST['remarks'],
                 'agent_mobile' => $_POST['agent_mobile'],
-
                 'agent_name' => $_POST['agent_name'],
                 'bank_name' => $_POST['bank_name'],
-
                 'ifsc_code' => $_POST['ifsc_code'],
                 'bank_name' => $_POST['bank_name']
 
